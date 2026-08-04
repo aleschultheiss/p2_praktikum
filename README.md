@@ -1,4 +1,4 @@
-<h1>P1 Praktikum - LMU München - Fakultät für Physik</h1>
+<h1>P2 Praktikum - LMU München - Fakultät für Physik</h1>
 <h3>Alejandro Schultheiss</h1>
 <a href="mailto: a.schultheiss@campus.lmu.de">a.schultheiss@campus.lmu.de</a>
 </br>
