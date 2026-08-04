@@ -1,0 +1,171 @@
+\documentclass{report}
+\usepackage{pdfpages}
+\usepackage{graphicx} 
+\usepackage{dirtytalk}
+\usepackage{lmodern}
+\usepackage{booktabs}
+\usepackage{listings}
+\usepackage{float}
+\usepackage{siunitx}
+\usepackage{amsmath}
+\usepackage{rotating}
+\usepackage{arydshln}
+\usepackage[hidelinks]{hyperref}
+\usepackage[ngerman]{babel}
+\usepackage[a4paper, total={6in, 8in}]{geometry}
+\begin{document}
+% \includepdf[pages=-]{./PDFs/Deckblatt_P2.pdf}
+\begin{titlepage}
+    \begin{center}
+        \vspace*{1cm}
+            
+        \Huge
+        \textbf{Auswertung und Protokoll}
+            
+        \vspace{0.5cm}
+        \LARGE
+        Zum Versuch OSZ
+        
+        \vspace{1.8cm}
+
+        \textbf{Jonas Müther \& Alejandro Schultheiss}
+        \vfill
+            
+        P2 Praktikum\\
+       
+            
+        \vspace{0.8cm}
+  
+
+        \vspace{1.8cm}
+        \Large
+        LMU München \\
+        Physik B.Sc.\\
+        Deutschland\\
+        2026
+            
+    \end{center}
+\end{titlepage}
+\tableofcontents
+
+\newpage
+\chapter{Vorbereitung}
+
+\section{Versuchsvorbereitung und Grundlagen des Versuchs}
+% \includepdf[pages=-]{./PDFs/TEMP_VORBEREITUNG.pdf}
+
+\section{Versuchsprotokoll}
+% \includepdf[pages=-]{./PDFs/TEMP_VERSUCHSDURCHFUEHRUNG.pdf}
+
+\newpage
+\chapter{Auswertung}
+\section{Teilversuch I: Basisbedienelemente eines Oszilloskops}
+Dieser Teilversuch diente dazu, sich mit den Basisbedienelementen eines Oszilloskops vertraut zu machen.
+\subsection{Positionseinstellungen}
+Ein Oszilloskop hat eine x- und y-Positionseinstellung. Mit der x-Einstellung kann die Position des gemessenen 
+Signals auf dem Bildschirm in Horizontaler Richtung verschoben werden. Mithilfe der y-Einstellung kann das Signal in vertikale
+Richtung verschoben werden. Hierzu wird jeweils ein Drehknopf verwendet.
+\subsection{Ablenkfaktoren}
+Mit den Ablenkfaktoren kann die Skalierung des Signals in x- und y-Richtung auf dem Bildschirm angepasst werden. Hierzu wird
+wieder ein Drehknopf verwendet. Drehen dieses Drehknopfes im Uhrzeigersinn streckt das Signal in die jeweilige Richtung. 
+Der Ablenkfaktor in x-Richtung ist oft die Zeitablenkung.
+Die aktuellen Werte dieser Einstellungen sind oft am Rand des Displays angezeigt. In der regel wird hier die Spannung pro Kästchen
+bzw. die Zeit pro Kästchen angezeigt.
+\subsection{Trigger}
+Der Trigger dient dazu, den Zeitpunkt festzulegen, ab dem das Oszilloskop wieder an den linken Rand springt und dort wieder 
+mit dem "zeichnen" des Signals zu beginnen. Hierzu wird eine Schwelle sowie das vorzeichen der Ableitung (Flanke) des Signals 
+angegeben. Mit einem Drehknopf verstellt man die Schwelle so, dass sie der Spannung entspricht, bei welcher das Oszilloskop wieder 
+am linken Rand des Displays beginnt. Mit einem Tastschalter kann dann noch eingestellt werden, ob dies geschehen soll, wenn die 
+Spannung aktuell am Fallen ist, oder nur wenn die Spannung zunimmt.
+Dies ist insbesondere nützlich, um bei periodischen Signalen ein stehendes Bild zu erhalten. Außerdem kann der Trigger genutzt 
+werden um den Start einer gespeicherten Messung auszulösen. 
+
+\newpage
+\section{Teilversuch II: Messen einer Amplitude}
+In Teilversuch II sollten die effektive Spannung einer Wechselspannung mit der Amplitude dieser verglichen werden. 
+Hierzu wurde ein Funktionsgenerator mit einem Sinus-Signal an ein Oszilloskop und an ein Multimeter angeschlossen.
+Hierbei wurde beobachtet, dass die am Multimeter gemessene Spannung signifikant unterhalb der Amplitude der Wechselspannung 
+liegt.
+\subsection{Theoretischer Hintergrund}
+Der Unterschied zwischen den gemessenen Spannungen liegt daran, dass ein Multimeter die effektive Spannung misst, also den Wert, 
+den eine Gleichspannung mit gleicher mittlerer Leistung hätte. Es gilt also:
+\begin{equation}
+    \bar{P} = \frac{U_\mathrm{eff}^2}{R} = \frac{1}{T}\int_{0}^{T} \frac{(U(t))^2}{R} \,\mathrm{d}t = \frac{1}{T}\int_{0}^{T} \frac{\hat{U}^2}{R}\sin^2(\omega t) \,\mathrm{d}t 
+\end{equation}
+Dies lässt sich folgenermaßen umformen:
+\begin{equation}
+    \begin{split}
+        \frac{U_\mathrm{eff}^2}{R}          &= \frac{1}{T}\int_{0}^{T} \frac{\hat{U}^2}{R}\sin^2(\omega t) \,\mathrm{d}t \\
+        \Leftrightarrow U_\mathrm{eff}^2    &= \hat{U}^2 \int_{0}^{2\pi} \frac{\sin^2(x)}{2\pi} \, \mathrm{d}x \\
+        \Leftrightarrow U_\mathrm{eff}^2    &= \frac{\hat{U}^2}{2} \\
+        \Leftrightarrow U_\mathrm{eff}      &= \frac{\hat{U}}{\sqrt{2}}
+    \end{split}
+\end{equation}
+Die Unsicherheit ist gegeben durch:
+\begin{equation}
+    \begin{split}
+        \Delta U_\mathrm{eff}    &= \frac{\partial U_\mathrm{eff}}{\partial \hat{U}} \cdot \Delta \hat{U} \\
+                        &= \frac{\Delta \hat{U}}{\sqrt{2}}
+    \end{split}
+\end{equation}
+\subsection{Auswertung der Messwerte}
+In zwei Versuchsdurchgängen wurden folgende Werte für Amplitude und Effektivspannung gemessen:
+\begin{table}[H]
+    \centering    
+    \label{tab:AmpUeff}
+    \begin{tabular}{c || c | c}
+        Messdurchgang  & Amplitude $(\hat{U})$ & Effektivspannung ($U_\mathrm{eff}$) \\
+        \hline
+        1 & $(4.89 \pm 0.10) \si{V}$ & $(3.38 \pm 0.04) \si{V}$\\
+        2 & $(11.90 \pm 0.20) \si{V}$ & $(8.48 \pm 0.09) \si{V}$ \\
+    \end{tabular}
+    \caption{Gemessene Amplitude und Effektivspannung}
+\end{table}
+\noindent
+Aus den gemessenen Amplituden ergeben sich damit aus der Theorie folgende effektiven Spannungen:
+\begin{equation}
+    \begin{split}
+        U_{\mathrm{eff, 1}} = 3.46 \pm 0.08 \si{V} \\
+        U_{\mathrm{eff, 2}} = 8.41 \pm 0.15 \si{V}
+    \end{split}
+\end{equation}
+Die Werte stimmen also im Rahmen der Unsicherheiten mit den via Multimeter gemessenen effektiven Spannungen überein.
+
+\newpage
+\section{Teilversuch II: }
+
+\newpage
+\section{Teilversuch III: }
+
+\newpage
+\section{Teilversuch IV: }
+
+\newpage
+\chapter{Anhang}
+\section{SCRIPTS}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{matlab}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\end{document}
