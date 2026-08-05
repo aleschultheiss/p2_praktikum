@@ -133,9 +133,677 @@ Die Werte stimmen also im Rahmen der Unsicherheiten mit den via Multimeter gemes
 
 \newpage
 \section{Teilversuch III: }
+Die Phasendifferenz zweier sinusförmiger Wechselspannungen gleicher Frequenz wurde mit zwei verschiedenen Methoden bestimmt. Im $t$-$y$-Modus wurde die zeitliche Verschiebung der beiden Signale gemessen. Anschließend wurde die Phasendifferenz im $x$-$y$-Modus aus einer Lissajous-Figur berechnet. Die Messung wurde für zwei verschiedene Einstellungen des Phasenschiebers durchgeführt.
+
+\noindent
+Im Folgenden bezeichnet $u(x)$ die Messunsicherheit einer Größe $x$. Die Zwischenwerte wurden ungerundet weiterverwendet und erst die Endergebnisse wurden gerundet.
+
+\subsection{Theoretische Grundlagen}
+
+Für zwei sinusförmige Spannungen gleicher Kreisfrequenz kann geschrieben werden:
+
+\begin{equation}
+U_1(t)=\hat{U}_1\cos(\omega t)
+\end{equation}
+
+\noindent
+und
+
+\begin{equation}
+U_2(t)=\hat{U}_2\cos(\omega t-\Delta\varphi).
+\end{equation}
+
+\noindent
+Ist das Signal von Kanal~2 gegenüber Kanal~1 um die Zeit $\Delta t$ verschoben, ergibt sich mit $\omega=2\pi/T$:
+
+\begin{equation}
+\boxed{\Delta\varphi_t=360^\circ\frac{\Delta t}{T}}.
+\label{eq:phase_ty}
+\end{equation}
+
+\noindent
+Die Phasendifferenz ist positiv, wenn das Signal von Kanal~2 gegenüber Kanal~1 zeitlich später erscheint, also auf dem Bildschirm weiter rechts liegt.
+\noindent
+Unter der Annahme, dass die Unsicherheiten von $\Delta t$ und $T$ voneinander unabhängig sind, ergibt sich mit der Gaußschen Unsicherheitsfortpflanzung:
+
+\begin{equation}
+\boxed{
+u(\Delta\varphi_t)
+=
+|\Delta\varphi_t|
+\sqrt{
+\left(\frac{u(\Delta t)}{\Delta t}\right)^2
++
+\left(\frac{u(T)}{T}\right)^2
+}
+}.
+\label{eq:phase_ty_uncertainty}
+\end{equation}
+\noindent
+Im $x$-$y$-Modus entsteht eine Lissajous-Ellipse. Dabei ist $\Delta x$ der Abstand der beiden Schnittpunkte der Ellipse mit der $x$-Achse und $2\hat{x}$ die gesamte horizontale Breite der Ellipse. Für die Phasendifferenz gilt:
+
+\begin{equation}
+\boxed{
+|\sin(\Delta\varphi_L)|
+=
+\frac{|\Delta x|}{2\hat{x}}
+}.
+\label{eq:lissajous}
+\end{equation}
+\noindent
+Mit
+
+\begin{equation}
+q=\frac{|\Delta x|}{2\hat{x}}
+\end{equation}
+\noindent
+ergibt sich zunächst der spitze Winkel
+
+\begin{equation}
+\theta=\arcsin(q).
+\end{equation}
+\noindent
+Im Bereich zwischen $0^\circ$ und $180^\circ$ sind damit zwei Lösungen möglich:
+
+\begin{equation}
+|\Delta\varphi_L|=\theta
+\qquad\text{oder}\qquad
+|\Delta\varphi_L|=180^\circ-\theta.
+\end{equation}
+\noindent
+Ob der spitze oder der stumpfe Winkel vorliegt, kann anhand der Neigung der Ellipse oder durch Vergleich mit der Darstellung im $t$-$y$-Modus entschieden werden. Das Vorzeichen wird ebenfalls aus der $t$-$y$-Darstellung übernommen.
+\noindent
+Für die Unsicherheit des Quotienten gilt:
+
+\begin{equation}
+u(q)
+=
+q
+\sqrt{
+\left(\frac{u(\Delta x)}{\Delta x}\right)^2
++
+\left(\frac{u(2\hat{x})}{2\hat{x}}\right)^2
+}.
+\label{eq:q_uncertainty}
+\end{equation}
+\noindent
+Die daraus folgende Winkelunsicherheit beträgt:
+
+\begin{equation}
+\boxed{
+u(\theta)
+=
+\frac{180^\circ}{\pi}
+\frac{u(q)}{\sqrt{1-q^2}}
+}.
+\label{eq:lissajous_uncertainty}
+\end{equation}
+
+\subsection{Messreihe 1}
+\noindent
+Für die erste Einstellung des Phasenschiebers wurden folgende Werte gemessen:
+
+\begin{align}
+T_1&=(5{,}05\pm0{,}05)\,\mathrm{ms},\\
+\Delta t_1&=(1{,}21\pm0{,}05)\,\mathrm{ms},\\
+\Delta x_1&=(1{,}09\pm0{,}03)\,\mathrm{V},\\
+2\hat{x}_1&=(1{,}09\pm0{,}03)\,\mathrm{V}.
+\end{align}
+\noindent
+Für die Spannungsmessungen der ersten Messreihe wurde keine eigene Unsicherheit notiert. Deshalb wurde unter der Annahme einer vergleichbaren Oszilloskopeinstellung dieselbe Ableseunsicherheit von $0{,}03\,\mathrm{V}$ wie bei der zweiten Messreihe verwendet.
+\noindent
+Kanal~2 lag gegenüber Kanal~1 weiter rechts. Das Signal von Kanal~2 erschien somit zeitlich später und die Phasendifferenz war positiv.
+
+\subsubsection{Kontrolle der Periodendauer}
+\noindent
+Aus der Periodendauer folgt:
+
+\begin{equation}
+f_1=\frac{1}{T_1}
+=
+\frac{1}{5{,}05\cdot10^{-3}\,\mathrm{s}}
+=
+198{,}0198\,\mathrm{Hz}.
+\end{equation}
+\noindent
+Die Unsicherheit der Frequenz beträgt:
+
+\begin{equation}
+u(f_1)
+=
+\frac{u(T_1)}{T_1^2}
+=
+1{,}9606\,\mathrm{Hz}.
+\end{equation}
+\noindent
+Gerundet ergibt sich:
+
+\begin{equation}
+\boxed{f_1=(198{,}0\pm2{,}0)\,\mathrm{Hz}}.
+\end{equation}
+\noindent
+Dieses Ergebnis stimmt mit der Anzeige des Oszilloskops von $198\,\mathrm{Hz}$ überein.
+\noindent
+Bei der Messung der zeitlichen Verschiebung zeigte das Oszilloskop $831\,\mathrm{Hz}$ an. Dabei handelt es sich nicht um die Frequenz des Eingangssignals, sondern näherungsweise um den Kehrwert des eingestellten Cursorabstands:
+
+\begin{equation}
+\frac{1}{1{,}21\,\mathrm{ms}}
+=
+826{,}4\,\mathrm{Hz}
+\approx831\,\mathrm{Hz}.
+\end{equation}
+
+\subsubsection{Auswertung im $t$-$y$-Modus}
+\noindent
+Die Phasendifferenz ergibt sich mit Gleichung~\eqref{eq:phase_ty} zu:
+
+\begin{equation}
+\Delta\varphi_{t,1}
+=
+360^\circ
+\frac{1{,}21\,\mathrm{ms}}{5{,}05\,\mathrm{ms}}
+=
+86{,}2574^\circ.
+\end{equation}
+\noindent
+Die Messunsicherheit beträgt:
+
+\begin{equation}
+u(\Delta\varphi_{t,1})
+=
+86{,}2574^\circ
+\sqrt{
+\left(\frac{0{,}05}{1{,}21}\right)^2
++
+\left(\frac{0{,}05}{5{,}05}\right)^2
+}
+=
+3{,}6652^\circ.
+\end{equation}
+\noindent
+Nach dem Runden folgt:
+
+\begin{equation}
+\boxed{\Delta\varphi_{t,1}=+(86\pm4)^\circ}.
+\label{eq:result_ty_1}
+\end{equation}
+
+\subsubsection{Auswertung der Lissajous-Figur}
+\noindent
+Für den Quotienten aus Schnittpunktabstand und Gesamtbreite ergibt sich:
+
+\begin{equation}
+q_1
+=
+\frac{\Delta x_1}{2\hat{x}_1}
+=
+\frac{1{,}09}{1{,}09}
+=
+1.
+\end{equation}
+\noindent
+Damit beträgt die Phasendifferenz:
+
+\begin{equation}
+|\Delta\varphi_{L,1}|
+=
+\arcsin(1)
+=
+90^\circ.
+\end{equation}
+\noindent
+Dieses Ergebnis stimmt mit der Beobachtung überein, dass die Lissajous-Figur nahezu kreisförmig war.
+\noindent
+Für $q_1=1$ kann die lineare Unsicherheitsfortpflanzung nicht verwendet werden, da die Ableitung des Arkussinus an dieser Stelle formal unendlich groß wird. Deshalb wurden eine obere und eine untere Grenze bestimmt.
+\noindent
+Der kleinste mögliche Quotient ergibt sich aus einem minimalen Schnittpunktabstand und einer maximalen Gesamtbreite:
+
+\begin{equation}
+q_{1,\mathrm{min}}
+=
+\frac{1{,}09-0{,}03}{1{,}09+0{,}03}
+=
+0{,}94643.
+\end{equation}
+\noindent
+Daraus folgt die untere Grenze:
+
+\begin{equation}
+\Delta\varphi_{1,\mathrm{min}}
+=
+\arcsin(0{,}94643)
+=
+71{,}1608^\circ.
+\end{equation}
+\noindent
+Da für den Quotienten physikalisch stets $q\leq1$ gelten muss, beträgt die obere Grenze:
+
+\begin{equation}
+\Delta\varphi_{1,\mathrm{max}}=90^\circ.
+\end{equation}
+\noindent
+Damit ergibt sich eine asymmetrische Unsicherheit:
+
+\begin{equation}
+\Delta\varphi_{L,1}
+=
+90^\circ{}^{+0^\circ}_{-18{,}8392^\circ}.
+\end{equation}
+\noindent
+Gerundet und mit dem aus der $t$-$y$-Darstellung übernommenen positiven Vorzeichen folgt:
+
+\begin{equation}
+\boxed{
+\Delta\varphi_{L,1}
+=
++\left(90^{+0}_{-19}\right)^\circ
+}.
+\label{eq:result_lissajous_1}
+\end{equation}
+\noindent
+Die vergleichsweise große untere Unsicherheit entsteht, weil der Arkussinus für Argumente nahe eins sehr empfindlich auf kleine Änderungen reagiert.
+
+\subsubsection{Vergleich der ersten Messreihe}
+\noindent
+Die beiden Ergebnisse lauten:
+
+\begin{align}
+\Delta\varphi_{t,1}&=+(86\pm4)^\circ,\\
+\Delta\varphi_{L,1}&=+\left(90^{+0}_{-19}\right)^\circ.
+\end{align}
+\noindent
+Die zugehörigen Unsicherheitsintervalle sind:
+
+\begin{align}
+82^\circ&\leq\Delta\varphi_{t,1}\leq90^\circ,\\
+71^\circ&\leq\Delta\varphi_{L,1}\leq90^\circ.
+\end{align}
+\noindent
+Da sich die beiden Intervalle überlappen, stimmen die Ergebnisse innerhalb ihrer Messunsicherheiten überein. Der Unterschied der beiden Zentralwerte beträgt $4^\circ$.
+
+\subsection{Messreihe 2}
+\noindent
+Für die zweite Einstellung des Phasenschiebers wurden folgende Werte protokolliert:
+
+\begin{align}
+T_2&=(6{,}69\pm0{,}05)\,\mathrm{ms},\\
+\Delta t_2&=(2{,}69\pm0{,}03)\,\mathrm{ms},\\
+\Delta x_2&=(1{,}61\pm0{,}03)\,\mathrm{V},\\
+2\hat{x}_2&=(2{,}54\pm0{,}03)\,\mathrm{V},\\
+f_{\mathrm{Oszi},2}&=(150\pm2)\,\mathrm{Hz}.
+\end{align}
+\noindent
+Die Phasendifferenz war positiv. Das Signal von Kanal~2 erschien somit gegenüber Kanal~1 zeitlich später.
+
+\subsubsection{Kontrolle der Periodendauer}
+\noindent
+Aus der gemessenen Periodendauer folgt:
+
+\begin{equation}
+f_2
+=
+\frac{1}{6{,}69\cdot10^{-3}\,\mathrm{s}}
+=
+149{,}4768\,\mathrm{Hz}.
+\end{equation}
+\noindent
+Die Unsicherheit beträgt:
+
+\begin{equation}
+u(f_2)
+=
+\frac{0{,}05\cdot10^{-3}\,\mathrm{s}}
+{\left(6{,}69\cdot10^{-3}\,\mathrm{s}\right)^2}
+=
+1{,}1172\,\mathrm{Hz}.
+\end{equation}
+\noindent
+Gerundet ergibt sich:
+
+\begin{equation}
+\boxed{f_2=(149{,}5\pm1{,}2)\,\mathrm{Hz}}.
+\end{equation}
+\noindent
+Das Ergebnis stimmt innerhalb der Messunsicherheiten mit der direkten Anzeige des Oszilloskops von $(150\pm2)\,\mathrm{Hz}$ überein.
+
+\subsubsection{Auswertung im $t$-$y$-Modus}
+\noindent
+Die Phasendifferenz beträgt:
+
+\begin{equation}
+\Delta\varphi_{t,2}
+=
+360^\circ
+\frac{2{,}69\,\mathrm{ms}}{6{,}69\,\mathrm{ms}}
+=
+144{,}7534^\circ.
+\end{equation}
+\noindent
+Für die Unsicherheit ergibt sich:
+
+\begin{equation}
+u(\Delta\varphi_{t,2})
+=
+144{,}7534^\circ
+\sqrt{
+\left(\frac{0{,}03}{2{,}69}\right)^2
++
+\left(\frac{0{,}05}{6{,}69}\right)^2
+}
+=
+1{,}9433^\circ.
+\end{equation}
+\noindent
+Nach dem Runden folgt:
+
+\begin{equation}
+\boxed{\Delta\varphi_{t,2}=+(144{,}8\pm2{,}0)^\circ}.
+\label{eq:result_ty_2}
+\end{equation}
+
+\subsubsection{Auswertung der Lissajous-Figur}
+\noindent
+Aus den protokollierten Werten ergibt sich:
+
+\begin{equation}
+q_2
+=
+\frac{\Delta x_2}{2\hat{x}_2}
+=
+\frac{1{,}61}{2{,}54}
+=
+0{,}633858.
+\end{equation}
+\noindent
+Der Arkussinus liefert zunächst den spitzen Winkel:
+
+\begin{equation}
+\theta_2
+=
+\arcsin(0{,}633858)
+=
+39{,}3354^\circ.
+\end{equation}
+\noindent
+Damit sind die beiden Winkel
+
+\begin{equation}
+39{,}3354^\circ
+\qquad\text{und}\qquad
+180^\circ-39{,}3354^\circ
+=
+140{,}6646^\circ
+\end{equation}
+\noindent
+möglich. Da die $t$-$y$-Darstellung einen positiven stumpfen Winkel zeigt, wird die zweite Lösung verwendet:
+
+\begin{equation}
+\Delta\varphi_{L,2}=+140{,}6646^\circ.
+\end{equation}
+\noindent
+Die Unsicherheit des Quotienten beträgt:
+
+\begin{equation}
+u(q_2)
+=
+0{,}633858
+\sqrt{
+\left(\frac{0{,}03}{1{,}61}\right)^2
++
+\left(\frac{0{,}03}{2{,}54}\right)^2
+}
+=
+0{,}013984.
+\end{equation}
+\noindent
+Daraus ergibt sich die Winkelunsicherheit:
+
+\begin{equation}
+u(\Delta\varphi_{L,2})
+=
+\frac{180^\circ}{\pi}
+\frac{0{,}013984}{\sqrt{1-0{,}633858^2}}
+=
+1{,}0359^\circ.
+\end{equation}
+\noindent
+Nach dem Runden folgt:
+
+\begin{equation}
+\boxed{\Delta\varphi_{L,2}=+(140{,}7\pm1{,}1)^\circ}.
+\label{eq:result_lissajous_2}
+\end{equation}
+
+\subsubsection{Vergleich der zweiten Messreihe}
+\noindent
+Die beiden Ergebnisse lauten:
+
+\begin{align}
+\Delta\varphi_{t,2}&=+(144{,}8\pm2{,}0)^\circ,\\
+\Delta\varphi_{L,2}&=+(140{,}7\pm1{,}1)^\circ.
+\end{align}
+\noindent
+Die entsprechenden Unsicherheitsintervalle sind:
+
+\begin{align}
+142{,}8^\circ&\leq\Delta\varphi_{t,2}\leq146{,}8^\circ,\\
+139{,}6^\circ&\leq\Delta\varphi_{L,2}\leq141{,}8^\circ.
+\end{align}
+\noindent
+Die beiden Intervalle überlappen sich nicht. Die Ergebnisse stimmen daher nicht innerhalb ihrer angegebenen Messunsicherheiten überein. Der Unterschied der Zentralwerte beträgt:
+
+\begin{equation}
+\delta\varphi_2
+=
+|144{,}8^\circ-140{,}7^\circ|
+=
+4{,}1^\circ.
+\end{equation}
+
+\subsection{Zusammenfassung und Diskussion}
+\noindent
+Die Ergebnisse der beiden Messreihen sind in Tabelle~\ref{tab:results} zusammengefasst.
+
+\begin{table}[htbp]
+\centering
+\caption{Ergebnisse der Phasenmessung.}
+\label{tab:results}
+\begin{tabular}{c|c|c|c}
+\hline
+Messreihe & $t$-$y$-Methode & Lissajous-Methode & Vergleich\\
+\hline
+1 & $+(86\pm4)^\circ$ & $+\left(90^{+0}_{-19}\right)^\circ$ & Übereinstimmung\\
+2 & $+(144{,}8\pm2{,}0)^\circ$ & $+(140{,}7\pm1{,}1)^\circ$ & keine Überlappung\\
+\hline
+\end{tabular}
+\end{table}
+\noindent
+In der ersten Messreihe stimmen die Ergebnisse der beiden Methoden innerhalb ihrer Messunsicherheiten überein. Die nahezu kreisförmige Lissajous-Figur bestätigt außerdem qualitativ eine Phasendifferenz nahe $90^\circ$. Die genaue Winkelbestimmung ist in diesem Bereich jedoch schwierig, da kleine Unsicherheiten bei der Breitenmessung eine große Änderung des berechneten Winkels verursachen.
+\noindent
+In der zweiten Messreihe unterscheiden sich die beiden Ergebnisse um $4{,}1^\circ$. Die Unsicherheitsintervalle überlappen sich knapp nicht. Als mögliche Ursachen kommen die endliche Linienbreite auf dem Oszilloskop, die Positionierung der Cursor und eine nicht exakt eingestellte Nulllage der Lissajous-Figur infrage. Eine Verschiebung der Ellipse gegenüber dem Koordinatenursprung beeinflusst insbesondere die Ablesung des Schnittpunktabstands $\Delta x$.
+\noindent
+Insgesamt eignet sich die Messung im $t$-$y$-Modus gut zur direkten Bestimmung des Betrags und des Vorzeichens der Phasendifferenz. Die Lissajous-Figur ermöglicht zusätzlich eine anschauliche Kontrolle der Phasenlage, kann aber besonders bei Winkeln nahe $90^\circ$ eine große Unsicherheit aufweisen.
+
+
+
 
 \newpage
 \section{Teilversuch IV: }
+\noindent
+In diesem Teilversuch wurde das Auf- und Entladen eines Kondensators über einen Widerstand untersucht. Dazu wurde am Funktionengenerator eine Rechteckspannung mit einer Sollfrequenz von $60\,\mathrm{Hz}$ eingestellt. Die Versuchsdurchführung wurde zweimal wiederholt. Mit dem Frequenzzähler wurden dabei Frequenzen von
+
+\begin{equation}
+f_1=61\,\mathrm{Hz}
+\qquad\text{und}\qquad
+f_2=62\,\mathrm{Hz}
+\end{equation}
+\noindent
+gemessen. Beide Werte liegen nahe an der eingestellten Sollfrequenz.
+\noindent
+Auf Kanal~1 des Oszilloskops wurde die angelegte Rechteckspannung dargestellt. Kanal~2 zeigte die Spannung $U_C$ am Kondensator. In beiden Durchführungen wurden nacheinander zunächst der Widerstand und anschließend die Kapazität erhöht. Dabei wurde jeweils die Veränderung der Lade- und Entladekurven beobachtet.
+
+\subsection{Theoretische Grundlagen}
+\noindent
+Beim Aufladen eines Kondensators über einen Widerstand gilt für die Kondensatorspannung
+
+\begin{equation}
+U_C(t)
+=
+U_0
+\left(
+1-\exp\left(-\frac{t}{RC}\right)
+\right).
+\end{equation}
+\noindent
+Beim Entladen nimmt die Kondensatorspannung gemäß
+
+\begin{equation}
+U_C(t)
+=
+U_0
+\exp\left(-\frac{t}{RC}\right)
+\end{equation}
+\noindent
+ab.
+\noindent
+Die Geschwindigkeit der Lade- und Entladevorgänge wird durch die Relaxationszeit
+
+\begin{equation}
+\boxed{\tau_C=RC}
+\end{equation}
+\noindent
+bestimmt. Je größer die Relaxationszeit ist, desto langsamer ändert sich die Spannung am Kondensator und desto flacher verlaufen die Lade- und Entladekurven.
+\noindent
+Nach einer Relaxationszeit ist die Spannung beim Entladen auf
+
+\begin{equation}
+U_C(\tau_C)
+=
+\frac{U_0}{e}
+\approx
+0{,}37\,U_0
+\end{equation}
+\noindent
+abgesunken. Beim Aufladen hat die Kondensatorspannung nach derselben Zeit etwa
+
+\begin{equation}
+U_C(\tau_C)
+=
+U_0
+\left(
+1-\frac{1}{e}
+\right)
+\approx
+0{,}63\,U_0
+\end{equation}
+\noindent
+des Endwertes erreicht.
+
+\subsection{Einfluss des Widerstands}
+\noindent
+Zunächst wurde bei konstanter Kapazität der Widerstand mithilfe des Potentiometers verändert. Aus
+
+\begin{equation}
+\tau_C=RC
+\end{equation}
+\noindent
+folgt bei konstanter Kapazität
+
+\begin{equation}
+\tau_C\propto R.
+\end{equation}
+\noindent
+Eine Vergrößerung des Widerstands führt daher zu einer größeren Relaxationszeit. Gleichzeitig wird der Strom durch den Widerstand kleiner:
+
+\begin{equation}
+I=\frac{U_R}{R}.
+\end{equation}
+\noindent
+Für den Kondensator gilt außerdem
+
+\begin{equation}
+I=C\frac{\mathrm{d}U_C}{\mathrm{d}t}.
+\end{equation}
+\noindent
+Ein kleinerer Strom führt somit zu einer langsameren Änderung der Kondensatorspannung. Im Versuch wurde entsprechend beobachtet, dass sowohl die Lade- als auch die Entladekurve mit zunehmendem Widerstand flacher wurden. Innerhalb einer halben Periode näherte sich die Kondensatorspannung dadurch weniger stark dem jeweiligen Endwert an.
+\noindent
+Bei einem kleineren Widerstand verliefen die Kurven dagegen steiler. Für einen sehr kleinen Widerstand gilt näherungsweise
+
+\begin{equation}
+\tau_C=RC\approx0.
+\end{equation}
+\noindent
+Der Kondensator kann sich dann sehr schnell auf- und entladen. Die Kondensatorspannung folgt daher der angelegten Rechteckspannung nahezu unmittelbar und nähert sich ebenfalls einem rechteckigen Verlauf an.
+
+\subsection{Einfluss der Kapazität}
+\noindent
+Anschließend wurde der Widerstand konstant gehalten und die Kapazität durch das Parallelschalten weiterer Kondensatoren erhöht. Bei einer Parallelschaltung addieren sich die einzelnen Kapazitäten:
+
+\begin{equation}
+C_{\mathrm{ges}}
+=
+C_1+C_2+\dots
+\end{equation}
+\noindent
+Für zwei gleiche Kondensatoren ergibt sich
+
+\begin{equation}
+C_{\mathrm{ges}}=2C
+\end{equation}
+\noindent
+und für drei gleiche Kondensatoren
+
+\begin{equation}
+C_{\mathrm{ges}}=3C.
+\end{equation}
+\noindent
+Damit vergrößert sich auch die Relaxationszeit. Für die doppelte Kapazität gilt beispielsweise
+
+\begin{equation}
+\tau_{C,2}
+=
+R\cdot2C
+=
+2\tau_C,
+\end{equation}
+\noindent
+während sich bei der dreifachen Kapazität
+
+\begin{equation}
+\tau_{C,3}
+=
+R\cdot3C
+=
+3\tau_C
+\end{equation}
+\noindent
+ergibt.
+\noindent
+Eine größere Kapazität bedeutet außerdem, dass für dieselbe Spannungsänderung eine größere Ladungsmenge aufgenommen beziehungsweise abgegeben werden muss, da
+
+\begin{equation}
+Q=CU
+\end{equation}
+\noindent
+gilt. Der Kondensator benötigt deshalb mehr Zeit zum Auf- und Entladen.
+\noindent
+Im Versuch wurden die Lade- und Entladekurven nach dem Parallelschalten eines zweiten Kondensators deutlich flacher. Durch das Parallelschalten eines weiteren Kondensators wurde dieser Effekt noch stärker. Die Kondensatorspannung änderte sich somit mit zunehmender Gesamtkapazität immer langsamer.
+
+\subsection{Ergebnis und Diskussion}
+\noindent
+Die Beobachtungen stimmen mit der theoretischen Beziehung
+
+\begin{equation}
+\tau_C=RC
+\end{equation}
+\noindent
+überein. Sowohl eine Erhöhung des Widerstands als auch eine Erhöhung der Kapazität vergrößert die Relaxationszeit. Dadurch laufen der Lade- und der Entladevorgang langsamer ab und die entsprechenden Kurven werden flacher.
+\noindent
+Eine Verringerung des Widerstands verkleinert dagegen die Relaxationszeit. Die Kondensatorspannung kann sich dadurch schneller ändern und folgt der angelegten Rechteckspannung stärker.
+\noindent
+Die gemessenen Frequenzen von $61\,\mathrm{Hz}$ und $62\,\mathrm{Hz}$ liegen nahe an der eingestellten Frequenz von $60\,\mathrm{Hz}$. Die geringe Abweichung hat keinen wesentlichen Einfluss auf die qualitative Untersuchung des Widerstands- und Kapazitätseinflusses.
+\noindent
+Mögliche Abweichungen vom idealen exponentiellen Verlauf können durch Bauteiltoleranzen, die endliche Linienbreite auf dem Oszilloskop sowie die Belastung der Schaltung durch die angeschlossenen Messgeräte verursacht werden. Insgesamt entsprechen die beobachteten Lade- und Entladekurven dem erwarteten Verhalten eines RC-Glieds.
 
 \newpage
 \section{Teilversuch V: Quantitative Registrierung der Entladekurve eines Kondensators}
