@@ -1,0 +1,144 @@
+\documentclass{report}
+\usepackage{pdfpages}
+\usepackage{graphicx} 
+\usepackage{dirtytalk}
+\usepackage{lmodern}
+\usepackage{booktabs}
+\usepackage{listings}
+\usepackage{float}
+\usepackage{siunitx}
+\usepackage{amsmath}
+\usepackage{rotating}
+\usepackage{arydshln}
+\usepackage[hidelinks]{hyperref}
+\usepackage[ngerman]{babel}
+\usepackage[a4paper, total={6in, 8in}]{geometry}
+\begin{document}
+% \includepdf[pages=-]{./PDFs/Deckblatt_P2}
+\begin{titlepage}
+    \begin{center}
+        \vspace*{1cm}
+            
+        \Huge
+        \textbf{Auswertung und Protokoll}
+            
+        \vspace{0.5cm}
+        \LARGE
+        Zum Versuch VPO
+        
+        \vspace{1.8cm}
+
+        \textbf{Jonas Müther \& Alejandro Schultheiss}
+        \vfill
+            
+        P2 Praktikum\\
+       
+            
+        \vspace{0.8cm}
+  
+
+        \vspace{1.8cm}
+        \Large
+        LMU München \\
+        Physik B.Sc.\\
+        Deutschland\\
+        2026
+            
+    \end{center}
+\end{titlepage}
+\tableofcontents
+
+\newpage
+\chapter{Vorbereitung}
+
+\section{Versuchsvorbereitung und Grundlagen des Versuchs}
+% \includepdf[pages=-]{./PDFs/TEMP_VORBEREITUNG.pdf}
+
+\section{Versuchsprotokoll}
+% \includepdf[pages=-]{./PDFs/TEMP_VERSUCHSDURCHFUEHRUNG.pdf}
+
+\newpage
+\chapter{Auswertung}
+\section{Teilversuch I:}
+
+\newpage
+\section{Teilversuch II: Frequenzverhalten eines RC-Hoch- und Tiefpasses}
+Ziel von Teilversuch II war es, die Abhängigkeit Übertragungsverhältnisses eines 
+Hochpassfilters und Tiefpasses zu bestimmen.
+Das Übertragungsverhältnis berechnet sich folgendermaßen:
+\begin{equation}
+    \left\lvert G \right\rvert = \frac{\hat{U}_{\mathrm{out}}}{\hat{U}_{\mathrm{in}}}
+\end{equation}
+Die Unsicherheit berechnet sich aus:
+\begin{equation}
+    \begin{split}
+        \Delta \left\lvert G \right\rvert   &= \sqrt{\left(\frac{\partial \left\lvert G \right\rvert}{\partial \hat{U}_{\mathrm{out}}} \cdot \Delta \hat{U}_{\mathrm{out}}\right)^2 + \left(\frac{\partial \left\lvert G \right\rvert}{\partial \hat{U}_{\mathrm{in}}} \cdot \Delta \hat{U}_{\mathrm{in}}\right)^2} \\
+                                            &= \sqrt{\left(\frac{\Delta \hat{U}_{\mathrm{out}}}{\hat{U}_{\mathrm{in}}}\right)^2 + \left(\frac{\hat{U}_{\mathrm{out}} \cdot \Delta \hat{U}_{\mathrm{in}}}{\hat{U}_{\mathrm{in}}^2}\right)^2} \\
+                                            &= \left\lvert G \right\rvert \sqrt{\left(\frac{\Delta \hat{U}_{\mathrm{out}}}{\hat{U}_{\mathrm{out}}}\right)^2 + \left(\frac{\Delta \hat{U}_{\mathrm{in}}}{\hat{U}_{\mathrm{in}}}\right)^2}
+    \end{split}
+\end{equation}
+Wir behandeln zunächst den Tiefpass.
+Die eingegebene Amplitude lag bei $U_1 = (1.090 \pm 0.013)\si{V}$.
+Folgende frequenzabhängige Ausgangsamplituden und daraus resultierende Übertragungsverhältnisse wurden gemessen:
+\begin{table}[H]
+    \centering
+    \caption{Ausgangsamplituden eine Tiefpasses Abhängigkeit von der Frequenz}
+    \label{tab:TPAmps}
+    \begin{tabular}{c c c}
+        \hline
+        Frequenz $f$ (in $\si{Hz}$) &  Amplitude am Ausgang (in $V$) & Übertragungsverhältnis\\
+        \hline
+        $100.00 \pm 0.10$ & $1.075 \pm 0.025$ & \\
+        $500 \pm 10$ & $1.002 \pm 0.025$ & \\
+        $1000.0 \pm 2.0$ & $0.890 \pm 0.025$ & \\
+        $1200.0 \pm 2.0$ & $0.845 \pm 0.025$ & \\
+        $1400.0y \pm 2.0$ & $0.770 \pm 0.025$ & \\
+        $1600.0 \pm 2.0$ & $0.725 \pm 0.025$ & \\
+        $1800.0 \pm 2.0$ & $0.680 \pm 0.005$ & \\
+        $2000.0 \pm 2.0$ & $0.635 \pm 0.005$ & \\
+        $2500.0 \pm 2.0$ & $0.545 \pm 0.005$ & \\
+        $3000.0 \pm 2.0$ & $0.476 \pm 0.005$ & \\
+        $4000.0 \pm 2.0$ & $0.379 \pm 0.005$ & \\
+        $5000 \pm 10$ & $0.305 \pm 0.025$ & \\
+        \hline
+    \end{tabular}
+\end{table}
+
+\newpage
+\section{Teilversuch II: }
+
+\newpage
+\section{Teilversuch III: }
+
+\newpage
+\section{Teilversuch IV: }
+
+\newpage
+\chapter{Anhang}
+\section{SCRIPTS}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{matlab}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\end{document}
