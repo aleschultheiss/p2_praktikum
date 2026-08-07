@@ -62,6 +62,242 @@
 \newpage
 \chapter{Auswertung}
 \section{Teilversuch I:}
+\noindent
+In diesem Teilversuch wurden nacheinander ein ohmscher Widerstand, ein Kondensator und eine Spule im Wechselstromkreis untersucht. Dabei wurden die Phasenverschiebung zwischen Spannung und Strom sowie die Änderung des Amplitudenverhältnisses bei Variation der Frequenz betrachtet.
+\noindent
+Kanal~1 zeigte die Spannung am jeweils untersuchten Bauteil. Über den Messwiderstand wurde auf Kanal~2 eine zum Strom proportionale Spannung dargestellt. Damit kann die Phasenlage von Kanal~2 als Phasenlage des Stroms interpretiert werden.
+\noindent
+Für die Impedanz eines Bauteils gilt allgemein
+
+\begin{equation}
+|Z|=\frac{\hat U}{\hat I}.
+\end{equation}
+\noindent
+Da die Spannung an Kanal~2 proportional zum Strom ist, kann die Frequenzabhängigkeit des Amplitudenverhältnisses über die jeweilige Impedanz erklärt werden.
+
+\subsection{Ohmscher Widerstand}
+\noindent
+Für den ohmschen Widerstand wurde
+
+\begin{equation}
+R=(1{,}00\pm0{,}01)\,\mathrm{k\Omega}
+\end{equation}
+\noindent
+verwendet.
+\noindent
+Für einen idealen ohmschen Widerstand gilt
+
+\begin{equation}
+Z_R=R.
+\end{equation}
+\noindent
+Die Impedanz ist rein reell und unabhängig von der Frequenz. Strom und Spannung sind daher gleichphasig, sodass theoretisch
+
+\begin{equation}
+\boxed{\varphi_R=0^\circ}
+\end{equation}
+\noindent
+gilt.
+\noindent
+Im Versuch wurde entsprechend keine erkennbare Phasenverschiebung zwischen Kanal~1 und Kanal~2 beobachtet. Dies änderte sich auch bei einer Erhöhung der Frequenz nicht.
+\noindent
+Da außerdem
+
+\begin{equation}
+\hat I=\frac{\hat U}{R}
+\end{equation}
+\noindent
+gilt und $R$ frequenzunabhängig ist, bleibt auch das Verhältnis der beiden gemessenen Amplituden konstant. Genau dieses Verhalten wurde im Versuch beobachtet.
+\noindent
+Damit stimmen sowohl die beobachtete Phasenlage als auch das Amplitudenverhältnis mit dem theoretisch erwarteten Verhalten eines ohmschen Widerstands überein.
+
+\subsection{Kondensator}
+\noindent
+Für den Kondensator wurde
+
+\begin{equation}
+C=(10{,}0\pm0{,}1)\,\mathrm{nF}
+\end{equation}
+\noindent
+verwendet.
+\noindent
+Die Impedanz eines idealen Kondensators lautet
+
+\begin{equation}
+Z_C=\frac{1}{i\omega C}
+=-\frac{i}{\omega C}.
+\end{equation}
+\noindent
+Daraus folgen der Betrag
+
+\begin{equation}
+|Z_C|=\frac{1}{\omega C}
+=\frac{1}{2\pi f C}
+\end{equation}
+\noindent
+und die Phasenverschiebung
+
+\begin{equation}
+\boxed{\varphi_C=-90^\circ}.
+\end{equation}
+\noindent
+Das negative Vorzeichen bedeutet nach der verwendeten Vorzeichenkonvention, dass der Strom der Spannung vorausläuft.
+\noindent
+Im Versuch wurde tatsächlich beobachtet, dass Kanal~2 gegenüber Kanal~1 vorauslief. Somit ergab sich qualitativ
+
+\begin{equation}
+\varphi_C<0,
+\end{equation}
+\noindent
+was mit der theoretischen Erwartung übereinstimmt.
+\noindent
+Auch die beobachtete Frequenzabhängigkeit der Amplitude lässt sich durch den kapazitiven Blindwiderstand erklären. Mit steigender Frequenz wird
+
+\begin{equation}
+|Z_C|=\frac{1}{2\pi fC}
+\end{equation}
+\noindent
+kleiner. Bei ungefähr konstanter Spannung an Kanal~1 kann dadurch ein größerer Strom fließen. Da Kanal~2 eine zum Strom proportionale Spannung zeigt, nimmt dessen Amplitude mit steigender Frequenz zu.
+\noindent
+Qualitativ gilt somit
+
+\begin{equation}
+f\uparrow
+\quad\Rightarrow\quad
+|Z_C|\downarrow
+\quad\Rightarrow\quad
+\hat I\uparrow
+\quad\Rightarrow\quad
+\hat U_{\mathrm{CH2}}\uparrow.
+\end{equation}
+\noindent
+Die Amplitude von Kanal~1 blieb dabei näherungsweise konstant. Bei kleinen Frequenzen war die Amplitude von Kanal~2 zunächst kleiner als die von Kanal~1. Mit zunehmender Frequenz nahm sie jedoch zu und war ab ungefähr
+
+\begin{equation}
+f\approx13\,\mathrm{kHz}
+\end{equation}
+\noindent
+größer als die Amplitude von Kanal~1.
+\noindent
+Mit dem im Versuchsaufbau verwendeten Messwiderstand $R_M=1\,\mathrm{k\Omega}$ lässt sich die Größenordnung dieses Übergangs überprüfen. Gleiche Amplituden werden näherungsweise erwartet, wenn
+
+\begin{equation}
+|Z_C|=R_M
+\end{equation}
+\noindent
+gilt. Daraus folgt
+
+\begin{equation}
+\frac{1}{2\pi f C}=R_M
+\end{equation}
+\noindent
+und somit
+
+\begin{equation}
+f=
+\frac{1}{2\pi R_M C}.
+\end{equation}
+\noindent
+Mit $R_M=1\,\mathrm{k\Omega}$ und $C=10\,\mathrm{nF}$ erhält man
+
+\begin{equation}
+f
+=
+\frac{1}
+{2\pi\cdot1\,\mathrm{k\Omega}\cdot10\,\mathrm{nF}}
+\approx15{,}9\,\mathrm{kHz}.
+\end{equation}
+\noindent
+Der theoretische Wert liegt in derselben Größenordnung wie der qualitativ beobachtete Übergang bei etwa $13\,\mathrm{kHz}$.
+\noindent
+Insgesamt stimmen damit sowohl die beobachtete Phasenlage als auch die Zunahme der Stromamplitude mit der Frequenz mit dem erwarteten Verhalten eines Kondensators überein.
+
+\subsection{Spule}
+\noindent
+Für die Spule wurde
+
+\begin{equation}
+L=(0{,}120\pm0{,}0012)\,\mathrm{H}
+\end{equation}
+\noindent
+verwendet.
+\noindent
+Für eine ideale Spule gilt
+
+\begin{equation}
+Z_L=i\omega L.
+\end{equation}
+\noindent
+Der Betrag der Impedanz ist damit
+
+\begin{equation}
+|Z_L|=\omega L=2\pi fL
+\end{equation}
+\noindent
+und für die Phasenverschiebung gilt
+
+\begin{equation}
+\boxed{\varphi_L=+90^\circ}.
+\end{equation}
+\noindent
+Ein positiver Phasenwinkel bedeutet, dass der Strom gegenüber der Spannung zeitlich hinterherläuft.
+\noindent
+Im Versuch wurde entsprechend beobachtet, dass Kanal~2 gegenüber Kanal~1 hinterherlief. Damit ergab sich
+
+\begin{equation}
+\varphi_L>0,
+\end{equation}
+\noindent
+was mit der theoretischen Erwartung übereinstimmt.
+\noindent
+Mit zunehmender Frequenz wächst der induktive Blindwiderstand:
+
+\begin{equation}
+|Z_L|=2\pi fL.
+\end{equation}
+\noindent
+Dadurch wird der durch die Schaltung fließende Strom bei gleichbleibender Spannungsamplitude kleiner. Entsprechend nimmt auch die Amplitude von Kanal~2 ab:
+
+\begin{equation}
+f\uparrow
+\quad\Rightarrow\quad
+|Z_L|\uparrow
+\quad\Rightarrow\quad
+\hat I\downarrow
+\quad\Rightarrow\quad
+\hat U_{\mathrm{CH2}}\downarrow.
+\end{equation}
+\noindent
+Bei einer Verringerung der Frequenz wurde dagegen eine größere Amplitude von Kanal~2 beobachtet. Die Amplitude von Kanal~1 blieb dabei näherungsweise konstant.
+\noindent
+Dieses Verhalten ist damit genau entgegengesetzt zum Kondensator und stimmt mit der theoretischen Frequenzabhängigkeit der induktiven Impedanz überein.
+
+\subsection{Zusammenfassung}
+\noindent
+Die qualitativen Ergebnisse lassen sich wie folgt zusammenfassen:
+
+\begin{center}
+\begin{tabular}{c|c|c|c}
+Bauteil & Phasenlage des Stroms & $|Z|$ & Verhalten bei $f\uparrow$\\
+\hline
+Widerstand
+& gleichphasig
+& $R$
+& Stromamplitude konstant\\
+Kondensator
+& läuft voraus
+& $\dfrac{1}{2\pi fC}$
+& Stromamplitude steigt\\
+Spule
+& läuft hinterher
+& $2\pi fL$
+& Stromamplitude sinkt
+\end{tabular}
+\end{center}
+\noindent
+Für den Widerstand wurde keine Phasenverschiebung beobachtet und das Amplitudenverhältnis blieb bei Änderung der Frequenz konstant. Beim Kondensator lief der Strom der Spannung voraus und seine Amplitude nahm mit steigender Frequenz zu. Bei der Spule lief der Strom dagegen der Spannung hinterher und seine Amplitude nahm mit steigender Frequenz ab.
+\noindent
+Die Beobachtungen stimmen somit qualitativ mit den theoretischen Eigenschaften der drei untersuchten Bauelemente überein.
 
 \newpage
 \section{Teilversuch II: Frequenzverhalten eines RC-Hoch- und Tiefpasses}
@@ -381,6 +617,159 @@ in der Nähe der Resonanzfrequenz verlaufen wird zwar auch ein (in diesem Fall k
 so groß, dass $R_{\mathrm{innen}}$ im Vergleich vernachlässigbar klein ist und somit näherungsweise die gesamte Spannung über $Z_\Sigma$ abfällt.
 \newpage
 \section{Teilversuch IV: }
+\noindent
+In diesem Teilversuch wurden eine Differenzier- und eine Integrierschaltung mit sinus-, dreieck- und rechteckförmigen Eingangsspannungen untersucht. Dabei wurde die gemessene Ausgangsspannung mit dem jeweils theoretisch erwarteten Verlauf verglichen. Besonderes Augenmerk lag auf den Abweichungen vom idealen Verhalten.
+\noindent
+Für den Differenzierer wurde eine Frequenz von
+
+\begin{equation}
+f=(472\pm8)\,\mathrm{Hz}
+\end{equation}
+\noindent
+gemessen, was nahe an der vorgesehenen Frequenz von etwa $500\,\mathrm{Hz}$ liegt. Für den Integrierer war eine Frequenz von etwa $5\,\mathrm{kHz}$ vorgesehen.
+
+\subsection{Differenzierschaltung}
+\noindent
+Bei der verwendeten Differenzierschaltung wird die Ausgangsspannung an der Spule abgegriffen. Für eine Spule gilt
+
+\begin{equation}
+U_L=L\frac{\mathrm{d}I}{\mathrm{d}t}.
+\end{equation}
+\noindent
+Ist der Spannungsabfall am Widerstand deutlich größer als der an der Spule, kann näherungsweise
+
+\begin{equation}
+I(t)\approx\frac{U_E(t)}{R}
+\end{equation}
+\noindent
+gesetzt werden. Damit folgt für die Ausgangsspannung
+
+\begin{equation}
+\boxed{
+U_A(t)\approx\frac{L}{R}\frac{\mathrm{d}U_E(t)}{\mathrm{d}t}
+}.
+\end{equation}
+\noindent
+Die Ausgangsspannung ist somit näherungsweise proportional zur zeitlichen Ableitung der Eingangsspannung.
+\noindent
+Für eine sinusförmige Eingangsspannung
+
+\begin{equation}
+U_E(t)=\hat{U}\sin(\omega t)
+\end{equation}
+\noindent
+ist die Ableitung wiederum sinusförmig:
+
+\begin{equation}
+U_A(t)\propto\omega\hat{U}\cos(\omega t).
+\end{equation}
+\noindent
+Die Ausgangsspannung besitzt daher dieselbe Frequenz, ist gegenüber der Eingangsspannung jedoch um etwa $90^\circ$ phasenverschoben. Dieses Verhalten wurde qualitativ auch am Oszilloskop beobachtet.
+\noindent
+Bei einer Dreiecksspannung besitzt die Eingangsspannung während der ansteigenden und abfallenden Abschnitte jeweils eine annähernd konstante Steigung. Die Ableitung ist deshalb näherungsweise konstant und wechselt an den Umkehrpunkten ihr Vorzeichen. Ideal wäre somit eine Rechteckspannung als Ausgangssignal. Im Versuch wurden die Übergänge jedoch nicht vollkommen scharf beobachtet.
+\noindent
+Besonders deutlich wird die Wirkung des Differenzierers bei einer Rechteckspannung. Innerhalb der konstanten Bereiche gilt
+
+\begin{equation}
+\frac{\mathrm{d}U_E}{\mathrm{d}t}\approx0,
+\end{equation}
+\noindent
+sodass die Ausgangsspannung dort nahezu null ist. An den Flanken der Rechteckspannung ändert sich die Eingangsspannung dagegen sehr schnell, weshalb dort positive beziehungsweise negative Spannungsspitzen entstehen.
+\noindent
+Bei einem mathematisch idealen Rechteck wären die Flanken unendlich steil und die entsprechenden Spitzen unendlich schmal. Die reale Eingangsspannung des Funktionsgenerators besitzt jedoch eine endliche Anstiegs- und Abfallzeit. Deshalb wurden im Versuch keine idealen, unendlich schmalen Spitzen beziehungsweise vollkommen scharfen Übergänge beobachtet. Die Form der realen Eingangsspannung wirkt sich somit direkt auf die Ausgangsspannung des Differenzierers aus.
+\noindent
+Zusätzlich ist die Beziehung
+
+\begin{equation}
+U_A(t)\propto\frac{\mathrm{d}U_E(t)}{\mathrm{d}t}
+\end{equation}
+\noindent
+nur eine Näherung. Der Spannungsabfall an der Spule ist nicht exakt null, sodass der Strom nicht zu jedem Zeitpunkt exakt proportional zur Eingangsspannung ist. Auch der reale Innenwiderstand der Spule und weitere Bauteiltoleranzen tragen zu den beobachteten Abweichungen bei.
+
+\subsection{Integrierschaltung}
+\noindent
+Beim Integrierer wird die Ausgangsspannung am Kondensator abgegriffen. Für die Ladung des Kondensators gilt
+
+\begin{equation}
+Q(t)=\int I(t)\,\mathrm{d}t
+\end{equation}
+\noindent
+und damit
+
+\begin{equation}
+U_C(t)=\frac{Q(t)}{C}
+=\frac{1}{C}\int I(t)\,\mathrm{d}t.
+\end{equation}
+\noindent
+Ist der Spannungsabfall am Kondensator deutlich kleiner als der Spannungsabfall am Widerstand, gilt näherungsweise
+
+\begin{equation}
+I(t)\approx\frac{U_E(t)}{R}.
+\end{equation}
+\noindent
+Damit ergibt sich
+
+\begin{equation}
+\boxed{
+U_A(t)\approx
+\frac{1}{RC}
+\int U_E(t)\,\mathrm{d}t
+}.
+\end{equation}
+\noindent
+Die Ausgangsspannung entspricht somit näherungsweise dem zeitlichen Integral der Eingangsspannung.
+\noindent
+Bei einer sinusförmigen Eingangsspannung ergibt sich wieder eine sinusförmige Ausgangsspannung, die gegenüber dem Eingang um etwa $90^\circ$ phasenverschoben ist:
+
+\begin{equation}
+\int\sin(\omega t)\,\mathrm{d}t
+=
+-\frac{1}{\omega}\cos(\omega t).
+\end{equation}
+\noindent
+Bei einer Rechteckspannung besitzt die Eingangsspannung während jeder Halbperiode einen annähernd konstanten Wert. Das Integral eines konstanten Wertes steigt beziehungsweise fällt linear mit der Zeit. Daher wird aus einer idealen Rechteckspannung am Eingang näherungsweise eine Dreiecksspannung am Ausgang.
+\noindent
+Im Versuch wurde bei dieser Dreiecksspannung eine leichte Rundung beobachtet. Dies zeigt, dass die Schaltung nicht vollkommen ideal integriert. Der Kondensator lädt und entlädt sich während einer Halbperiode bereits merklich, sodass der Strom nicht exakt durch
+
+\begin{equation}
+I(t)=\frac{U_E(t)}{R}
+\end{equation}
+\noindent
+beschrieben werden kann. Dadurch wird die Ausgangsspannung leicht gekrümmt und weicht von einem ideal geradlinigen Dreiecksverlauf ab.
+\noindent
+Bei einer dreieckförmigen Eingangsspannung ändert sich die Eingangsspannung linear mit der Zeit. Durch die Integration entsteht deshalb theoretisch ein stückweise parabelförmiger Verlauf. Ein solcher gekrümmter Verlauf wurde auch qualitativ beobachtet. Im Protokoll ist außerdem eine leichte Asymmetrie des Ausgangssignals festgehalten, wobei ein Abschnitt steiler verlief als der entsprechende Gegenabschnitt.
+\noindent
+Eine mögliche Ursache dafür liegt ebenfalls in der nicht idealen Eingangsspannung. Ist das erzeugte Dreieck beispielsweise nicht vollkommen symmetrisch oder besitzen die ansteigende und abfallende Flanke geringfügig unterschiedliche Steigungen, wird diese Asymmetrie beim Integrieren auf die Ausgangsspannung übertragen. Zusätzlich können Bauteiltoleranzen und das nicht ideale Verhalten des Kondensators zu kleineren Abweichungen beitragen.
+
+\subsection{Ergebnis und Diskussion}
+\noindent
+Die beobachteten Spannungsverläufe entsprechen insgesamt dem erwarteten Verhalten eines Differenzierers beziehungsweise Integrierers:
+
+\begin{center}
+\begin{tabular}{c|c|c}
+Eingangssignal & Differenzierer & Integrierer\\
+\hline
+Sinus & phasenverschobener Sinus & phasenverschobener Sinus\\
+Dreieck & näherungsweise Rechteck & näherungsweise parabelförmig\\
+Rechteck & positive und negative Spitzen & näherungsweise Dreieck
+\end{tabular}
+\end{center}
+\noindent
+Die beobachteten Abweichungen von diesen idealen Verläufen lassen sich vor allem dadurch erklären, dass sowohl die verwendeten Schaltungen als auch die Eingangssignale nicht ideal sind. Insbesondere besitzen die Flanken einer realen Rechteckspannung eine endliche Anstiegszeit und die Ecken einer Dreiecksspannung sind nicht vollkommen scharf. Da Differenzierer und Integrierer direkt auf den zeitlichen Verlauf der Eingangsspannung reagieren, werden solche Abweichungen auch in der Ausgangsspannung sichtbar.
+\noindent
+Außerdem gelten die Beziehungen
+
+\begin{equation}
+U_A(t)\propto\frac{\mathrm{d}U_E(t)}{\mathrm{d}t}
+\end{equation}
+\noindent
+beziehungsweise
+
+\begin{equation}
+U_A(t)\propto\int U_E(t)\,\mathrm{d}t
+\end{equation}
+\noindent
+für die realen Schaltungen nur näherungsweise. Endliche Zeitkonstanten, Bauteiltoleranzen und nichtideale Eigenschaften der verwendeten Spule beziehungsweise des Kondensators führen daher zu den beobachteten Rundungen und leichten Asymmetrien. Insgesamt stimmen die Messungen jedoch qualitativ gut mit den theoretischen Erwartungen überein.
 
 \newpage
 \chapter{Anhang}
