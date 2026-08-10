@@ -59,24 +59,246 @@
 
 \newpage
 \chapter{Auswertung}
-\section{Teilversuch I:}
-
 \newpage
-\section{Teilversuch II: }
-
+\section{Teilversuch II: Drehmoment des Feldes auf eine stromdurchflossene Spule}
+Im zweiten Teilversuch sollte das Drehmoment untersucht werden, dass auf eine stromdurchflossene Spule in einem näherungsweise homogenen Magnetfeld  wirkt.
+Hierzu wurden zu verschiedenen Winkeln zwischen Spulenachse und Magnetfeldrichtung der Torsionswinkel eines Drahtes gemessen. Dieser ist proportional zum wirkenden 
+Drehmoment.
+Das auf die Spule wirkende Drehmoment wird beschrieben durch:
+\begin{equation}
+    \begin{split}
+        M = IAB \sin(\alpha)
+    \end{split}
+\end{equation}
+Wobei $\alpha$ den winkel zwischen der Flächennormalen der Spule und dem Magnetfeld beschreibt. Dieses Drehmoment bewirkt eine Verdrillung des Torsionsdrahts,
+die folgendermaßen beschrieben werden kann:
+\begin{equation}
+    \begin{split}
+        M = -D \varphi
+    \end{split}
+\end{equation}
+Setzt man diese Formeln zusammen, erhält man folgende Proportionalität zwischen $\varphi$ und $\sin(\alpha)$:
+\begin{equation}
+    \varphi = - \frac{IAB}{D} \sin(\alpha)
+    \label{eq:phiSinAlphaTheor}
+\end{equation}
+Das Ziel im Folgenden ist es, diese Proportionalität mithilfe der aufgezeichneten Daten zu überprüfen.
+Im Versuch wurde für gegebene $\alpha$ der Winkel des Einstellknopfs ($\beta$) bestimmt. Der Winkel $\varphi$ errechnet sich aus diesen Winkeln wie folgt:
+\begin{equation}
+    \varphi = \alpha - \beta
+\end{equation}
+Der Fehler von $\varphi$ berechnet sich folgendermaßen:
+\begin{equation}
+    \begin{split}
+        \Delta \varphi &= \sqrt{\left(\frac{\partial \varphi}{\partial \alpha}\Delta \alpha\right)^2 + \left(\frac{\partial \varphi}{\partial \beta}\Delta \beta\right)^2} \\
+                    &= \sqrt{(\Delta \alpha)^2 + (\Delta \beta)^2}
+    \end{split}
+\end{equation}
+Zur Auswertung ist zu beachten, dass während der Versuchsdurchführung ein Winkel $\tilde{\beta}$ gemessen wurde, der noch über einen Anfangsoffset verschoben ist. 
+Der tatsächliche Winkel $\beta$ muss also noch folgendermaßen berechnet werden:
+\begin{equation}
+    \beta = \tilde{\beta} - \beta_0
+\end{equation}
+In unserem Fall lag der Winkel $\beta_0$ bei $\qty{268.0}{\degree}$
+Führt man die beschriebenen Manipulationen mithilfe eines Python Skripts (Siehe \ref{scr:calcAng}) durch, erhält man folgende Werte:
+\begin{table}[H]
+        \begin{center}
+                \begin{tabular}{|c|c|c|}
+                        \hline
+                        $\alpha$ in $^{\circ}$ & $\beta$ in $^{\circ}$ & $\varphi$ in $^{\circ}$ \\
+                        \hline
+                        $0.0 \pm 2.0$ & $0.0 \pm 1.0$ & $0.0 \pm 2.3$ \\
+                        \hline
+                        $10.0 \pm 2.0$ & $18.0 \pm 1.0$ & $-8.0 \pm 2.3$ \\
+                        \hline
+                        $20.0 \pm 2.0$ & $39.0 \pm 1.0$ & $-19.0 \pm 2.3$ \\
+                        \hline
+                        $30.0 \pm 2.0$ & $54.5 \pm 1.0$ & $-24.5 \pm 2.3$ \\
+                        \hline
+                        $40.0 \pm 2.0$ & $72.0 \pm 1.0$ & $-32.0 \pm 2.3$ \\
+                        \hline
+                        $50.0 \pm 2.0$ & $88.0 \pm 1.0$ & $-38.0 \pm 2.3$ \\
+                        \hline
+                        $60.0 \pm 2.0$ & $102.5 \pm 1.0$ & $-42.5 \pm 2.3$ \\
+                        \hline
+                        $70.0 \pm 2.0$ & $116.0 \pm 1.0$ & $-46.0 \pm 2.3$ \\
+                        \hline
+                        $80.0 \pm 2.0$ & $128.0 \pm 1.0$ & $-48.0 \pm 2.3$ \\
+                        \hline
+                        $90.0 \pm 2.0$ & $139.5 \pm 1.0$ & $-49.5 \pm 2.3$ \\
+                        \hline
+                \end{tabular}
+        \end{center}
+        \caption{Berechnete Winkel}
+        \label{tab:angles}
+\end{table}
+\noindent
+Wir überprüfen nun die Proportionalität zwischen $\varphi$ und $\sin(\alpha)$, indem wir die Werte der Tabelle \ref{tab:angles} in ein Diagramm Plotten.
+Per Konvention entscheiden wir uns hier, $-\varphi$ gegenüber $\sin(\alpha)$ zu plotten. Die Steigung der theoretisch vorhergesagten Ursprungsgeraden entspricht dann: $m = (IAB)/D$.
+Fittet man eine Ausgleichsgerade an die Messwerte (\ref{scr:phiSinAlpha}), erhält man dieses Diagramm:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{./Images/PhiSinAlpha.png}
+    \caption{$\varphi(\sin(\alpha))$-Diagramm}
+    \label{fig:PhiSinAlpha}
+\end{figure}
+Am Parameter $b = (0.4 \pm 0.6)^{\circ}$ ist erkennbar, dass die Messwerte im Rahmen der Unsicherheit tatsächlich auf einer durch den Ursprung verlaufenden Gerade liegen,
+damit ist die theoretische Vorhersage (\ref{eq:phiSinAlphaTheor}) bestätigt.
+Der Proportionalitätsfaktor ist gegeben durch:
+\begin{equation}
+    \begin{split}
+        \frac{IAB}{D} = (48.8 \pm 0.8)^{\circ}
+    \end{split}
+\end{equation}
 \newpage
-\section{Teilversuch II: }
-
-\newpage
-\section{Teilversuch III: }
-
+\section{Teilversuch III: Induktion durch Drehen einer Spule im Magnetfeld}
+In Teilversuch III wurde die Induktion durch das Rotieren einer Spule im näherungsweise homogenen Magnetfeld eines Helmholtz Spulenpaars untersucht.
+Hierzu wurde mithilfe eines XY/t-Schreibers ein $U_{\mathrm{ind}}(t)$-Diagramm (Abb. \ref{fig:UIndtDiagrammBewegungsinduktion}) aufgezeichnet.
+Aus diesem Diagramm konnten folgende Spannungsamplituden abgelesen werden:
+\begin{table}[H]
+    \centering
+    \caption{Spannungsamplituden der Bewegungsinduktion}
+    \label{tab:AmpBewInd}
+    \begin{tabular}{c c}
+        \hline
+        Index das Extremums & $\hat{U}_i$ in \si{V}\\
+        \hline
+        1 &  1.095\\
+        2 &  1.105\\
+        3 &  1.055\\
+        4 &  1.125\\
+        5 &  1.085\\
+        6 &  1.125\\
+        7 &  1.080\\
+        8 &  1.125\\
+        9 &  1.120\\
+        10 &  1.130\\
+        11 &  1.095\\
+        12 &  1.135\\
+        13 &  1.115\\
+        14 &  1.115\\
+        15 &  1.080\\
+        16 &  1.115
+    \end{tabular}
+\end{table}
+\noindent
+Zunächst berechnen wir aus diesen Werten den Mittelwert und dessen statistischen Fehler. Dies geschieht mithilfe des Python Scripts \ref{scr:meanAndError}.
+Die Berechnung des Fehlers erfolgt dabei nach folgender Formel:
+\begin{equation}
+    s_{\bar{U}} = \frac{s_{U}}{\sqrt{n}}
+\end{equation}
+Wobei $n$ die Anzahl der Messpunkte ist und die Standardabweichung $s_U$ durch die empirische Streuung gegeben ist:
+\begin{equation}
+    \begin{split}
+        s_U = \sqrt{\frac{1}{n-1}\sum_{i=1}^{n} (U_i - \bar{U})^2}
+    \end{split}
+\end{equation}
+Bei Durchführung der Berechnungen erhält man folgendes Ergebnis für den Mittelwert der Spannungsamplitude sowie dessen Fehler: 
+\begin{equation}
+    \bar{\hat{U}}_{\mathrm{ind}} = 1.106 \pm 0.006
+\end{equation}
+Hierbei handelt es sich um die korrekte Berechnung des Fehlers, da dieser aus der statistischen Streuung der gemessenen Spannungsamplituden hervorgeht, weshalb sich 
+der Fehler aus der Standardabweichung wie oben beschrieben berechnet.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.9\textwidth]{./Images/UIndtDiagrammBewegungsinduktion.jpg}
+    \caption{$U_{ind}(t)$-Diagramm einer rotierenden Spule im homogenen Magnetfeld}
+    \label{fig:UIndtDiagrammBewegungsinduktion}
+\end{figure}
+\noindent
+Aus den experimentellen Daten kann nun der Betrag der Magnetischen Flussdichte ($\left\lvert\vec{B}\right\rvert$) errechnet werden. 
+Für die Spule Induktionsspannung einer rotierenden Spule gilt:
+\begin{equation}
+    U_{\mathrm{ind}} = NBA\omega\sin(\omega t) = \hat{U}_{\mathrm{ind}} \sin(\omega t)
+\end{equation}
+Daraus folgt:
+\begin{equation}
+    B = \frac{\hat{U}_{\mathrm{ind}}}{NA\omega}
+    \label{eq:BExp}
+\end{equation}
+Dabei werden $A = \qty{23.5e-4}{\meter \squared}$ und $N = 82800$ als fehlerfrei angegeben.
+Die Winkelgeschwindigkeit errechnet sich aus der Rotationsfrequenz des Motors. Diese ist angegeben als $f_0 = \qty{16.6}{min^{-1}}$ (bei $\qty{60}{Hz}$ Netzfrequenz).
+Da das Stromnetz in Deutschland nur eine Frequenz von $50 \si{Hz}$ hat und die Rotationsfrequenz proportional zur Frequenz der Spannungsversorgung ist, 
+ergibt sich folgendes für die Winkelgeschwindigkeit:
+\begin{equation}
+    \begin{split}
+        \omega  &= 2 \pi f \\
+                &= 2 \pi f_0 \cdot \frac{50}{60} \\
+                &= 2 \pi \cdot 16.6 \si{min^{-1}} \cdot \frac{\si{min}}{60 \si{s}} \cdot \frac{50}{60} \\
+                &= 1.449 \si{\per \second}
+    \end{split}
+\end{equation}
+Einsetzen dieser Werte und $\bar{\hat{U}}_{\mathrm{ind}}$ in \ref{eq:BExp} ergibt:
+\begin{equation}
+    \bar{B} = \qty{3.923}{mT}
+\end{equation}
+Die Unsicherheit dieses Wertes ergibt sich durch:
+\begin{equation}
+    \begin{split}
+        \Delta B &= \frac{\partial B}{\partial \hat{U}_{\mathrm{ind}}} \cdot \Delta \hat{U}_{\mathrm{ind}} \\
+                    &= \frac{\Delta \hat{U}_{\mathrm{ind}}}{NA\omega} \\
+                    &= \qty{0.022e-3}{mT}
+    \end{split}
+\end{equation}
+Die experimentell bestimmte Flussdichte liegt also bei:
+\begin{equation}
+    \boxed{B_{\mathrm{exp}} = (3.923 \pm 0.022) \si{mT}}
+\end{equation}
+Die magnetische Flussdichte in der Mitte eines Helmholtz Spulenpaars kann auch theoretisch aus den geometrischen Eigenschaften der Spule und dem durch diese fließenden
+elektrischen Strom berechnet werden. Hierzu gilt folgender Zusammenhang:.
+\begin{equation}
+    B_{\mathrm{theo}} = \mu_0 (4/5)^{\frac{3}{2}} \cdot \frac{NI}{R}
+    \label{eq:BTheoHelmh}
+\end{equation}
+Die Windungszahl der Helmholtzspule ist gegeben durch $N = 528$.
+Die Stromstärke wurde mithilfe eines Multimeters bestimmt. Der abgelesene Wert lag bei $\bar{I} = 1.119 \si{\ampere}$. In diesem Messbereich liegt der Fehler des Multimeters bei
+$\Delta I = 1.0 \% I + 3$.
+Demzufolge liegt der mithilfe des gemessene Strom bei:
+\begin{equation}
+    I = (1.119 \pm 0.015) A
+\end{equation}
+Zur Berechnung des Radius wurden Innen- und Außendurchmesser der Spule gemessen ($D = (30.70 \pm 0.010) \si{cm}$, $d = (25.10 \pm 0.010) \si{cm}$). 
+Der effektive Durchmesser der Spule beträgt damit:
+\begin{equation}
+    \begin{split}
+        D_{\mathrm{eff}}    &= \frac{D + d}{2} \\
+                            &= (0.2790 \pm 0.0010) \si{m}
+    \end{split}
+\end{equation}
+Daraus folgt der Radius:
+\begin{equation}
+    R = \frac{D}{2} = (0.1395 \pm 0.0005) \si{m}
+\end{equation}
+Setzt man diese Werte in Formel \ref{eq:BTheoHelmh} ein, erhält man:
+\begin{equation}
+    \bar{B}_{\mathrm{theo}} = \qty{3.8083}{mT}
+\end{equation}
+Die Unsicherheit dieses Messwerts ist gegeben durch:
+\begin{equation}
+    \begin{split}
+        \Delta B_{\mathrm{theo}} &= \sqrt{\left(\frac{\partial B}{\partial R}\cdot \Delta R\right)^2 + \left(\frac{\partial B}{\partial I} \cdot \Delta I\right)^2} \\
+                                 &= B_{\mathrm{theo}} \sqrt{\left(\frac{\Delta R}{R}\right)^2 + \left(\frac{\Delta I}{I}\right)^2} \\
+                                 &= \qty{0.06}{mT}
+    \end{split}
+\end{equation}
+Das Endergebnis für die theoretisch bestimmte Flussdichte liegt damit bei:
+\begin{equation}
+    \begin{split}
+        \boxed{B_{\mathrm{theo}} = (3.81 \pm 0.06) \si{mT}}
+    \end{split}
+\end{equation}
+Vergleicht man den theoretisch berechneten und den experimentell bestimmten Wert für die Flussdichte, fällt auf, dass die im Rahmen der Messunsicherheit nicht 
+übereinstimmen. Im Rahmen eines $3\sigma$-Intervalls sind die Werte allerdings miteinander verträglich. Mögliche Fehler in der experimentellen Bestimmung könnten
+beispielsweise dadurch entstehen, dass das Feld der Helmholtzspule nicht perfekt homogen ist, durch einen nicht perfekt mit der angegebenen Frequenz drehenden Motor 
+oder durch die Ungenauigkeit des Schreibers. Diese Werte wurden in der Auswertung als fahlerfreie Daten angenommen, was in der Realität natürlich niemals der Fall
+sein kann.
 \newpage
 \section{Teilversuch IV: }
 
 \newpage
 \chapter{Anhang}
 \section{Python Scripts}
-Die Python Scripts, die zum Plotten der Grafiken verwendet wurden, wurden mit Unterstützung von KI erstellt und dann nach den eigenen Bedürfnissen weiter
+Die Python Scripts, die zum Plotten der Grafiken verwendet wurden, wurden teilweise mit Unterstützung von KI erstellt und dann nach den eigenen Bedürfnissen weiter
 bearbeitet.
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
@@ -101,5 +323,144 @@ bearbeitet.
     showtabs=false,                  
     tabsize=2
 }
+
+\subsection{TV II:}
+\subsubsection{Berechnung der Winkel}
+\label{scr:calcAng}
+\begin{scriptsize}
+\lstset{style=python}
+\begin{lstlisting}[language=python]
+import numpy as np
+from texttable import Texttable
+from latextable import draw_latex
+from math import ceil
+
+alpha = np.array([0, 10, 20, 30, 40, 50, 60, 70, 80, 90])
+_beta = np.array([268.0, 286.0, 307.0, 322.5, 340.0, 356.0, 370.5, 384.0, 396.0, 407.5])
+dalpha = 2
+dbeta = 1
+beta = _beta - 268.0
+phi = alpha - beta
+dphi = np.sqrt(dalpha**2 + dbeta**2)
+
+
+table = Texttable()
+table.set_cols_dtype(['t', 't', 't'])
+table.set_cols_align(['c', 'c', 'c'])
+table.add_row(['$\\alpha$ in $^{\\circ}$', '$\\beta$ in $^{\\circ}$', '$\\varphi$ in $^{\\circ}$'])
+for i in range(len(alpha)):
+    table.add_row([f"${alpha[i]:.1f} \pm {ceil(dalpha * 10) / 10:.1f}$", f"${beta[i]:.1f} \pm {ceil(dbeta * 10) / 10:.1f}$", f"${phi[i]:.1f} \pm {ceil(dphi * 10) / 10:.1f}$"])
+
+latex_table = draw_latex(table, caption="Berechnete Winkel", label="tab:angles")
+print(latex_table)
+
+print("\nBerechnete Winkel:")
+print(f"alpha = np.array({alpha})")
+print(f"phi = np.array({phi})")
+\end{lstlisting}
+\end{scriptsize}
+
+\subsubsection{Plot des $\phi$-$\sin(\alpha)$-Diagramms}
+\label{scr:phiSinAlpha}
+\begin{scriptsize}
+\lstset{style=python}
+\begin{lstlisting}[language=python]
+import numpy as np
+import matplotlib.pyplot as plt
+from math import ceil
+
+alpha = np.array([0, 10, 20, 30, 40, 50, 60, 70, 80, 90])
+sinAlpha = np.sin(np.radians(alpha))
+phi = -np.array([0.0, -8.0, -19.0, -24.5, -32.0, -38.0, -42.5, -46.0, -48.0, -49.5])
+dphi = 2.3
+
+line, cov = np.polyfit(sinAlpha, phi, 1, cov=True)
+slope, intercept = line
+d_slope, d_intercept = np.sqrt(np.diag(cov)) #Berechnung der Fehler der Fitparameter
+
+y_line = np.polyval(line, sinAlpha)
+slope, intercept = line
+label_fit = (rf"Linearer Fit $\varphi = a \cdot \sin(\alpha) + b$" "\n" rf"mit $a = {slope:.1f} \pm {ceil(d_slope*10)/10:.1f}, b = {intercept:.1f} \pm {ceil(d_intercept*10)/10:.1f}$")
+
+fig, ax = plt.subplots(figsize=(7, 4.5))
+
+ax.errorbar(
+    sinAlpha, phi,
+    yerr=dphi,
+    fmt='o',
+    ms=4,
+    color='steelblue',
+    mec='white',
+    mew=0.8,
+    ecolor='steelblue',
+    elinewidth=1,
+    capsize=4,
+    capthick=1,
+    label="Messwerte",
+    zorder=3,
+)
+
+ax.plot(
+    sinAlpha, y_line,
+    color='tomato',
+    linewidth=1.5,
+    linestyle='--',
+    label=label_fit,
+    zorder=2,
+)
+
+# Achsen bei 0,0
+ax.spines['left'].set_position('zero')
+ax.spines['bottom'].set_position('zero')
+ax.spines['right'].set_visible(False)
+ax.spines['top'].set_visible(False)
+
+# Achsenpfeile
+ax.plot(1, 0, ">k", transform=ax.get_yaxis_transform(), clip_on=False, ms=4)
+ax.plot(0, 1, "^k", transform=ax.get_xaxis_transform(), clip_on=False, ms=4)
+
+ax.set_xlim(-0.05, 1.1)
+ax.set_ylim(-5, 60)
+
+ax.set_xlabel(r"$\sin(\alpha)$", labelpad=15)
+ax.set_ylabel(r"$\varphi$ in $^{\circ}$", labelpad=15, rotation=0, ha='right')
+
+ax.set_title(r"$\varphi$ in Abhaengigkeit von $\sin(\alpha)$", pad=12, fontsize=12)
+ax.grid(True, linestyle=':', alpha=0.4, color='gray')
+
+ax.legend(
+    loc='upper left',
+    framealpha=0.9,
+    edgecolor='lightgray',
+    fontsize=9,
+)
+
+plt.tight_layout()
+plt.savefig("./03_MAG/Images/PhiSinAlpha.png", dpi=800)
+plt.show()
+\end{lstlisting}
+\end{scriptsize}
+
+\subsection{TV III:}
+\subsubsection{Berechnung des Mittelwerts der Spannungsamplituden}
+\label{scr:meanAndError}
+\begin{scriptsize}
+\lstset{style=python}
+\begin{lstlisting}[language=python]
+import numpy as np
+
+values = [1.095, 1.105, 1.055, 1.125, 1.085, 1.125, 1.080, 
+          1.125, 1.120, 1.130, 1.095, 1.135, 1.115, 1.115, 
+          1.080, 1.115]
+
+mean = np.mean(values)
+mean = np.round(mean, 3)
+sigma = np.std(values, ddof = 1) #Standardabweichung einer Stichprobe mit Besselscher Korrektur
+error = sigma / np.sqrt(len(values))
+error = np.round(error, 3)
+print(f"\hat{{U}}_{{\mathrm{{ind}}}} = {mean} \pm {error}")
+\end{lstlisting}
+\end{scriptsize}
+
 
 \end{document}
