@@ -295,6 +295,598 @@ oder durch die Ungenauigkeit des Schreibers. Diese Werte wurden in der Auswertun
 sein kann.
 \newpage
 \section{Teilversuch IV: }
+\noindent
+In diesem Teilversuch wurde die Induktionsspule nicht bewegt, während das Magnetfeld
+der Helmholtzspule zeitlich verändert wurde. Hierzu wurde ein dreieckförmiger
+Feldstrom mithilfe des Funktionengenerators angelegt. Mit dem XY/t-Schreiber wurden sowohl der zeitliche Verlauf des
+Feldstroms als auch die an der Induktionsspule auftretende Induktionsspannung
+aufgezeichnet.
+\noindent
+Gemäß dem Induktionsgesetz gilt
+
+\begin{equation}
+U_{\mathrm{ind}}
+=
+-N_{\mathrm I}A_{\mathrm I}
+\frac{\mathrm dB}{\mathrm dt}.
+\end{equation}
+\noindent
+Da das Magnetfeld der Helmholtzspule bei unveränderter Geometrie proportional zum
+Feldstrom ist,
+
+\begin{equation}
+B\propto I,
+\end{equation}
+\noindent
+folgt
+
+\begin{equation}
+U_{\mathrm{ind}}
+\propto
+-\frac{\mathrm dI}{\mathrm dt}.
+\end{equation}
+\noindent
+Bei einem dreieckförmigen Feldstrom ist die zeitliche Änderung des Stroms innerhalb
+einer Halbperiode näherungsweise konstant. Entsprechend wird also innerhalb einer
+Halbperiode eine näherungsweise konstante Induktionsspannung erwartet.
+
+\subsection{Skalierung des Schreiberdiagramms}
+\noindent
+Die Zeitablenkung des Schreibers betrug
+
+\begin{equation}
+1\,\mathrm{s/cm}.
+\end{equation}
+\noindent
+Damit gilt für die Zeitachse
+
+\begin{equation}
+\boxed{
+1\,\mathrm{cm}
+\;\widehat{=}\;
+1\,\mathrm{s}
+}.
+\end{equation}
+\noindent
+Die vertikale Komponente des Schreibers betrug
+
+\begin{equation}
+20\,\mathrm{mV/cm}.
+\end{equation}
+\noindent
+Der Feldstrom wurde über den Spannungsabfall an einem Messwiderstand
+
+\begin{equation}
+R=(0{,}150\pm0{,}002)\,\Omega
+\end{equation}
+\noindent
+bestimmt. Nach dem Ohmschen Gesetz gilt
+
+\begin{equation}
+I=\frac{U_R}{R}.
+\end{equation}
+\noindent
+Eine vertikale Auslenkung von einem Zentimeter entspricht daher einem Feldstrom von
+
+\begin{align}
+I_{\mathrm{1\,cm}}
+&=
+\frac{20\,\mathrm{mV}}{0{,}150\,\Omega} \\
+&=
+0{,}13333\ldots\,\mathrm{A}.
+\end{align}
+\noindent
+Somit wurde die Ordinate der Feldstromkurven mit
+
+\begin{equation}
+\boxed{
+1\,\mathrm{cm}
+\;\widehat{=}\;
+0{,}1333\,\mathrm{A}
+}
+\end{equation}
+\noindent
+skaliert. Für die Induktionsspannung gilt entsprechend
+
+\begin{equation}
+\boxed{
+1\,\mathrm{cm}
+\;\widehat{=}\;
+20\,\mathrm{mV}
+}.
+\end{equation}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Images/unnamed-4.jpg}
+    \caption{Mit dem XY/t-Schreiber aufgezeichnete Verläufe des Feldstroms
+    und der induzierten Spannung.}
+    \label{fig:schreiber_tv4}
+\end{figure}
+
+
+\subsection{Ableseunsicherheiten}
+\noindent
+Da die benötigten Größen von Hand aus dem Schreiberdiagramm auf Millimeterpapier
+abgelesen wurden, und kein Mittelwert genutzt wird, wurde für die Bestimmung einer Strecke eine Ableseunsicherheit von
+
+\begin{equation}
+\Delta l
+=
+0{,}5\,\mathrm{mm}
+=
+0{,}05\,\mathrm{cm}
+\end{equation}
+\noindent
+angenommen.
+\noindent
+Mit der Zeitablenkung von $1\,\mathrm{s/cm}$ ergibt sich
+
+\begin{equation}
+\Delta t
+=
+1\,\mathrm{\frac{s}{cm}}
+\cdot0{,}05\,\mathrm{cm}
+=
+0{,}05\,\mathrm{s}.
+\end{equation}
+\noindent
+Für eine vertikal abgelesene Spannung folgt
+
+\begin{equation}
+\Delta U
+=
+20\,\mathrm{\frac{mV}{cm}}
+\cdot0{,}05\,\mathrm{cm}
+=
+1{,}0\,\mathrm{mV}.
+\end{equation}
+\noindent
+Bei der Bestimmung des Feldstroms muss zusätzlich die Unsicherheit des
+Messwiderstands berücksichtigt werden. Für eine Stromdifferenz $\Delta I$ ergibt
+sich daher
+
+\begin{equation}
+\delta(\Delta I)
+=
+\sqrt{
+\left(
+\frac{1{,}0\,\mathrm{mV}}{R}
+\right)^2
++
+\left(
+\Delta I\frac{\Delta R}{R}
+\right)^2
+}.
+\end{equation}
+
+
+\subsection{Bestimmung der Feldstromsteigungen}
+\noindent
+Für jede der fünf aufgenommenen Feldstromkurven wurde in der ausgewählten
+Halbperiode eine rote Ausgleichsgerade durch den näherungsweise linearen Verlauf gelegt.
+Der Betrag der Steigung ergibt sich aus
+
+\begin{equation}
+\left|
+\frac{\mathrm dI}{\mathrm dt}
+\right|
+\approx
+\frac{\Delta I}{\Delta t}.
+\end{equation}
+\noindent
+Die Unsicherheit der Steigung wurde mit Gaußscher Unsicherheitsfortpflanzung
+bestimmt:
+
+\begin{equation}
+\delta\left(
+\frac{\Delta I}{\Delta t}
+\right)
+=
+\frac{\Delta I}{\Delta t}
+\sqrt{
+\left(
+\frac{\delta(\Delta I)}{\Delta I}
+\right)^2
++
+\left(
+\frac{\delta t}{\Delta t}
+\right)^2
+}.
+\end{equation}
+\noindent
+Für die erste Kurve ergibt sich beispielsweise
+
+\begin{align}
+\left|
+\frac{\mathrm dI}{\mathrm dt}
+\right|_1
+&=
+\frac{66{,}5\,\mathrm{mA}}{4\,\mathrm{s}}\\
+&=
+16{,}625\,\mathrm{\frac{mA}{s}}.
+\end{align}
+\noindent
+Unter Berücksichtigung der Unsicherheiten folgt
+
+\begin{equation}
+\boxed{
+\left|
+\frac{\mathrm dI}{\mathrm dt}
+\right|_1
+=
+(16{,}6\pm1{,}7)\,
+\mathrm{\frac{mA}{s}}
+}.
+\end{equation}
+\noindent
+Analog ergeben sich die Steigungen der übrigen Kurven.
+
+\begin{table}[htbp]
+    \centering
+    \caption{Bestimmung der zeitlichen Änderung des Feldstroms.}
+    \label{tab:stromsteigungen_tv4}
+    \begin{tabular}{c|c|c|c}
+        \hline
+        Kurve &
+        $\Delta t$ in $\mathrm{s}$ &
+        $\Delta I$ in $\mathrm{mA}$ &
+        $\left|\mathrm dI/\mathrm dt\right|$ in $\mathrm{mA/s}$\\
+        \hline
+        1 & 4 & 66{,}5  & $16{,}6\pm1{,}7$\\
+        2 & 5 & 200     & $40{,}0\pm1{,}5$\\
+        3 & 1 & 66{,}5  & $67\pm8$\\
+        4 & 5 & 466{,}5 & $93{,}3\pm2{,}1$\\
+        5 & 3 & 333{,}5 & $111\pm4$\\
+        \hline
+    \end{tabular}
+\end{table}
+\noindent
+Die vergleichsweise große Unsicherheit der dritten Kurve ist vor allem auf das kurze
+ausgewertete Zeitintervall von nur $1\,\mathrm{s}$ zurückzuführen. Dadurch hat die
+Ableseunsicherheit von $0{,}05\,\mathrm{s}$ einen größeren relativen Einfluss.
+
+
+\subsection{Bestimmung der Induktionsspannung}
+\noindent
+Für die entsprechende Halbperioden wurden ebenfalls rote, diesmal waagerechte Geraden durch die
+annähernd konstanten Bereiche der rechteckförmigen Induktionsspannung gelegt.
+Die Spannungswerte wurden anschließend aus dem Schreiberdiagramm abgelesen.
+\noindent
+Aus der vertikalen Skalierung und der angenommenen Ableseunsicherheit ergibt sich
+
+\begin{equation}
+\Delta U_{\mathrm{ind}}
+=
+1{,}0\,\mathrm{mV}.
+\end{equation}
+\noindent
+Damit wurden folgende Induktionsspannungen bestimmt:
+
+\begin{table}[htbp]
+    \centering
+    \caption{Gemessene Induktionsspannungen.}
+    \label{tab:induktionsspannungen_tv4}
+    \begin{tabular}{c|c}
+        \hline
+        Kurve & $|U_{\mathrm{ind}}|$ in $\mathrm{mV}$\\
+        \hline
+        1 & $10{,}0\pm1{,}0$\\
+        2 & $25{,}0\pm1{,}0$\\
+        3 & $40{,}0\pm1{,}0$\\
+        4 & $58{,}0\pm1{,}0$\\
+        5 & $71{,}0\pm1{,}0$\\
+        \hline
+    \end{tabular}
+\end{table}
+\noindent
+Bereits anhand der Messwerte ist zu erkennen, dass mit zunehmendem Betrag der
+zeitlichen Änderung des Feldstroms auch der Betrag der Induktionsspannung zunimmt.
+
+
+\subsection{Quantitative Überprüfung des Induktionsgesetzes}
+\noindent
+Für das Magnetfeld im Zentrum eines Helmholtzspulenpaares gilt
+
+\begin{equation}
+B
+=
+\mu_0
+\left(\frac{4}{5}\right)^{3/2}
+\frac{N_{\mathrm H}}{R_{\mathrm H}}I.
+\end{equation}
+\noindent
+Für den mittleren Durchmesser der Helmholtzspule wurde aus Außen- und
+Innendurchmesser
+
+\begin{equation}
+D_{\mathrm{a}}
+=
+(30{,}7\pm0{,}1)\,\mathrm{cm}
+\end{equation}
+\noindent
+und
+
+\begin{equation}
+D_{\mathrm{i}}
+=
+(25{,}1\pm0{,}1)\,\mathrm{cm}
+\end{equation}
+\noindent
+der mittlere Durchmesser
+
+\begin{equation}
+D_{\mathrm H}
+=
+\frac{D_{\mathrm a}+D_{\mathrm i}}{2}
+\end{equation}
+\noindent
+bestimmt. Daraus folgt
+
+\begin{equation}
+D_{\mathrm H}
+=
+27{,}90\,\mathrm{cm}.
+\end{equation}
+\noindent
+Die Unsicherheit beträgt
+
+\begin{equation}
+\Delta D_{\mathrm H}
+=
+\frac{1}{2}
+\sqrt{
+(\Delta D_{\mathrm a})^2+
+(\Delta D_{\mathrm i})^2
+}
+=
+0{,}0707\ldots\,\mathrm{cm}.
+\end{equation}
+\noindent
+Somit ergibt sich
+
+\begin{equation}
+\boxed{
+D_{\mathrm H}
+=
+(27{,}90\pm0{,}08)\,\mathrm{cm}
+}
+\end{equation}
+\noindent
+und damit für den Radius
+
+\begin{equation}
+\boxed{
+R_{\mathrm H}
+=
+(13{,}95\pm0{,}04)\,\mathrm{cm}
+}.
+\end{equation}
+\noindent
+Weiterhin haben wir für den Aufbau, gemäß Protokoll, notiert:
+
+\begin{equation}
+N_{\mathrm H}=528,
+\qquad
+N_{\mathrm I}=82800,
+\qquad
+A_{\mathrm I}=23{,}5\,\mathrm{cm^2}
+=
+2{,}35\cdot10^{-3}\,\mathrm{m^2}.
+\end{equation}
+\noindent
+Einsetzen des Magnetfeldes in das Induktionsgesetz liefert
+
+\begin{align}
+U_{\mathrm{ind}}
+&=
+-N_{\mathrm I}A_{\mathrm I}
+\frac{\mathrm dB}{\mathrm dt}\\
+&=
+-N_{\mathrm I}A_{\mathrm I}
+\mu_0
+\left(\frac{4}{5}\right)^{3/2}
+\frac{N_{\mathrm H}}{R_{\mathrm H}}
+\frac{\mathrm dI}{\mathrm dt}.
+\end{align}
+\noindent
+Damit wird theoretisch ein linearer Zusammenhang
+
+\begin{equation}
+|U_{\mathrm{ind}}|
+=
+K_{\mathrm{theo}}
+\left|
+\frac{\mathrm dI}{\mathrm dt}
+\right|
+\end{equation}
+\noindent
+mit
+
+\begin{equation}
+K_{\mathrm{theo}}
+=
+N_{\mathrm I}A_{\mathrm I}
+\mu_0
+\left(\frac{4}{5}\right)^{3/2}
+\frac{N_{\mathrm H}}{R_{\mathrm H}}
+\end{equation}
+\noindent
+erwartet.
+\noindent
+Mit den gegebenen Werten ergibt sich
+
+\begin{align}
+K_{\mathrm{theo}}
+&=
+82800
+\cdot2{,}35\cdot10^{-3}\,\mathrm{m^2}
+\cdot4\pi\cdot10^{-7}\,\mathrm{\frac{Vs}{Am}}\\
+&\qquad\cdot
+\left(\frac45\right)^{3/2}
+\frac{528}{0{,}1395\,\mathrm m}\\
+&=
+0{,}66222\ldots\,\mathrm{\frac{Vs}{A}}.
+\end{align}
+\noindent
+Da für $N_{\mathrm H}$, $N_{\mathrm I}$ und $A_{\mathrm I}$ keine zusätzlichen
+Unsicherheiten vorliegen bzw. wir diese Werte als fehlerfrei annehmen sollen, wurde für die Unsicherheit von
+$K_{\mathrm{theo}}$ nur die Unsicherheit des Helmholtzspulenradius
+berücksichtigt:
+\noindent
+\begin{equation}
+\frac{\Delta K_{\mathrm{theo}}}{K_{\mathrm{theo}}}
+=
+\frac{\Delta R_{\mathrm H}}{R_{\mathrm H}}.
+\end{equation}
+\noindent
+Daraus ergibt sich
+
+\begin{equation}
+\boxed{
+K_{\mathrm{theo}}
+=
+(0{,}6622\pm0{,}0017)\,
+\mathrm{\frac{Vs}{A}}
+}.
+\end{equation}
+
+
+\subsection{Vergleich mit den Messwerten}
+\noindent
+Zur experimentellen Überprüfung wurden die gemessenen Induktionsspannungen gegen
+die Beträge der Feldstromsteigungen aufgetragen. Die zuvor bestimmten
+Unsicherheiten können hierbei als horizontale und vertikale Unsicherheitsbalken
+eingetragen werden.
+\noindent
+Eine lineare Regression der Zentralwerte ergibt
+
+\begin{equation}
+|U_{\mathrm{ind}}|
+=
+0{,}6383\,\mathrm{\frac{Vs}{A}}
+\left|
+\frac{\mathrm dI}{\mathrm dt}
+\right|
+-
+1{,}02\,\mathrm{mV}.
+\end{equation}
+\noindent
+Das Bestimmtheitsmaß beträgt
+
+\begin{equation}
+\boxed{
+R^2=0{,}9984
+}.
+\end{equation}
+\noindent
+Damit zeigen die Messwerte einen sehr ausgeprägten linearen Zusammenhang.
+Der Achsenabschnitt von etwa $-1\,\mathrm{mV}$ liegt in der Größenordnung der
+Ableseunsicherheit der Induktionsspannung und ist daher mit einem verschwindenden
+Achsenabschnitt vereinbar.
+\noindent
+Die experimentell bestimmte Steigung der Geraden beträgt somit näherungsweise
+
+\begin{equation}
+K_{\mathrm{exp}}
+=
+0{,}6383\,\mathrm{\frac{Vs}{A}}.
+\end{equation}
+\noindent
+Die relative Abweichung vom theoretisch erwarteten Wert beträgt
+
+\begin{align}
+\varepsilon
+&=
+\frac{
+|K_{\mathrm{exp}}-K_{\mathrm{theo}}|
+}{
+K_{\mathrm{theo}}
+}
+\cdot100\,\%\\
+&=
+\frac{|0{,}6383-0{,}6622|}
+{0{,}6622}
+\cdot100\,\%\\
+&\approx
+3{,}6\,\%.
+\end{align}
+\noindent
+Somit ergibt sich
+
+\begin{equation}
+\boxed{
+\varepsilon\approx3{,}6\,\%
+}.
+\end{equation}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Images/tv4.png}
+    \caption{Induktionsspannung in Abhängigkeit von der Feldstromsteigung.}
+    \label{fig:tv4}
+\end{figure}
+
+
+\subsection{Diskussion}
+\noindent
+Sowohl die Form der aufgezeichneten Kurven als auch die quantitative Auswertung
+stimmen mit dem Induktionsgesetz überein. Der Feldstrom besitzt einen
+dreieckförmigen Verlauf und ändert sich innerhalb einer Halbperiode
+näherungsweise linear. Seine zeitliche Ableitung ist daher innerhalb einer
+Halbperiode annähernd konstant. Entsprechend wurde eine näherungsweise
+rechteckförmige und innerhalb einer Halbperiode konstante Induktionsspannung
+beobachtet.
+\noindent
+Beim Wechsel von einer steigenden zu einer fallenden Flanke ändert
+$\mathrm dI/\mathrm dt$ sein Vorzeichen. Gleichzeitig wechselt auch die
+Induktionsspannung ihre Polarität. Damit wird auch das negative Vorzeichen des
+Induktionsgesetzes qualitativ bestätigt.
+\noindent
+Die Auftragung von $|U_{\mathrm{ind}}|$ gegen
+$|\mathrm dI/\mathrm dt|$ zeigt mit $R^2=0{,}9984$ einen nahezu linearen
+Zusammenhang. Dies bestätigt die vom Induktionsgesetz vorhergesagte
+Proportionalität. Zusätzlich liegt die experimentell bestimmte Steigung mit
+
+\begin{equation}
+K_{\mathrm{exp}}
+=
+0{,}6383\,\mathrm{\frac{Vs}{A}}
+\end{equation}
+\noindent
+nahe am theoretischen Wert
+
+\begin{equation}
+K_{\mathrm{theo}}
+=
+0{,}6622\,\mathrm{\frac{Vs}{A}}.
+\end{equation}
+\noindent
+Die relative Abweichung beträgt etwa $3{,}6\,\%$.
+\noindent
+Die Stärke der verwendeten Methode liegt darin, dass das Induktionsgesetz sowohl
+qualitativ über die Form der Kurven als auch quantitativ über die Abhängigkeit der
+Induktionsspannung von der Feldstromsteigung überprüft werden kann. Die
+quantitative Genauigkeit ist jedoch insbesondere durch das manuelle Ablesen der
+Kurven vom Millimeterpapier, die endliche Breite der Schreiberlinie und das
+manuelle Legen der Ausgleichsgeraden begrenzt. Zusätzlich geht die Unsicherheit
+des Messwiderstands in die Bestimmung des Feldstroms ein.
+\noindent
+Für die Fläche der Induktionsspule und die Windungszahlen lagen keine
+Unsicherheitsangaben vor. Diese Beiträge konnten daher bei der Unsicherheit des
+theoretischen Proportionalitätsfaktors nicht berücksichtigt werden. Ebenso wurde
+keine zusätzliche Kalibrierunsicherheit des Schreibers berücksichtigt.
+\noindent
+Insgesamt bestätigen die beobachteten Kurvenformen, die nahezu lineare
+Abhängigkeit zwischen Induktionsspannung und Feldstromsteigung sowie die geringe
+Abweichung des experimentellen vom theoretischen Proportionalitätsfaktor das
+Induktionsgesetz sehr gut.
+
+
+
+
+
+
 
 \newpage
 \chapter{Anhang}
@@ -463,5 +1055,171 @@ print(f"\hat{{U}}_{{\mathrm{{ind}}}} = {mean} \pm {error}")
 \end{lstlisting}
 \end{scriptsize}
 
+
+\subsubsection{Python-Code zur Auswertung des Induktionsgesetzes}
+\label{scr:induktionsgesetz}
+
+\begin{scriptsize}
+\lstset{style=python}
+\begin{lstlisting}[language=python]
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Folgende Arrays enthalten die Messwerte
+
+# Feldstromsteigungen in mA/s
+dIdt = np.array([
+    16.625,
+    40.000,
+    66.500,
+    93.300,
+    111.1667
+])
+
+# Unsicherheiten der Feldstromsteigungen in mA/s
+dIdt_err = np.array([
+    1.7,
+    1.5,
+    8.0,
+    2.1,
+    4.0
+])
+
+# Induktionsspannungen in mV
+U_ind = np.array([
+    10.0,
+    25.0,
+    40.0,
+    58.0,
+    71.0
+])
+
+# Ableseunsicherheit der Induktionsspannung in mV
+U_err = np.ones(len(U_ind)) * 1.0
+
+
+# Lineare Regression
+m_exp, b_exp = np.polyfit(dIdt, U_ind, 1)
+
+# Vorhergesagte Werte zur Berechnung von R^2
+U_fit = m_exp * dIdt + b_exp
+
+ss_res = np.sum((U_ind - U_fit)**2)
+ss_tot = np.sum((U_ind - np.mean(U_ind))**2)
+
+R2 = 1 - ss_res / ss_tot
+
+
+# Theoretischer Proportionalitaetsfaktor
+# K_theo = 0.6622 Vs/A
+#
+# Da auf der x-Achse mA/s und auf der y-Achse mV
+# verwendet werden, besitzt die theoretische Gerade
+# numerisch dieselbe Steigung.
+
+K_theo = 0.6622
+
+
+# Werte fuer die Geraden
+x = np.linspace(0, 120, 500)
+
+y_exp = m_exp * x + b_exp
+y_theo = K_theo * x
+
+
+# Diagramm
+plt.figure(figsize=(8, 5.5))
+
+# Messwerte mit horizontalen und vertikalen Fehlerbalken
+plt.errorbar(
+    dIdt,
+    U_ind,
+    xerr=dIdt_err,
+    yerr=U_err,
+    fmt='o',
+    capsize=4,
+    label='Messwerte'
+)
+
+# Experimentelle Ausgleichsgerade
+plt.plot(
+    x,
+    y_exp,
+    label=(
+        rf'Lineare Regression: '
+        rf'$U = {m_exp:.3f}\,\frac{{\mathrm{{Vs}}}}{{\mathrm{{A}}}}'
+        rf'\,\frac{{\mathrm{{d}}I}}{{\mathrm{{d}}t}}'
+        rf'{b_exp:+.2f}\,\mathrm{{mV}}$'
+        '\n'
+        rf'$R^2={R2:.4f}$'
+    )
+)
+
+# Theoretisch erwartete Gerade
+plt.plot(
+    x,
+    y_theo,
+    '--',
+    label=(
+        rf'Theorie: '
+        rf'$K_\mathrm{{theo}}={K_theo:.4f}\,\mathrm{{Vs/A}}$'
+    )
+)
+
+plt.xlabel(
+    r'Betrag der Feldstromsteigung '
+    r'$|\mathrm{d}I/\mathrm{d}t|$ in $\mathrm{mA/s}$'
+)
+
+plt.ylabel(
+    r'Betrag der Induktionsspannung '
+    r'$|U_{\mathrm{ind}}|$ in $\mathrm{mV}$'
+)
+
+plt.xlim(0, 120)
+plt.ylim(0, 80)
+
+plt.grid(alpha=0.3)
+plt.legend()
+plt.tight_layout()
+
+# Optionales Speichern der Abbildung
+# plt.savefig(
+#     "induktionsgesetz_tv4.pdf",
+#     bbox_inches="tight"
+# )
+
+plt.show()
+
+
+# Ausgabe der Ergebnisse
+print(
+    f"Experimentelle Steigung: "
+    f"K_exp = {m_exp:.4f} Vs/A"
+)
+
+print(
+    f"Achsenabschnitt: "
+    f"b = {b_exp:.2f} mV"
+)
+
+print(
+    f"Bestimmtheitsmass: "
+    f"R^2 = {R2:.4f}"
+)
+
+print(
+    f"Theoretische Steigung: "
+    f"K_theo = {K_theo:.4f} Vs/A"
+)
+
+abweichung = abs(m_exp - K_theo) / K_theo * 100
+
+print(
+    f"Relative Abweichung: "
+    f"{abweichung:.1f} %"
+)
+\end{lstlisting}
+\end{scriptsize}
 
 \end{document}
