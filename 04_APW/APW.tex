@@ -9,10 +9,15 @@
 \usepackage{siunitx}
 \usepackage{amsmath}
 \usepackage{rotating}
+\usepackage{pdflscape}
 \usepackage{arydshln}
 \usepackage[hidelinks]{hyperref}
 \usepackage[ngerman]{babel}
 \usepackage[a4paper, total={6in, 8in}]{geometry}
+\usepackage{caption}
+
+\newcommand{\source}[1]{\caption*{\textit{Quelle: {#1}}} }
+
 \begin{document}
 % \includepdf[pages=-]{./PDFs/Deckblatt_P2}
 \begin{titlepage}
@@ -65,13 +70,164 @@
 \section{Teilversuch II: }
 
 \newpage
-\section{Teilversuch II: }
+\section{Teilversuch III: Gefriervorgang von reinem Wasser}
+In Teilversuch III wurde destilliertes Wasser in einem Salz-Eiswasserbad mit einer Temperatur von ca. $\qty{-6}{\degreeCelsius}$ gekühlt. Hierbei konnte folgender 
+Temperaturverlauf beobachtet werden:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{./Images/TV3_TempVerlaufDiag.jpg}
+    \caption{Temperaturverlauf des destillierten Wassers}
+    \label{fig:TempVerlaufDiag}
+\end{figure}
+\noindent
+Es ist erkennbar, dass die Temperatur zunächst absinkt und dann bei etwa $\qty{2}{\degreeCelsius}$ zu stagnieren scheint. Nach dem ersten Rühren sinkt die Temperatur dannn 
+allerdings weiter. Dies liegt daran, dass durch das Rühren Konvektion auftreten kann und so kaltes Wasser vom Rand des Reagenzglases auch in die Mitte zum Temperaturfühler gelangt.
+Interessanterweise steigt allerdings die Temperatur beim erneuten durchmischen wieder an (auf ca. $\qty{1}{\degreeCelsius}$). Dieses Phänomen hat keine direkte physikalische Erklärung und ist höchstwahrscheinlich 
+auf eine ungünstige Positionierung des Thermometers (evtl mit Kontakt zur Wand des Reagenzglases) zurückzuführen. Nach dem dritten Rühren setzt sich der Abkühlungsverlauf wieder wie zuvor fort. 
+Hierbei wird eine minimale Temperatur von ca. $\qty{-1.8}{\degreeCelsius}$ erreicht. Dies ist überraschend, da das Wasser bei dieser Temperatur immer noch flüssig ist, obwohl die 
+Temperatur unterhalb des Schmelzpunktes von Wasser liegt. Erklärt werden kann dies dadurch, dass sich aufgrund der extremen reinheit des destillierten Wassers kein 
+Kristallisationskeim im Wasser befindet, weshalb keine Eiskristalle gebildet werden können. 
+Durch das Kratzen an der Reagenzglaswand entstehen durch Abrieb kleine Partikel, die als Kristallisationskeime wirken. Dadurch können sich nun Eiskristalle bilden und 
+das Wasser gefriert schlagartig. Da bei diesem Phasenübergang Wärme freigesetzt wird, steigt die Temperatur schnell auf einen Wert von ca. $\qty{0}{\degreeCelsius}$. 
+Bei dieser Temperatur stabilisiert sich die Temperatur, da bei höheren Temperaturen keine weiteren Eiskristalle mehr gebildet werden.
+\newpage
+\section{Teilversuch IV: Dampfdruckkurve von Wasser}
+\subsection{Auswertung der Dampfdruckkurve}
+In Teilversuch IV wurde die Dampfdruckkurve von Wasser aufgezeichnet. Hierzu wurde folgende Apparatur verwendet:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{./Images/DampfdruckApparat.png}
+    \source{Abb. 11 Versuchsanleitung APW - P2-Praktikum}
+    \caption{Versuchsaufbau zur Bestimmung der Dampfdruckkurve}
+    \label{fig:DampfdruckApparat}
+\end{figure}
+\noindent
+Mit dieser wurden mehrere Temperatur-Druck-Wertepaare gemessen.
+Plottet man diese und fittet eine Exponentialfunktion, erhält man folgenden Graphen:
+(Hierbei wurde zu den jeweiligen Manometerwerten noch ein Atmosphärendruck von $p_{\mathrm{atm}}\qty{0.965}{bar}$ addiert)
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.7\textwidth]{./Images/PTDiagramm.jpg}
+    \caption{Gemessenes $p(T)$-Diagramm}
+    \label{fig:PTDiagramm}
+\end{figure}
+\noindent
+Folgt man diesem Graphen, läge der Druck bei $T = \qty{0}{K}$ bei $a = (1.798 \pm 0.093) \si{bar}$. Allerdings ist bekannt, dass der Dampfdruck von Wasser am absoluten 
+Nullpunkt bei $\qty{0}{bar}$ liegen müsst, da die Teilchen hier keine Kinetische Energie haben. Das heißt, dass die gemessenen Werte einen zusätzlichen Partialdruck 
+enthalten, der nicht auf den Dampfdruck des Wassers zurückzuführen ist. Dieser entsteht eventuell durch weiteres Gas, das zusätzlich zum Wasser im Aufbau eingeschlossen wurde und 
+muss für die weitere Auswertung abgezogen werden.
+Berücksichtigt man dies kann man nun $\ln(p)$ gegen $-\frac{1}{T}$ auftragen.
+Die Fehler ergeben sich hierfür als:
+\begin{equation}
+    \begin{split}
+        \Delta \ln(p)   &= \left(\frac{\partial}{\partial p} \ln(p)\right) \cdot \Delta p \\
+                        &= \frac{\Delta p}{p}
+    \end{split}
+\end{equation}
+und
+\begin{equation}
+    \begin{split}
+        \Delta \left(-\frac{1}{T}\right)  &= \left(\frac{\partial}{\partial T} \frac{1}{T}\right) \Delta T \\
+                                                        &= \frac{\Delta T}{T^2}
+    \end{split}
+\end{equation}
+Der Plot dieser Daten ergibt folgendes:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{./Images/TV4_lnPTDiagramm.jpg}
+    \caption{$-1/T^2$-$\ln(p)$-Diagramm der Dampfdruckkurve}
+    \label{fig:lnPTDiagramm}
+\end{figure}
+Es ist erkennbar, dass die Unsicherheiten der ersten beiden Messwerte extrem hoch sind. Sie liegen allerdings trotzdem innerhalb dieser Messunsicherheiten
+auf der Geraden durch die anderen Punkte. Daher werden sie, um ein genaueres Ergebnis zu erhalten im folgenden vernachlässigt.
+Mit dieser Vernachlässigung erhält man folgendes Diagramm:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{./Images/TV4_lnPTDiagrammValsRemoved.jpg}
+    \caption{$-1/T^2$-$\ln(p)$-Diagramm der Dampfdruckkurve ohne die ersten beiden Messwerte mit Ausgleichsgerade}
+    \label{fig:lnPTDiagrammValsRemoved}
+\end{figure}
+\noindent
+\subsection{Interpretation der Steigung}
+Aus der Theorie gilt:
+\begin{equation}
+    \begin{split}
+        p(T) = p_{\infty} \exp\left(-\frac{E_b}{k_B T}\right)
+    \end{split}
+\end{equation}
+Wobei $E_b$ die Bindungsenergie der Teilchen in der Flüssigkeit ist.
+Durch das Logarithmieren erhält man:
+\begin{equation}
+    \begin{split}
+        \ln\left(\frac{p(T)}{\si{bar}}\right)   &= \ln \left(\frac{p_{\infty}}{\si{bar}}\right) + \frac{E_b}{k_B} \cdot \left(-\frac{1}{T}\right) \\
+                                                &= a \cdot \left(-\frac{1}{T}\right) + b
+    \end{split}
+\end{equation}
+Damit ergibt sich für die Bindungsenergie mithilfe der Steigung der Geraden:
+\begin{equation}
+    \begin{split}
+        E_b &= k_B \cdot a \\
+            &= (5.92 \pm 0.04) \times 10^{-20} \si{J}
+    \end{split}
+\end{equation}
+Auf ein Mol bezogen ergibt sich:
+\begin{equation}
+    \begin{split}
+        E_b^m   &= N_A E_b \\
+                &= (35.68 \pm 0.21) \si{\kilo\joule \per \mol}
+    \end{split}
+\end{equation}  
+Der Literaturwert liegt bei:
+\begin{equation}
+    E_{\mathrm{b, lit}}^m = 40.65 \si{\kilo\joule \per \mol}
+\end{equation}
+Dieser Wert liegt zwar in der Größenordnung des experimentell bestimmten Wertes, ist mit diesem allerdings im Rahmen der Messunsicherheiten nicht vereinbar.
+Für diese Abweichung kann es verschiedene Gründe haben. 
+Einerseits gilt die der Theorie zugrundeliegende Clausius-Clapeyron-Gleichung nur für ideale Gase. Allerings handelt es sich bei Wasserdampf, insbesondere 
+Aufgrund der relativ starken intermolekularen Kräften nicht um ein ideales Gas. Zudem sind die Teilchenabstände bei den im Versuch auftretenden 
+Drücken nicht mehr extrem groß, was ebenfalls den Annahmen über ein ideales Gas widerspricht. Dies könnte die Abweichung erklären. 
+Zudem könnte auch die Hysterese des Thermometers ebenfalls zum Fehler beigetragen haben. Da die Temperatur im Versuch sehr schnell angestiegen ist, kann dieser Effekt 
+nicht vernachlässigt werden.
 
 \newpage
-\section{Teilversuch III: }
+\section{Teilversuch V: Strahlung eines Hohlraumstrahlers}
+\subsection{Theoretischer Hintergrund}
+In Teilversuch V wurde die Strahlung eines Hohlraumstrahlers gemessen. Hierzu wurde ein Kalibrator zur Kalibrierung von Infrarotthermometern als schwarzer Strahler verwendet. 
+Dann wurde die Intensität der Strahlung mithilfe einer Thermosäule gemessen. Diese gibt eine zur Intensität proportionale Spannung aus.
+Ziel war es, das Stefan Boltzmann-Gesetz experimentell zu überprüfen.
+Dieses besagt, dass die Strahlungsleistung eines Körpers Proportional zu $T_k^4$ ist:
+\begin{equation}
+    P = \sigma A T^4
+\end{equation}
+Im Versuch wurde eine zur Leistung proportionale Spannung aufgezeichnet. Diese Spannung wurde für die Umgebungstemperatur auf Null gesetzt. Es wurde also nur die 
+Strahlung des Körpers gemessen, welche oberhalb der Leistung der Umgebungsstrahlung liegt. Damit liegt die gemessene Leistung bei:
+\begin{equation}
+    \begin{split}
+        P_{\mathrm{eff}}    &= P_{\mathrm{kal}} - P_{\mathrm{umg}} \\
+                            &= \sigma A (T^4 - T_0^4)
+    \end{split}
+\end{equation}
+Es sollte also folgende Proportionalität nachgewiesen werden:
+\begin{equation}
+    U_{\mathrm{mess}} \propto (T^4 - T_0^4)
+\end{equation}
+Hierzu werden die gemessenen Werte inklusiv Unsicherheit der Spannungsmessung ($\Delta U = 0.04\%U + \qty{1}{\micro \volt}$) mithilfe eines Python-Scripts geplottet. Außerdem wurden eine optimale Gerade und ein Fehlerstreifen hindurchgelegt(Siehe Abb. \ref{fig:StefanBoltzmann})
+Es ist erkennbar, dass tatsächlich alle Werte sehr nah an der Ausgleichsgerade liegen, was auf einen linearen Zusammenhang hindeutet. 
+Außerdem hat die optimale Gerade einen Ordinatenabschnitt von $(-0.21 \pm 2.0) \si{\micro \volt}$, damit handelt es sich bei dieser im Rahmen der Messunsicherheiten um eine Ursprungsgerade.
+Somit wäre die Proportionalität gezeigt und damit das Stefan-Boltzmann-Gesetz bestätigt.
+\newgeometry{left=0cm,right=0cm,top=0cm,bottom=0cm}
+    \begin{landscape}
+        \thispagestyle{empty}
+        \noindent
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=1.4\textwidth]{./Images/TV5_StefanBoltzmann.jpg}
+            \caption{$U(T^4-T_0^4)$-Diagramm}
+            \label{fig:StefanBoltzmann}
+        \end{figure}
+    \end{landscape}
+\restoregeometry
 
-\newpage
-\section{Teilversuch IV: }
 
 \newpage
 \chapter{Anhang}
@@ -101,5 +257,228 @@ bearbeitet.
     showtabs=false,                  
     tabsize=2
 }
+\subsection{TVIII}
+\subsubsection{Plotten des Temperaturverlauf während des Gefriervorgangs}
+\label{scr:TemperaturverlaufWasserGefrier}
+\begin{scriptsize}
+\lstset{style=python}
+\begin{lstlisting}[language=python]
+import numpy as np
+import matplotlib.pyplot as plt
+
+temp = [12.68, 10.45, 9.27, 8.05, 7.11, 5.90, 4.88, 3.99, 3.46, 2.82, 2.62, 2.47, 0.61, 0.27, -0.10, -0.18, 0.83, 0.85, 0.03, -0.66, -1.03, -1.60, -1.70, -1.80, -0.11, -0.05]
+times = [0, 5, 10, 15, 20, 30, 40, 50, 60, 90, 120, 150, 180, 200, 240, 250, 300, 360, 420, 480, 510, 540, 600, 630, 645, 660]
+
+fig, ax = plt.subplots(figsize=(7, 4.5))
+ax.spines['left'].set_position('zero')
+ax.spines['bottom'].set_position('zero')
+ax.spines['right'].set_visible(False)
+ax.spines['top'].set_visible(False)
+ax.set_ylabel('Temperatur in C')
+ax.set_xlabel('Zeit in s')
+
+plt.plot(times, temp, 'o:r', label = "Gemessene Temperatur")
+plt.vlines(150, -3, 13, 'grey', linestyles=':')
+plt.text(150, -4, 'Ruehren 1', ha = 'center', size = 7)
+plt.vlines(250, -3, 13, 'grey', linestyles=':')
+plt.text(250, -4, 'Ruehren 2', ha = 'center', size = 7)
+plt.vlines(360, -3, 13, 'grey', linestyles=':')
+plt.text(360, -4, 'Ruehren 3', ha = 'center', size = 7)
+plt.vlines(630, -3, 13, 'orange')
+plt.text(630, -4, 'Kratzen am Glas', ha = 'center', size = 7)
+plt.savefig("./04_APW/Images/TV3_TempVerlaufDiag.jpg", dpi = 800)
+\end{lstlisting}
+\end{scriptsize}
+
+\subsection{TVIV}
+\subsubsection{Plot des $p(T)$-Diagramms}
+\label{scr:PTDiagramm}
+\begin{scriptsize}
+\lstset{style=python}
+\begin{lstlisting}[language=python]
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.optimize import curve_fit
+
+temp = np.array([39.9, 50, 80, 90, 100, 105, 110, 115, 120, 125, 130, 135, 140, 145, 150, 155, 160, 165, 170, 175, 180, 185, 190, 195, 200, 205, 210, 215, 220, 225, 230, 235, 240, 245, 250])
+temp = temp + 273.15
+tempErr = np.full(len(temp), 3)
+
+pressures = np.array([1, 1, 1.9, 2.1, 2.8, 3.0, 3.2, 3.5, 4.0, 4.5, 5.1, 5.4, 6.2, 7.1, 8.0, 9.0, 10.1, 11.1, 12.2, 13.5, 15.0, 16.2, 18.0, 19.8, 21.6, 23.7, 26.0, 28.2, 31.1, 33.3, 36.0, 39.5, 43, 47, 51])
+pressures = pressures + 0.965
+pressError = np.full(13, 0.5)
+pressError = np.append(pressError, np.full(len(pressures) - 13, 1))
+
+def func(T, a, b, c):
+    return a + np.exp(c + b / T)
+
+params, covariance = curve_fit(func, temp, pressures)
+a, b, c = params
+perr = np.sqrt(np.diag(covariance))  # Unsicherheiten der Parameter
+
+temp_fit = np.linspace(min(temp), max(temp), 500)
+press_fit = func(temp_fit, a, b, c)
+
+fig, ax = plt.subplots(figsize=(7, 4.5))
+
+ax.errorbar(temp, pressures, pressError, tempErr,
+            fmt='o', color='steelblue', ecolor='salmon',
+            ms=3, capsize=3, label='Messdaten')
+
+ax.plot(temp_fit, press_fit, 'r-', linewidth=1.5,
+        label=(f'Fit: $a + e^{{c + b/T}}$\n'
+               f'$a = ({a:.3f} \\pm {perr[0]:.3f})$bar'))
+
+ax.set_ylabel('Druck in bar')
+ax.set_xlabel('Temperatur in K')
+ax.set_title('Dampfdruckkurve')
+ax.legend(fontsize=9)
+ax.grid(True, linestyle='--', alpha=0.4)
+
+plt.tight_layout()
+# plt.show()
+plt.savefig("./04_APW/Images/PTDiagramm.jpg", dpi = 400)
+\end{lstlisting}
+\end{scriptsize}
+\newpage
+\subsubsection{Plot des $-1/T^2$-$\ln(p)$-Diagramms}
+\label{scr:lnPTDiagramm}
+\begin{scriptsize}
+\lstset{style=python}
+\begin{lstlisting}[language=python]
+import numpy as np
+import matplotlib.pyplot as plt
+from math import ceil
+
+# --- Temperatur ---
+temp_C = np.array([80, 90, 100, 105, 110, 115, 120, 125, 130, 135,
+                   140, 145, 150, 155, 160, 165, 170, 175, 180, 185, 190, 195,
+                   200, 205, 210, 215, 220, 225, 230, 235, 240, 245, 250])
+temp = temp_C + 273.15
+tempErr = np.full(len(temp), 3)
+xVals  = -1 / temp
+xError = tempErr / temp**2
+# --- Druck ---
+pressures_raw = np.array([1.9, 2.1, 2.8, 3.0, 3.2, 3.5, 4.0, 4.5, 5.1, 5.4,
+                           6.2, 7.1, 8.0, 9.0, 10.1, 11.1, 12.2, 13.5, 15.0, 16.2,
+                           18.0, 19.8, 21.6, 23.7, 26.0, 28.2, 31.1, 33.3, 36.0,
+                           39.5, 43, 47, 51])
+pressures = pressures_raw + 0.965 - 1.798
+
+pressError = np.concatenate([np.full(13, 0.5), np.full(len(pressures) - 13, 1.0)])
+lnPressures = np.log(pressures)
+lnPressError = pressError / pressures
+
+# --- Fit ---
+line, cov = np.polyfit(xVals, lnPressures, 1, cov=True)
+slope, intercept = line
+dSlope, dIntercept = np.sqrt(np.diag(cov))
+yline = np.polyval(line, xVals)
+labelFit = (rf"Linearer Fit: $ln(p/bar) = a \cdot (-1/T) + b$" "\n" rf"$a = ({round(slope)} \pm {ceil(dSlope)})K$")
+
+# --- Plot ---
+fig, ax = plt.subplots(figsize=(7, 4.5))
+
+ax.errorbar(
+    xVals, lnPressures,
+    yerr=lnPressError, xerr=xError,
+    fmt='o', color='steelblue', ecolor='salmon',
+    ms=3, capsize=3, label='Messdaten'
+)
+
+ax.plot(
+    xVals, yline,
+    color = 'grey',
+    linewidth=1.5,
+    label=labelFit,
+)
+
+ax.set_xlabel(r"$-1/T$ in $\mathrm{K^{-1}}$")
+ax.set_ylabel(r"$\ln(p\,/\,\mathrm{bar})$")
+ax.set_title(r"$-1/T$ - $ln(p)$-Diagramm")
+ax.legend(fontsize=9)
+ax.grid(True, linestyle='--', alpha=0.4)
+
+plt.tight_layout()
+plt.savefig("./04_APW/Images/TV4_lnPTDiagrammValsRemoved.jpg", dpi=400)
+plt.show()
+\end{lstlisting}
+\end{scriptsize}
+\newpage
+\subsection{TVV}
+\subsubsection{Plot des $U(T^4-T_0^4)$-Diagramms}
+\label{scr:StefanBoltzmannDiagramm}
+\begin{scriptsize}
+\lstset{style=python}
+\begin{lstlisting}[language=python]
+import numpy as np
+from matplotlib import pyplot as plt
+from math import ceil
+# --- Daten ---
+T = np.array([80, 100, 130, 160, 190, 210, 270, 300, 330, 350]) + 273.15
+T0 = 25.6 + 273.15
+xVals = T**4 - T0**4
+
+U = np.array([17, 22, 38, 51, 72, 85, 157, 194, 235, 281])
+dU = 0.0004 * U + 2
+
+# --- Fit ---
+line, cov = np.polyfit(xVals, U, 1, cov=True)
+slope, intercept = line
+dSlope, dIntercept = np.sqrt(np.diag(cov))
+
+xFit = np.linspace(-0.05e11, 1.6e11, 300)
+yFit    = slope * xFit + intercept
+yFitUp  = (slope + dSlope) * xFit + (intercept + dIntercept)
+yFitLow = (slope - dSlope) * xFit + (intercept - dIntercept)
+
+print(f"Achsenabschnitt b = ({intercept:.3f} \pm {dIntercept:.3f}) muV")
+print(f"Steigung      a = ({slope:.3e} \pm {dSlope:.3e}) muV/K^4")
+
+# --- Plot ---
+fig, ax = plt.subplots(figsize=(7, 4.5))
+
+# Fehlerband
+ax.fill_between(xFit, yFitLow, yFitUp,
+                color='grey', alpha=0.25, label='Fitungenauigkeit')
+
+# Grenzlinien
+ax.plot(xFit, yFitUp,  color='grey', linewidth=0.8, linestyle=':')
+ax.plot(xFit, yFitLow, color='grey', linewidth=0.8, linestyle=':')
+
+# Fit
+ax.plot(xFit, yFit, color='firebrick', linewidth=1.5,
+        label=(rf'Linearer Fit: $U = a\,(T^4 - T_0^4) + b$'
+               '\n'
+               rf'$b = ({round(intercept, 2)} \pm {ceil(dIntercept*10)/10})\,\mathrm{{\mu V}}$'))
+
+# Messdaten
+ax.errorbar(
+    xVals, U, yerr=dU,
+    fmt='o', color='steelblue', ecolor='salmon',
+    ms=3, capsize=3, linewidth=0,
+    elinewidth=0.8, capthick=0.8,
+    label='Messdaten', zorder=5
+)
+
+ax.set_xlabel(r'$T^4 - T_0^4$ in $\mathrm{K^4}$', fontsize=12)
+ax.set_ylabel(r'Spannung $U$ in $\mathrm{\mu V}$', fontsize=12)
+ax.set_title(r'Spannung der Thermosaeule in Abhaengigkeit von $T^4 - T_0^4$', fontsize=13)
+
+ax.tick_params(direction='in', top=True, right=True)
+ax.grid(True, linestyle='--', linewidth=0.5, alpha=0.4)
+ax.legend(fontsize=9)
+
+# x-Achse in 10^10 skalieren
+ax.xaxis.set_major_formatter(
+    plt.FuncFormatter(lambda x, _: f'{x/1e10:.0f}')
+)
+ax.set_xlabel(r'$T^4 - T_0^4$ in $10^{10}\,\mathrm{K^4}$', fontsize=12)
+
+fig.tight_layout()
+plt.savefig("./04_APW/Images/TV5_StefanBoltzmann.jpg", dpi=400)
+plt.show()
+\end{lstlisting}
+\end{scriptsize}
 
 \end{document}
