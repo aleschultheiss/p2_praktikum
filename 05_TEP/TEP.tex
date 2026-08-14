@@ -63,10 +63,162 @@
 
 \newpage
 \chapter{Auswertung}
-\section{Teilversuch I:}
+\section{Teilversuch I:Isotherme Zustandsänderung}
+In den Teilversuchen I-IV wurde ein Kreisprozess untersucht. Im Ersten Teilversuch wurde eine Isotherme Expansion durchgeführt. Der Druck innerhalb der Kammer 
+wurde mithilfe eines Quecksilber Manometers bestimmt. Zu diesem muss dann noch der Atmosphärendruck addiert werden.
+Der Atmosphärendruck zum Versuchszeitraum wurde aus dem Internet von der Seite der Fakultät für Meteorologie der LMU München abgelesen und lag bei 
+$p_{\mathrm{atm}} = \qty{961.5}{\hecto\pascal}$
+Zur Umrechnung in die Einheit $\si{mmHg}$ wurde folgender Zusammenhang genutzt:
+\begin{equation}
+    \begin{split}
+        p_{\mathrm{atm}}    &= \rho_{\mathrm{Hg}} g h \\
+        \Leftrightarrow h   &= \frac{p_{\mathrm{atm}}}{\rho_{\mathrm{Hg}} g} \\
+                            &= \qty{723.6}{mmHg}
+    \end{split}
+\end{equation}
+Damit berechnen sich die Drücke innerhalb der Kammer nach:
+\begin{equation}
+    \begin{split}
+        p = p_{\mathrm{mess}} - p_0 + p_{\mathrm{atm}}
+    \end{split}
+\end{equation}
+Wobei $p_0$ der virtuelle Druck ist, der dadurch entsteht, dass die Skala Manometer nicht genullt ist.
+Berechnet man diese Werte erhält man folgendes:
+\begin{table}[H]
+        \begin{center}
+                \begin{tabular}{|c|c|}
+                        \hline
+                        Kolbenposition in $mm$ & Druck in $\mathrm{mmHg}$ \\
+                        \hline
+                        $72$ & $723.6 \pm 0.5$ \\
+                        \hline
+                        $74$ & $702.6 \pm 0.5$ \\
+                        \hline
+                        $76$ & $685.6 \pm 0.5$ \\
+                        \hline
+                        $78$ & $665.6 \pm 0.5$ \\
+                        \hline
+                        $80$ & $651.6 \pm 0.5$ \\
+                        \hline
+                        $82$ & $635.6 \pm 0.5$ \\
+                        \hline
+                        $84$ & $619.6 \pm 0.5$ \\
+                        \hline
+                        $86$ & $607.6 \pm 0.5$ \\
+                        \hline
+                        $88$ & $594.6 \pm 0.5$ \\
+                        \hline
+                        $90$ & $581.6 \pm 0.5$ \\
+                        \hline
+                \end{tabular}
+        \end{center}
+        \caption{Gemessene Drücke in mmHg}
+        \label{tab:IsoThermExpPmmHg}
+\end{table}
+Mithilfe dieser Werte wollen wir das Boyle-Mariottesche Gesetz bestätigen.
+Dieses besagt:
+\begin{equation}
+    \begin{split}
+        pV &= const \\
+        \Leftrightarrow pV &= p_0 V_0 \\
+        \Leftrightarrow \frac{p_0}{p} &= \frac{V}{V_0} \\
+        \Leftrightarrow \frac{p_0}{p} &= \frac{x}{x_0}
+    \end{split}
+\end{equation}
+Das Gesetz ist also bestätigt, falls das $\frac{p_0}{p}(x)$-Diagramm eine Gerade mit der Steigung $\frac{1}{x_0}$ ergibt.
+Um dies zu prüfen plotten wir dieses Diagramm und legen eine Ausgleichsgerade. Aus der Steigung der Ausgleichsgerade berechnen wir dann $x_0^{\mathrm{steig}} = 1/m$
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{./Images/TV1_DiagrammP0-P-x-Diagramm.jpg}
+    \caption{$\frac{p_0}{p}(x)$-Diagramm}
+    \label{fig:IsoThermExpP0/P-x-Diagramm}
+\end{figure}
+\noindent
+Tatsächlich liegen die Werte relativ gut auf einer Geraden. Berechnet man nun aus deren Steigung den Wert $x_0^{\mathrm{steig}}$:
+\begin{equation}
+    \begin{split}
+        x_0^{\mathrm{steig}} = \qty{74.1}{mm}
+    \end{split}
+\end{equation}
+Dieser Wert stimmt ungefähr mit dem tatsächlichen Wert $x_0 = \qty{72.0}{mm}$ überein. Dennoch gibt es eine geringe Abweichung. Diese könnte beispielsweise auf die Fehler 
+beim Ablesen der Quecksilbersäule und beim Einstellen der Drücke zurückzuführen sein.
 
-\newpage
-\section{Teilversuch II: }
+\section{Teilversuch II: Isochore Zustandsänderung}
+In Teilversuch II wurde die Temperatur im Kolben bei konstanter Kolbenposition (gleichem Volumen) langsam verringert. Die hierbei auftretende isochore Zustandsänderung 
+soll im folgenden untersucht werden. 
+Für eine isochore Zustandsänderung gilt das folgende empirisch Gefundene Gesetz von Amontons:
+\begin{equation}
+    p = p_0(1+\beta \theta)
+    \label{eq:Amontons}
+\end{equation}
+Für eine ideales Gas liegt der Isochore Spannungskoeffizient bei:
+\begin{equation}
+    \beta = \frac{1}{T_0}
+\end{equation}
+Die im Versuch verwendete Luft wird im folgenden als ideales Gas angenommen.
+Folgende Wert wurden während der Temperaturerniedrigung gemessen:
+\begin{table}[H]
+        \begin{center}
+                \begin{tabular}{|c|c|}
+                        \hline
+                        Temperatur in °C & Druck in $\mathrm{mmHg}$ \\
+                        \hline
+                        $89.30 \pm 0.13$ & $581.6 \pm 0.5$ \\
+                        \hline
+                        $74.80 \pm 0.13$ & $559.6 \pm 0.5$ \\
+                        \hline
+                        $59.00 \pm 0.12$ & $534.6 \pm 0.5$ \\
+                        \hline
+                        $44.90 \pm 0.12$ & $510.6 \pm 0.5$ \\
+                        \hline
+                        $29.70 \pm 0.11$ & $487.6 \pm 0.5$ \\
+                        \hline
+                        $14.80 \pm 0.11$ & $454.6 \pm 0.5$ \\
+                        \hline
+                        $0.50 \pm 0.11$ & $427.6 \pm 0.5$ \\
+                        \hline
+                \end{tabular}
+        \end{center}
+        \caption{Gemessene Drücke bei verschiedenen Temperaturen in mmHg}
+        \label{tab:IsochorPmmHg}
+\end{table}
+Plottet man diese Messwerte und legt eine Ausgleichsgerade hindurch, erhält man folgenden Graphen:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{./Images/TV2_P-T-Diagramm.jpg}
+    \caption{$p(\theta)$-Diagramm einer Isochoren Temperaturerhöhung}
+    \label{fig:P-T-Diagramm}
+\end{figure}
+Es ist gut erkennbar, dass die Messwerte in sehr guter Näherung auf der Ausgleichsgeraden liegen. Der Temperaturabhängige Druck kann also
+näherungsweise durch die Ausgleichsgerade angegeben werden:
+\begin{equation}
+    \begin{split}
+        p = m\theta + b
+    \end{split}
+\end{equation}
+Durch Gleichsetzen mit Gleichung \ref{eq:Amontons} und Koeffizientenvergleich kann damit $\beta$ berechnet werden:
+\begin{equation}
+    \begin{split}
+        m\theta + b &= p_0(1+\beta\theta) \; \; \forall \theta \\
+        \Leftrightarrow \beta &= \frac{m}{b} \\
+        \Leftrightarrow T_0 &= \frac{b}{m}
+    \end{split}
+\end{equation}
+Durch Einsetzen der Werte erhält man für den isochoren Spannungskoeffizient:
+\begin{equation}
+    \beta = \qty{4.017e-3}{\per\kelvin}
+\end{equation}
+Für $T_0$ kommt man auf:
+\begin{equation}
+    T_0 = \qty{249.0}{\kelvin}
+\end{equation}
+Dieser Wert liegt relativ weit entfernt vom Literaturwerwt von $T_0^{\mathrm{lit}} = 273.15K$. Hierfür kann es verschiedene Gründe geben.
+Einerseits handelt es sich beim Atmosphärendruck aus dem Internet um einen Wert, der nicht direkt vor Ort gemessen wurde. Dieser geht bei der Umrechnung des 
+Manometerwerts in einen absoluten Wert ein und hat so Einfluss auf das Endergebnis. Außerdem spielt auch hier die Ungenauigkeit beim Einstellen des Spiegels des 
+Manometers eine Entscheidende Rolle. Zudem handelt es sich bei Luft nicht um ein perfektes ideales Gas, was zu einer (wenn auch relativ kleinen) Abweichung führt. 
+Der möglicherweise wichtigste Faktor, der zur großen Abweichung beiträgt ist allerdings die ungleiche Temperaturverteilung im System. Da die Temperatur während des Versuchs 
+durch die Eiszugabe schnell gesunken ist, ist es gut möglich, dass die Temperatur der Luft in der Kammer noch signifikant oberhalb der Temperatur des Wassers bzw. des Termometers 
+lag. Dies ist auf die nur endliche Wärmeleitfähigkeit der Metallkammer und auf die schlechte Wärmeleitfähigkeit in der Luft zurückzuführen.
 
 \newpage
 \section{Teilversuch III: }
