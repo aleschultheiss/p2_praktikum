@@ -1,0 +1,109 @@
+\documentclass{report}
+\usepackage{pdfpages}
+\usepackage{graphicx} 
+\usepackage{dirtytalk}
+\usepackage{lmodern}
+\usepackage{booktabs}
+\usepackage{listings}
+\usepackage{float}
+\usepackage{siunitx}
+\usepackage{amsmath}
+\usepackage{rotating}
+\usepackage{arydshln}
+\usepackage[hidelinks]{hyperref}
+\usepackage[ngerman]{babel}
+\usepackage[a4paper, total={6in, 8in}]{geometry}
+\usepackage{caption}
+
+\newcommand{\source}[1]{\caption*{Source: {#1}} }
+
+\begin{document}
+% \includepdf[pages=-]{./PDFs/Deckblatt_P2}
+\begin{titlepage}
+    \begin{center}
+        \vspace*{1cm}
+            
+        \Huge
+        \textbf{Auswertung und Protokoll}
+            
+        \vspace{0.5cm}
+        \LARGE
+        Zum Versuch TEP
+        
+        \vspace{1.8cm}
+
+        \textbf{Jonas Müther \& Alejandro Schultheiss}
+        \vfill
+            
+        P2 Praktikum\\
+       
+            
+        \vspace{0.8cm}
+  
+
+        \vspace{1.8cm}
+        \Large
+        LMU München \\
+        Physik B.Sc.\\
+        Deutschland\\
+        2026
+            
+    \end{center}
+\end{titlepage}
+\tableofcontents
+
+\newpage
+\chapter{Vorbereitung}
+
+\section{Versuchsvorbereitung und Grundlagen des Versuchs}
+% \includepdf[pages=-]{./PDFs/TEMP_VORBEREITUNG.pdf}
+
+\section{Versuchsprotokoll}
+% \includepdf[pages=-]{./PDFs/TEMP_VERSUCHSDURCHFUEHRUNG.pdf}
+
+\newpage
+\chapter{Auswertung}
+\section{Teilversuch I:}
+
+\newpage
+\section{Teilversuch II: }
+
+\newpage
+\section{Teilversuch III: }
+
+\newpage
+\section{Teilversuch IV: }
+
+\newpage
+\section{Teilversuch V: }
+
+\newpage
+\chapter{Anhang}
+\section{Python Scripts}
+Die Python Scripts, die zum Plotten der Grafiken verwendet wurden, wurden mit Unterstützung von KI erstellt und dann nach den eigenen Bedürfnissen weiter
+bearbeitet.
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{python}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\end{document}
