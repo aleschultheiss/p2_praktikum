@@ -76,6 +76,363 @@
 
 \newpage
 \section{Teilversuch V: }
+\noindent
+In diesem Teilversuch wurde der Adiabatenexponent $\gamma$ von Luft mithilfe
+einer schwingenden Wassersäule bestimmt. Die Schwingungsdauer wurde jeweils
+ohne und mit angeschlossenem Glaskolben gemessen. Nach der Versuchsanleitung gilt
+
+\begin{equation}
+\gamma=
+\frac{2\rho gV}{p_0A}
+\left(
+\frac{\tau_0^2}{\tau_k^2}-1
+\right),
+\label{eq:gamma}
+\end{equation}
+\noindent
+wobei $\tau_0$ die Periodendauer ohne Kolben und $\tau_k$ diejenige mit
+Kolben bezeichnet.
+
+
+\subsubsection{Bestimmung der Periodendauern}
+\noindent
+Gemessen wurde jeweils die Zeit für fünf Schwingungen. Die Messreihen lauten
+
+\begin{table}[htbp]
+    \centering
+    \caption{Gemessene Zeiten für jeweils fünf Schwingungen.}
+    \begin{tabular}{c|c|c}
+        \hline
+        Messung & $t_0$ ohne Kolben in $\mathrm{s}$
+                & $t_k$ mit Kolben in $\mathrm{s}$\\
+        \hline
+        1 & 5{,}21 & 3{,}41\\
+        2 & 5{,}05 & 3{,}72\\
+        3 & 5{,}19 & 3{,}50\\
+        4 & 5{,}22 & 3{,}37\\
+        5 & 5{,}22 & 3{,}56\\
+        \hline
+    \end{tabular}
+\end{table}
+\noindent
+Für die Mittelwerte für fünf Schwingungen gilt:
+
+\begin{equation}
+\overline{t}_0=5{,}178\,\mathrm{s},
+\qquad
+\overline{t}_k=3{,}512\,\mathrm{s}.
+\end{equation}
+\noindent
+Damit folgen die mittleren Periodendauern
+
+\begin{equation}
+\overline{\tau}_0=1{,}0356\,\mathrm{s},
+\qquad
+\overline{\tau}_k=0{,}7024\,\mathrm{s}.
+\end{equation}
+\noindent
+Zur Berücksichtigung der statistischen Streuung wurde zunächst die empirische
+Standardabweichung
+
+\begin{equation}
+s_\tau=
+\sqrt{\frac{1}{n-1}
+\sum_{i=1}^{n}(\tau_i-\overline{\tau})^2}
+\end{equation}
+\noindent
+und daraus die Standardabweichung des Mittelwertes
+
+\begin{equation}
+s_{\overline{\tau}}=\frac{s_\tau}{\sqrt{n}}
+\end{equation}
+\noindent
+berechnet. Es ergeben sich
+
+\begin{align}
+s_{\tau_0}&=0{,}01452\,\mathrm{s},
+&
+s_{\overline{\tau}_0}&=0{,}00649\,\mathrm{s},\\
+s_{\tau_k}&=0{,}02762\,\mathrm{s},
+&
+s_{\overline{\tau}_k}&=0{,}01235\,\mathrm{s}.
+\end{align}
+\noindent
+Damit werden für die weitere Auswertung
+
+\begin{equation}
+\boxed{\tau_0=(1{,}036\pm0{,}007)\,\mathrm{s}}
+\end{equation}
+\noindent
+und
+
+\begin{equation}
+\boxed{\tau_k=(0{,}702\pm0{,}013)\,\mathrm{s}}
+\end{equation}
+\noindent
+verwendet.
+
+
+\subsubsection{Bestimmung des eingeschlossenen Luftvolumens}
+\noindent
+Das Volumen des Glaskolbens wurde durch Wägung ohne und mit Wasser bestimmt:
+
+\begin{equation}
+m_\mathrm{leer}=(254{,}41\pm0{,}03)\,\mathrm{g},
+\qquad
+m_\mathrm{voll}=(1370{,}90\pm0{,}03)\,\mathrm{g}.
+\end{equation}
+
+Mit $\rho_\mathrm{W}=1{,}00\,\mathrm{g/cm^3}$ folgt
+
+\begin{equation}
+V_\mathrm{K}
+=
+\frac{m_\mathrm{voll}-m_\mathrm{leer}}{\rho_\mathrm{W}}
+=
+1116{,}49\,\mathrm{cm^3}.
+\end{equation}
+\noindent
+Für den Innendurchmesser und die Höhe der zusätzlichen Luftsäule wurden
+
+\begin{equation}
+d=(1{,}8\pm0{,}1)\,\mathrm{cm},
+\qquad
+h=(23{,}6\pm0{,}1)\,\mathrm{cm}
+\end{equation}
+\noindent
+gemessen. Der Rohrquerschnitt beträgt damit
+
+\begin{equation}
+A=\frac{\pi d^2}{4}
+=
+2{,}54469\,\mathrm{cm^2}.
+\end{equation}
+\noindent
+Für das zusätzliche Luftvolumen ergibt sich
+
+\begin{equation}
+V_\mathrm{R}=Ah
+=
+60{,}05\,\mathrm{cm^3}.
+\end{equation}
+\noindent
+Damit beträgt das gesamte eingeschlossene Luftvolumen
+
+\begin{equation}
+\boxed{
+V=V_\mathrm{K}+V_\mathrm{R}
+=
+1176{,}54\,\mathrm{cm^3}
+=
+1{,}17654\cdot10^{-3}\,\mathrm{m^3}
+}.
+\end{equation}
+\noindent
+Der Atmosphärendruck am Versuchstag betrug (gemäß Institut für Meteorologie LMU München abgerufen via. Internet-Browser)
+
+\begin{equation}
+p_0=961{,}5\,\mathrm{hPa}
+=96150\,\mathrm{Pa}.
+\end{equation}
+\noindent
+Da auf der Seite der LMU bzgl. Luftdruck in München keine Unsicherheit angegeben wurde, wird entsprechend der angegebenen
+Auflösung für die Unsicherheitsrechnung
+
+\begin{equation}
+\Delta p_0=0{,}1\,\mathrm{hPa}=10\,\mathrm{Pa}
+\end{equation}
+\noindent
+angesetzt.
+
+
+\subsubsection{Berechnung des Adiabatenexponenten}
+
+Mit $\rho=1000\,\mathrm{kg/m^3}$ und
+$g=9{,}81\,\mathrm{m/s^2}$ ergibt sich zunächst
+
+\begin{equation}
+\frac{\tau_0^2}{\tau_k^2}-1
+=
+1{,}17378.
+\end{equation}
+\noindent
+Einsetzen in Gleichung~\ref{eq:gamma} liefert
+
+\begin{align}
+\gamma
+&=
+\frac{
+2\cdot1000\cdot9{,}81
+\cdot1{,}17654\cdot10^{-3}
+}{
+96150\cdot2{,}54469\cdot10^{-4}
+}
+\left(
+\frac{1{,}0356^2}{0{,}7024^2}-1
+\right)\\
+&=
+1{,}1074.
+\end{align}
+
+
+\subsubsection{Gaußsche Fehlerfortpflanzung}
+\noindent
+Die Gesamtunsicherheit wird mit
+
+\begin{equation}
+\Delta\gamma
+=
+\sqrt{
+\sum_i
+\left(
+\frac{\partial\gamma}{\partial x_i}
+\Delta x_i
+\right)^2
+}
+\end{equation}
+\noindent
+bestimmt.
+\noindent
+Dabei wurde berücksichtigt, dass die Querschnittsfläche $A$ und der Rohranteil
+des Volumens $V$ beide vom Durchmesser $d$ abhängen. Daher wurde die
+Fehlerfortpflanzung direkt über die unabhängig gemessenen Größen
+$m_\mathrm{voll}$, $m_\mathrm{leer}$, $h$, $d$, $\tau_0$, $\tau_k$ und $p_0$
+durchgeführt.
+\noindent
+Die einzelnen Beiträge sind in Tabelle~\ref{tab:budget_gamma} angegeben.
+
+\begin{table}[htbp]
+    \centering
+    \caption{Messunsicherheitsbudget für $\gamma$.}
+    \label{tab:budget_gamma}
+    \begin{tabular}{c|c}
+        \hline
+        Eingangsgröße & Beitrag zu $\Delta\gamma$\\
+        \hline
+        $m_\mathrm{voll}$ & $2{,}8\cdot10^{-5}$\\
+        $m_\mathrm{leer}$ & $2{,}8\cdot10^{-5}$\\
+        $h$               & $2{,}4\cdot10^{-4}$\\
+        $d$               & $0{,}1168$\\
+        $\tau_0$          & $0{,}0257$\\
+        $\tau_k$          & $0{,}0721$\\
+        $p_0$             & $1{,}2\cdot10^{-4}$\\
+        \hline
+    \end{tabular}
+\end{table}
+\noindent
+Durch quadratische Addition ergibt sich
+
+\begin{equation}
+\Delta\gamma
+=
+0{,}1396\ldots
+\end{equation}
+\noindent
+und damit gerundet
+
+\begin{equation}
+\boxed{
+\gamma_\mathrm{exp}=1{,}11\pm0{,}14
+}.
+\end{equation}
+\noindent
+Die Gesamtunsicherheit wird deutlich von der Messung des Rohrdurchmessers
+dominiert. Ursache hierfür ist, dass der Durchmesser quadratisch in
+
+\begin{equation}
+A=\frac{\pi d^2}{4}
+\end{equation}
+\noindent
+eingeht. Der zweitgrößte Beitrag stammt aus der statistischen Unsicherheit der
+Periodendauer $\tau_k$.
+
+
+\subsubsection{Vergleich und Diskussion}
+\noindent
+Für Luft wird bei Raumtemperatur theoretisch ein Adiabatenexponent von
+
+\begin{equation}
+\gamma_\mathrm{theo}
+=
+\frac{7}{5}
+=
+1{,}4
+\end{equation}
+\noindent
+erwartet.
+\noindent
+Experimentell wurde
+
+\begin{equation}
+\boxed{
+\gamma_\mathrm{exp}
+=
+1{,}11\pm0{,}14
+}
+\end{equation}
+\noindent
+bestimmt. Die relative Abweichung des Zentralwertes vom theoretischen Wert beträgt
+
+\begin{equation}
+\delta
+=
+\frac{
+|\gamma_\mathrm{exp}-\gamma_\mathrm{theo}|
+}{
+\gamma_\mathrm{theo}
+}
+\cdot100\,\%
+\approx
+20{,}9\,\%.
+\end{equation}
+\noindent
+Der theoretische Wert liegt damit nicht innerhalb des einfachen
+Unsicherheitsintervalls des experimentellen Ergebnisses. Die Abweichung kann
+folglich nicht allein durch die berücksichtigten statistischen und direkt
+quantifizierten Messunsicherheiten erklärt werden.
+\noindent
+Ein wesentlicher Beitrag zur Unsicherheit entsteht durch die Bestimmung des
+Innendurchmessers des U-Rohrs. Da der Durchmesser quadratisch in die
+Querschnittsfläche
+
+\begin{equation}
+A=\frac{\pi d^2}{4}
+\end{equation}
+\noindent
+eingeht, wirkt sich bereits eine vergleichsweise kleine Unsicherheit von $d$
+deutlich auf das Ergebnis für $\gamma$ aus. In dem erstellten
+Messunsicherheitsbudget ist dieser Beitrag entsprechend dominant.
+\noindent
+Zusätzlich treten systematische Einflüsse auf, die durch die Gaußsche
+Fehlerfortpflanzung nur unvollständig erfasst werden. Die Zustandsänderung ist
+nur dann näherungsweise adiabatisch, wenn die Kompression und Expansion der
+eingeschlossenen Luft hinreichend schnell abläuft. Ein Wärmeaustausch mit den
+Glaswänden und der Umgebung kann daher dazu führen, dass der reale Prozess vom
+idealen adiabatischen Verhalten abweicht.
+\noindent
+Weiterhin setzt die verwendete Näherung insbesondere bei angeschlossenem Kolben
+eine kleine Schwingungsamplitude voraus. Wird diese Bedingung nicht vollständig
+eingehalten, kann die zugrunde gelegte lineare Beziehung zwischen Druck- und
+Volumenänderung verletzt sein.
+\noindent
+Weitere mögliche systematische Fehlerquellen sind ein nicht exakt bekannter
+effektiver Rohrquerschnitt, zusätzliche kleine Verbindungsvolumina sowie die
+manuelle Zeitmessung. Insbesondere die Messreihe mit angeschlossenem Kolben zeigt
+eine vergleichsweise große Streuung der Schwingungszeiten.
+\noindent
+Insgesamt stimmt der experimentelle Wert daher nicht quantitativ mit dem
+theoretischen Wert überein. Die beobachtete Abweichung ist jedoch angesichts der
+experimentellen Randbedingungen und der vorhandenen systematischen
+Unsicherheiten plausibel. Das Ergebnis ist somit mit der theoretischen
+Größenordnung vereinbar, stellt aber keine präzise Bestätigung des
+Literaturwertes dar.
+
+
+
+
+
+
+
 
 \newpage
 \chapter{Anhang}
