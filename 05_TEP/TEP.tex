@@ -9,6 +9,7 @@
 \usepackage{siunitx}
 \usepackage{amsmath}
 \usepackage{rotating}
+\usepackage{pdflscape}
 \usepackage{arydshln}
 \usepackage[hidelinks]{hyperref}
 \usepackage[ngerman]{babel}
@@ -18,7 +19,7 @@
 \newcommand{\source}[1]{\caption*{Source: {#1}} }
 
 \begin{document}
-% \includepdf[pages=-]{./PDFs/Deckblatt_P2}
+\includepdf[pages=-]{./PDFs/Deckblatt-P2}
 \begin{titlepage}
     \begin{center}
         \vspace*{1cm}
@@ -56,14 +57,14 @@
 \chapter{Vorbereitung}
 
 \section{Versuchsvorbereitung und Grundlagen des Versuchs}
-% \includepdf[pages=-]{./PDFs/TEMP_VORBEREITUNG.pdf}
+\includepdf[pages=-]{./PDFs/VorbereitungTEP.pdf}
 
 \section{Versuchsprotokoll}
-% \includepdf[pages=-]{./PDFs/TEMP_VERSUCHSDURCHFUEHRUNG.pdf}
+\includepdf[pages=-]{./PDFs/TEPProtokoll.pdf}
 
 \newpage
 \chapter{Auswertung}
-\section{Teilversuch I:Isotherme Zustandsänderung}
+\section{Teilversuch I: Isotherme Zustandsänderung}
 In den Teilversuchen I-IV wurde ein Kreisprozess untersucht. Im Ersten Teilversuch wurde eine Isotherme Expansion durchgeführt. Der Druck innerhalb der Kammer 
 wurde mithilfe eines Quecksilber Manometers bestimmt. Zu diesem muss dann noch der Atmosphärendruck addiert werden.
 Der Atmosphärendruck zum Versuchszeitraum wurde aus dem Internet von der Seite der Fakultät für Meteorologie der LMU München abgelesen und lag bei 
@@ -221,11 +222,246 @@ durch die Eiszugabe schnell gesunken ist, ist es gut möglich, dass die Temperat
 lag. Dies ist auf die nur endliche Wärmeleitfähigkeit der Metallkammer und auf die schlechte Wärmeleitfähigkeit in der Luft zurückzuführen.
 
 \newpage
-\section{Teilversuch III: }
+\section{Teilversuch I und III: Auswertung des Kreisprozesses}
+In den Teilversuch III wurde eine Isotherme Kompression bei einer Temperatur von $\theta_0 = (0.50 \pm 0.11) \si{\degreeCelsius}$ aufgezeichnet. Zeichnet man diese in ein
+pV-Diagramm und fügt zwei Isochoren hinzu erhält man den Stirling-Prozess.
+\subsection{Auswertung durch Plotten}
+Plottet man das so entstehende pV-Diagramm erhält man folgendes:
+In der Grafik wurden zusätzlich jeweils Hyperbeln durch die Messwerte der Isothermen Expansion und Kompression gefittet. Dies sowie die Berechnung der folgenden Werte
+wurde mithilfe eines Python Scripts durchgeführt.
+Diese sehen annähernd wie Geraden aus, da der Bereich $\Delta x = 18 \si{mm}$ relativ klein im Vergleich zum Abstand vom Scheitelpunkt der Hyperbel ist.
+Mithilfe dieses Fits kann man nun die Arbeit während der Prozesse als Integral über die Kurve berechnen. Hierbei erhält man folgende Werte:
+\begin{equation}
+    \begin{split}
+        \Delta W_{\mathrm{exp}} &= -(11630 \pm 10) \si{mmHg} \cdot \si{mm} \cdot A_{\mathrm{kammer}}\\
+        \Delta W_{\mathrm{komp}} &= (8530 \pm 8) \si{mmHg} \cdot \si{mm} \cdot A_{\mathrm{kammer}}\\
+        \Rightarrow \Delta W_{\Sigma} &= (3100 \pm 13) \si{mmHg} \cdot \si{mm} \cdot A_{\mathrm{kammer}}
+    \end{split}
+\end{equation}
+$A_{\mathrm{kammer}}$ ist hierbei die Bodenfläche der Prozesskammer.
+Wobei sich der Fehler der Gesamtarbeit durch Gauß'sche Fehlerfortpflanzung ergeben hat:
+\begin{equation}
+    \begin{split}
+        \Delta (\Delta W_{\Sigma}) &= \sqrt{\left(\Delta (\Delta W_{\mathrm{exp}})\right)^2 + \left(\Delta (\Delta W_{\mathrm{komp}})\right)^2}
+    \end{split}
+\end{equation}
+Die beim Stirling Prozess aufgenommmene Wärme entspricht der Wärme, die bei der Expansion aufgenommen wurde.
+Da sich die innere Energie auf der Isothermen nicht verändert gilt:
+\begin{equation}
+    \begin{split}
+        \Delta Q_{zu} &= - \Delta W_{\mathrm{exp}} + \Delta U \\
+                    &= (11630 \pm 10) \si{mmHg} \cdot \si{mm} \cdot A_{\mathrm{kammer}}
+    \end{split}
+\end{equation}
+Der Wirkungsgrad errechnet sich damit aus dem Quotient aus geleisteter Arbeit un zugeführter Wärme:
+\begin{equation}
+    \eta = \frac{-\Delta W}{\Delta Q}
+\end{equation}
+Der Fehler dieses Werts ergibt sich als:
+\begin{equation}
+    \begin{split}
+        \Delta \eta &= \sqrt{\left(\frac{\partial \eta}{\partial W} \cdot \Delta (\Delta W) \right)^2 + \left(\frac{\partial \eta}{\partial Q} \cdot \Delta (\Delta W)\right)^2} \\
+                    &= \eta \sqrt{\left(\frac{\Delta (\Delta W)}{\Delta W}\right)^2 + \left(\frac{\Delta (\Delta Q)}{\Delta Q}\right)^2}
+    \end{split}
+\end{equation}
+Damit ergibt sich:
+\begin{equation}
+    \boxed{
+        \begin{aligned}
+            \eta_{\mathrm{exp, a}}  &= (26.655 \pm 0.114) \% \\
+                                    &= (26.66 \pm 0.12) \%
+        \end{aligned}
+    }
+\end{equation}
+\newgeometry{left=0cm,right=0cm,top=0cm,bottom=0cm}
+    \begin{landscape}
+        \thispagestyle{empty}
 
+        \begin{figure}[H]
+            \centering
+            \includegraphics[
+                width=1.4\textwidth,
+                keepaspectratio
+            ]{./Images/TV13_PV-DiagrammSterling.jpg}
+            \caption{pV-Diagramm des Stirling Prozesses}
+            \label{fig:pVStirlingDiagramm}
+        \end{figure}
+    \end{landscape}
+\restoregeometry
+\noindent
+\subsection{Auswertung durch Zeichnen auf Millimeterpapier}
+Für die Auswertung mithilfe des Millimeterpapiers müssen zunächst noch die Drücke Während der isothermen Kompression berechnet werden. Hierbei ergibt sich:
+\begin{table}[H]
+        \begin{center}
+                \begin{tabular}{|c|c|}
+                        \hline
+                        Kolbenposition in $mm$ & Druck in $\mathrm{mmHg}$ \\
+                        \hline
+                        $72$ & $529.6 \pm 0.5$ \\
+                        \hline
+                        $74$ & $515.6 \pm 0.5$ \\
+                        \hline
+                        $76$ & $501.6 \pm 0.5$ \\
+                        \hline
+                        $78$ & $489.6 \pm 0.5$ \\
+                        \hline
+                        $80$ & $477.6 \pm 0.5$ \\
+                        \hline
+                        $82$ & $466.6 \pm 0.5$ \\
+                        \hline
+                        $84$ & $455.6 \pm 0.5$ \\
+                        \hline
+                        $86$ & $445.6 \pm 0.5$ \\
+                        \hline
+                        $88$ & $434.6 \pm 0.5$ \\
+                        \hline
+                        $90$ & $427.6 \pm 0.5$ \\
+                        \hline
+                \end{tabular}
+        \end{center}
+        \caption{Gemessene Drücke in mmHg während der Kompression}
+        \label{tab:ThermKompPmmHg}
+\end{table}
+\noindent
+Diese können nun zusammen mit den Werten aus TVI (\ref{tab:IsoThermExpPmmHg}) auf Millimeterpapier aufgetragen werden (\ref{fig:pVStirlingDiagrammMillimeterpapier}).
+Folgende Werte wurden damit für die verrichtete Arbeit bestimmt:
+\begin{equation}
+    \begin{split}
+        \Delta W_{\mathrm{exp}} &= -(11590 \pm 10) \si{mmHg} \cdot \si{mm} \cdot A_{\mathrm{kammer}}\\
+        \Delta W_{\mathrm{komp}} &= (8500 \pm 10) \si{mmHg} \cdot \si{mm} \cdot A_{\mathrm{kammer}}
+    \end{split}
+\end{equation}
+Die Auswertung der hier bestimmten Werte für die Arbeit erfolgt analog zu den Werten, die durch Plotten bestimmt wurden.
+Auf diese Weise erhält man einen Wirkungsgrad von:
+\begin{equation}
+    \boxed{
+        \begin{aligned}
+            \eta_{\mathrm{exp, b}}  &= (26.661 \pm 0.125) \% \\
+                                    &= (26.66 \pm 0.13) \%
+        \end{aligned}
+    }
+\end{equation}
+Dieser Wert stimmt im Rahmen der Unsicherheiten mit dem Wert, der mithilfe des Python-Scripts bestimmt wurde überein. Insgesammt ist allerdings dennoch die Methode, den 
+Wert per Python-Script zu bestimmen präziser. Beim Zeichnen treten einerseits durch nicht perfekte Kurven und andererseits durch Fehler beim Abschätzen der Anzahl der Kästchen größere Fehler 
+auf als beim Fitten der Hyperbel und anschließenden Integrieren.
+\newgeometry{left=0cm,right=0cm,top=0cm,bottom=0cm}
+    \begin{landscape}
+        \thispagestyle{empty}
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics[
+                width=1.3\textwidth,
+                keepaspectratio
+            ]{./Images/TV3_Millimeterpapier.jpg}
+            \caption{pV-Diagramm des Stirling Prozesses auf Millimeterpapier}
+            \label{fig:pVStirlingDiagrammMillimeterpapier}
+        \end{figure}
+    \end{landscape}
+\restoregeometry
+\subsection{Vergleich mit der Theorie und Fehlerdiskussion}
+Der Theoretische Wert für den Wirkungsgrad ergibt sich aus:
+\begin{equation}
+    \eta_{\mathrm{theo}} = \frac{T_{\mathrm{exp}} - T_{\mathrm{komp}}}{T_{\mathrm{exp}}}
+\end{equation}
+Die Unsicherheit dieses Wertes ist gegeben durch:
+\begin{equation}
+    \begin{split}
+        \Delta \eta_{\mathrm{theo}} &= \sqrt{\left(\frac{\partial \eta_{\mathrm{theo}}}{\partial T_{\mathrm{exp}}} \Delta T_{\mathrm{exp}}\right)^2 + \left(\frac{\partial \eta_{\mathrm{theo}}}{\partial T_{\mathrm{komp}}} \Delta T_{\mathrm{komp}}\right)^2}\\
+                                    &= \frac{1}{T_{\mathrm{komp}}} \sqrt{\left(\Delta T_\mathrm{exp}\right)^2 + \left(\frac{T_{\mathrm{komp}}}{T_{\mathrm{exp}}}\Delta T_{\mathrm{komp}}\right)^2}
+    \end{split}
+\end{equation}
+Mithilfe der Werte $\theta_{exp} = (89.30 \pm 0.13) \si{\degreeCelsius}$ und $\theta_{komp} = (0.50 \pm 0.11) \si{\degreeCelsius}$ erhält man aus den Gleichungen:
+\begin{equation}
+    \begin{split}
+        \eta_{\mathrm{theo}}    &= (24.500 \pm 0.043) \% \\
+                                &= (24.50 \pm 0.05) \%
+    \end{split}
+\end{equation}
+Dieser Wert stimmt im Rahmen der Messunsicherheiten nicht mit dem experimentell bestimmten Wert überein. Der experimentell bestimmte Wert für den Wirkungsgrad liegt über 
+dem Theoretischen Wert. Eine nicht perfekter Versuchsaufbau kann hier kein Grund für diesen Fehler sein, da es nach dem 2. Hauptsatz der Thermodynamik unmöglich ist. 
+Somit muss der Fehler am Messvorgang liegen. Einerseits spielt hier wieder die Verzögerte Erwärmung der Luft eine Rolle. Hierdurch läuft der Vorgang nicht perfekt 
+isotherm ab, da das System nicht dauerhaft perfekt im thermischen Gleichgewicht ist. Außerdem darf auch nicht vernachlässigt werden, dass die Temperatur des Wassers 
+und der Luft im Behältnis nach dem Kühlvorgang in Teilversuch 2 höchstwahrscheinlich noch bei unterschiedlichen Werten lag.
 \newpage
-\section{Teilversuch IV: }
-
+\section{Teilversuch IV: Isobare Expansion}
+\subsection{Theoretischer Hintergrund}
+In Teilversuch wurde eine isobare Expansion betrachtet. Hierzu wurde die Temperatur des Wasserbads in Schritten von $\Delta T \approx 15K$ langsam erhöht. 
+Währenddessen wurde die Kolbenposition immer wieder so eingestellt, dass der Druck konstant bleibt. Nach dem Gesetz von Gay-Lussac gilt für eine Isobare Zustandsänderung
+folgender Zusammenhang:
+\begin{equation}
+    V = V_{0}(1 + \alpha \theta)
+\end{equation}
+Mit dem isobaren Spannungskoeffizient für ein ideales Gas:
+\begin{equation}
+    \alpha = \frac{1}{T_0}
+\end{equation}
+Dieses Gesetz soll im folgenden überprüft werden. Hierzu wird Luft als ideales Gas angenommen.
+Im Versuch betrachten wir nur die Kolbenposition innerhalb der Kammer. Dann kann, da $V = A_{\mathrm{Kammer}} \cdot x$, folgendes äquivalent überprüft werden:
+\begin{equation}
+    x = x_0(1 + \alpha \theta)
+\end{equation}
+\subsection{Auswertung der Experimentellen Daten}
+Im Experiment wurden folgende Messwerte für die Isobare Expansion aufgenommen:
+\begin{table}[H]
+    \centering
+    \caption{$x(\theta)$-Messwerte für eine Isobare Expansion}
+    \label{tab:VThetaIsobareExpansion}
+    \begin{tabular}{| c | c |}
+        \hline
+        $\theta$ in $\si{\degreeCelsius}$ & Kolbenposition $x$ in $\si{mm}$ \\
+        \hline
+        $0.50 \pm 0.11$ & $52.0$ \\
+        \hline
+        $15.30 \pm 0.11$ & $54.5$ \\
+        \hline
+        $30.4 \pm 0.11$ & $57.2$ \\
+        \hline
+        $45.9 \pm 0.12$ & $61.3$ \\
+        \hline
+        $60.4 \pm 0.12$ & $65.0$ \\
+        \hline
+        $74.8 \pm 0.13$ & $68.0 $\\
+        \hline
+        $90.0 \pm 0.13$ & $71.5$ \\
+        \hline
+    \end{tabular}
+\end{table}
+\noindent
+Wir plotten nun aus diesen Werten das $x(\theta)$-Diagramm und legen eine Ausgleichsgerade hindurch:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{./Images/TV4_x-T-Diagramm.jpg}
+    \caption{$x(\theta)$-Diagramm der Isobaren Expansion}
+    \label{fig:xTDiagramm}
+\end{figure}
+\noindent
+Die Werte liegen also tatsächlichen auf einer Geraden. Nun muss nur noch der experimentelle isobare Ausdehnungskoeffizient bestimmt werden und mit dem theoretisch
+vorhergesagten verglichen werden. 
+Mit der Ausgleichsgerade kann der Temperaturabhängige Verlauf von x beschrieben werden als:
+\begin{equation}
+    x = m\theta + b
+\end{equation}
+Per Koeffizientenvergleich mit dem Gay-Lussac-Gesetz erhält man:
+\begin{equation}
+    \begin{split}
+        m \theta + b &= x_0 + x_0 \alpha \theta \; \; \forall \theta \\UNIT
+        \Rightarrow x_0 = b &\wedge \alpha = \frac{m}{b}
+    \end{split}
+\end{equation}
+Berechnet man den Wert von $\alpha$ und per Kehrwertbildung $T_0$, erhält man:
+\begin{equation}
+    \begin{split}
+        \alpha  &= 0.00429 \si{\per\kelvin}\\
+        T_0     &= 233.2 \si{\kelvin}
+    \end{split}
+\end{equation}
+Der damit berechnete Wert liegt damit unterhalb des Literaturwertes von $T_{0, \mathrm{lit}} = 273.15K$ und auch unterhalb des Wertes, der in Teilversuch II bestimmt wurde
+($T_{0, \mathrm{a}} = 249.0K$). Diese starke Abweichung ist Einerseits wieder durch die ungleichmäßige Erwärmung der Luft im Behälter zu erklären. Auf der anderen Seite muss allerdings 
+auch bedacht werden, dass in der Realität nicht wirklich eine Isobare Expansion durchgeführt wurde sondern vielmehr eine diskrete folge von isochoren Temperaturerhöhungen, jeweils
+gefolgt von isothermen Expansionen, da das Volumen immer nur schrittweise so angepasst wurde, dass der Druck wieder auf den Anfangswert zurückspringt. Dies führt ebenfalls 
+zu einer starken Abweichung von der Theorie. Auch hier spielen natürlich insbesondere Fehler beim Ablesen des Manometers und der Volumenskala beim einstellen des Volumens
+eine bedeutende Rolle. 
 \newpage
 \section{Teilversuch V: }
 \noindent
@@ -579,13 +815,6 @@ Unsicherheiten plausibel. Das Ergebnis ist somit mit der theoretischen
 Größenordnung vereinbar, stellt aber keine präzise Bestätigung des
 Literaturwertes dar.
 
-
-
-
-
-
-
-
 \newpage
 \chapter{Anhang}
 \section{Python Scripts}
@@ -614,5 +843,281 @@ bearbeitet.
     showtabs=false,                  
     tabsize=2
 }
+\subsection{TVI:}
+\subsubsection{Umrechnung der Drücke und Ausgabe als Latex Table}
+\label{scr:TV1_CalculatePressures}
+\begin{scriptsize}
+\lstset{style=python}
+\begin{lstlisting}[language=python]
+import numpy as np
+from texttable import Texttable
+from latextable import draw_latex
+
+pAtm = 723.6
+pMess = np.array([438, 417, 400, 380, 366, 350, 334, 322, 309, 296])
+p0 = 438
+
+kolbenPos = np.array([72, 74, 76, 78, 80, 82, 84, 86, 88, 90])
+
+p = pMess - p0 + pAtm
+
+table = Texttable()
+table.set_cols_dtype(['t', 't'])
+table.set_cols_align(['c', 'c'])
+table.add_row([rf'Kolbenposition in $mm$', 'Druck in $\mathrm{mmHg}$'])
+for i in range(len(pMess)):
+    table.add_row([rf"${kolbenPos[i]}$", rf"${p[i]} \pm {0.5}$"])
+
+latex_table = draw_latex(table, caption="Gemessene Druecke in mmHg", label="tab:ThermExpPmmHg",)
+print(latex_table)
+\end{lstlisting}
+\end{scriptsize}
+\newpage
+\subsubsection{Plot des PV-Diagramms}
+\label{scr:TV1_PlotDiagrammPV}
+\begin{scriptsize}
+\lstset{style=python}
+\begin{lstlisting}[language=python]
+import numpy as np
+import matplotlib.pyplot as plt
+from math import ceil
+
+pAtm = 723.6
+pMess = np.array([438, 417, 400, 380, 366, 350, 334, 322, 309, 296])
+p0 = 438
+
+kolbenPos = np.array([72, 74, 76, 78, 80, 82, 84, 86, 88, 90])
+
+p = pMess - p0 + pAtm
+dp = 0.5
+yVals = pAtm/p
+yErr = yVals * dp/p
+
+line, cov = np.polyfit(kolbenPos, yVals, 1, cov = True)
+slope, b = line
+dSlope, dB = np.sqrt(np.diag(cov))
+
+fig, ax = plt.subplots(figsize = (7, 4.5))
+ax.errorbar(kolbenPos, yVals, yErr,
+            fmt='o', color='steelblue', ecolor='salmon',
+            ms=3, capsize=3, label='Messdaten'
+)
+ax.plot(kolbenPos, slope*kolbenPos + b,
+        color = "red", linestyle = "--",
+        label = rf'Linearer Fit, $m = ({round(slope * 10**5)/10**5:.5f} \pm {ceil(dSlope * 10**5)/10**5})$ mm'
+)
+ax.set_ylabel(r"$p_0/p$")
+ax.set_xlabel(r"Kolbenposition x/mm ($=V/(A_{\mathrm{grund}} \cdot \mathrm{mm}$))")
+ax.legend()
+ax.set_title(r"$\frac{p_{atm}}{p}(x)$-Diagramm")
+plt.savefig("./05_TEP/Images/TV1_DiagrammP0-P-x-Diagramm.jpg", dpi = 400)
+\end{lstlisting}
+\end{scriptsize}
+
+\subsection{TVII}
+\subsubsection{Plot des P($\theta$)-Diagramms}
+\label{scr:TV2PlotPT}
+\begin{scriptsize}
+\lstset{style=python}
+\begin{lstlisting}[language=python]
+import numpy as np
+import matplotlib.pyplot as plt
+from math import ceil
+
+pAtm = 723.6
+pMess = np.array([296, 274, 249, 225, 202, 169, 142])
+p0 = 438
+
+theta = np.array([89.3, 74.8, 59.0, 44.9, 29.7, 14.8, 0.5])
+dTheta = 0.0003*theta + 0.1
+
+p = pMess - p0 + pAtm
+
+line, cov = np.polyfit(theta, p, 1, cov = True)
+slope, b = line
+dSlope, dB = np.sqrt(np.diag(cov))
+
+fig, ax = plt.subplots(figsize = (7, 4.5))
+ax.errorbar(theta, p, 0.5, dTheta,
+            fmt='o', color='steelblue', ecolor='salmon',
+            ms=3, capsize=3, label='Messdaten'
+)
+ax.plot(theta, slope*theta + b,
+        color = "red", linestyle = "--",
+        label = rf'Linearer Fit' + '\n' + 
+                rf'$m = ({round(slope * 10**2)/10**2:.2f} \pm {ceil(dSlope * 10**2)/10**2})$ mmHg/C' +
+                '\n' +
+                rf'$b = ({round(b * 10)/10} \pm {ceil(dB * 10)/10})$ mmHg'
+)
+print(-b/slope)
+ax.set_ylabel(r"$p/(mmHg)$")
+ax.set_xlabel(r"$\theta$ in C")
+ax.legend()
+ax.set_title(r"$p(\theta)$-Diagramm")
+# plt.show()
+plt.savefig("./05_TEP/Images/TV2_P-T-Diagramm.jpg", dpi = 400)
+\end{lstlisting}
+\end{scriptsize}
+
+\subsection{TVIII}
+\subsubsection{Plot des Stirling Prozess}
+\label{scr:PlotProcess}
+\begin{scriptsize}
+\lstset{style=python}
+\begin{lstlisting}[language=python]
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.optimize import curve_fit
+from scipy.integrate import quad
+from math import ceil
+
+pAtm = 723.6
+p0   = 438
+
+pMessExp  = np.array([438, 417, 400, 380, 366, 350, 334, 322, 309, 296])
+pExp      = pMessExp - p0 + pAtm
+xExp      = np.array([72, 74, 76, 78, 80, 82, 84, 86, 88, 90])
+
+pMessKomp = np.array([142, 149, 160, 170, 181, 192, 204, 216, 230, 244])
+pKomp     = pMessKomp - p0 + pAtm
+xKomp     = np.array([90, 88, 86, 84, 82, 80, 78, 76, 74, 72])
+
+dp = 0.5
+
+def hyperbel(x, C):
+    return C / x
+
+paramsExp,  covExp  = curve_fit(hyperbel, xExp,  pExp)
+paramsKomp, covKomp = curve_fit(hyperbel, xKomp, pKomp)
+CExp,  = paramsExp
+CKomp, = paramsKomp
+dCExp  = np.sqrt(covExp[0, 0])
+dCKomp = np.sqrt(covKomp[0, 0])
+
+x1, x2 = 72, 90
+WExp,  _ = quad(lambda x: CExp  / x, x1, x2)
+WKomp, _ = quad(lambda x: CKomp / x, x1, x2)
+dWExp    = dCExp  * np.log(x2 / x1)
+dWKomp   = dCKomp * np.log(x2 / x1)
+
+print(f"Expansion:   W = ({WExp:.1f} \pm {dWExp:.1f}) mmHg * mm")
+print(f"Kompression: W = ({WKomp:.1f} \pm {dWKomp:.1f}) mmHg * mm")
+
+# --- Plot ---
+xFit   = np.linspace(70, 92, 300)
+xFill  = np.linspace(x1, x2, 300)
+
+fig, ax = plt.subplots(figsize=(7, 4.5))
+
+ax.fill_between(xFill, hyperbel(xFill, CExp),
+                alpha=0.15, color='steelblue'
+)
+ax.fill_between(xFill, hyperbel(xFill, CExp),
+                hatch='////', edgecolor='steelblue', facecolor='none', linewidth=0,
+                label=rf'$W_E/A_{{Kammer}}$'
+)
+ax.fill_between(xFill, hyperbel(xFill, CKomp),
+                alpha=0.15, color='firebrick',
+                label=rf'$W_K/A_{{Kammer}}$'
+)
+
+ax.plot(xFit, hyperbel(xFit, CExp),
+        color='steelblue', linewidth=1.5, linestyle='--',
+        label=rf'Fit Exp.: $C_E = ({CExp:.0f} \pm {dCExp:.0f})$')
+ax.plot(xFit, hyperbel(xFit, CKomp),
+        color='firebrick', linewidth=1.5, linestyle='--',
+        label=rf'Fit Komp.: $C_K = ({CKomp:.0f} \pm {dCKomp:.0f})$')
+
+# Messdaten
+ax.errorbar(xExp, pExp, yerr=dp,
+            fmt='o', color='steelblue', ecolor='steelblue',
+            ms=3, capsize=3, linewidth=0, elinewidth=0.8, capthick=0.8,
+            label='Expansion (Messdaten)')
+ax.errorbar(xKomp, pKomp, yerr=dp,
+            fmt='o', color='firebrick', ecolor='firebrick',
+            ms=3, capsize=3, linewidth=0, elinewidth=0.8, capthick=0.8,
+            label='Kompression (Messdaten)')
+
+# Integrationsgrenzen markieren
+for xv in [x1, x2]:
+    ax.axvline(xv, color='gray', linewidth=0.8, linestyle=':', alpha=0.7)
+ax.vlines(min(xExp), max(pKomp), max(pExp), colors='orange', label="Isochore Prozesse")
+ax.vlines(max(xExp), min(pKomp), min(pExp), colors = 'orange')
+
+ax.set_xlabel(r'Kolbenposition $x$ in mm', fontsize=12)
+ax.set_ylabel(r'Druck $p$ in mmHg', fontsize=12)
+ax.set_title(r'$p$-$x$-Diagramm (Stirling Prozess)', fontsize=13)
+ax.text(73, 580, 
+        rf"$W_{{Exp}}/A_{{kammer}} = ({round(WExp)} \pm  {ceil(dWExp)}) \mathrm{{mmHg}} \cdot \mathrm{{mm}}$", 
+        fontsize = 8,
+        color = 'steelblue',
+        bbox=dict(
+            facecolor = "white", 
+            alpha = 0.5,
+            edgecolor = "white"
+        )
+)
+
+ax.text(73, 300, 
+        rf"$W_{{Komp}}/A_{{kammer}} = ({round(WKomp)} \pm  {ceil(dWKomp)}) \mathrm{{mmHg}} \cdot \mathrm{{mm}}$", 
+        fontsize = 8,
+        color = 'firebrick',
+        bbox=dict(
+            facecolor = "white", 
+            alpha = 0.5,
+            edgecolor = "white"
+        )
+)
+
+ax.tick_params(direction='in', top=True, right=True)
+ax.grid(True, linestyle='--', linewidth=0.5, alpha=0.4)
+ax.set_ylim(0, 950)
+ax.legend(fontsize=6.5, loc='upper right')
+
+fig.tight_layout()
+plt.savefig("./05_TEP/Images/TV13_PV-DiagrammSterling.jpg", dpi = 400)
+plt.show()
+\end{lstlisting}
+\end{scriptsize}
+\subsection{TVIV:}
+\subsubsection{Plot des V($\theta$)-Diagramms}
+\label{scr:PlotVT-Diagramm}
+\begin{scriptsize}
+\lstset{style=python}
+\begin{lstlisting}[language=python]
+import numpy as np
+import matplotlib.pyplot as plt
+from math import ceil
+
+theta = np.array([0.5, 15.3, 30.4, 45.9, 60.4, 74.8, 90.0])
+dTheta = 0.0003*theta + 0.1
+
+kolbenpos = np.array([52.0, 54.5, 57.2, 61.9, 65.0, 68.0, 71.5])
+
+line, cov = np.polyfit(theta, kolbenpos, 1, cov = True)
+slope, b = line
+dSlope, dB = np.sqrt(np.diag(cov))
+
+fig, ax = plt.subplots(figsize = (7, 4.5))
+ax.errorbar(theta, kolbenpos, 0.5, dTheta,
+            fmt='o', color='steelblue', ecolor='salmon',
+            ms=3, capsize=3, label='Messdaten'
+)
+ax.plot(theta, slope*theta + b,
+        color = "red", linestyle = "--",
+        label = rf'Linearer Fit' + '\n' + 
+                rf'$m = ({round(slope * 10**2)/10**2:.2f} \pm {ceil(dSlope * 10**2)/10**2})$ mm/C' +
+                '\n' +
+                rf'$b = ({round(b * 10)/10} \pm {ceil(dB * 10)/10})$ mm'
+)
+print(-b/slope)
+ax.set_ylabel(r"$x_{\mathrm{Kolben}}/(mm)$")
+ax.set_xlabel(r"$\theta$ in C")
+ax.legend()
+ax.set_title(r"$x(\theta)$-Diagramm")
+# plt.show()
+plt.savefig("./05_TEP/Images/TV4_x-T-Diagramm.jpg", dpi = 400)
+\end{lstlisting}
+\end{scriptsize}
 
 \end{document}
