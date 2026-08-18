@@ -1,0 +1,112 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Messwerte
+x = np.array([
+    0,
+    100,
+    200,
+    300,
+    400,
+    500,
+    600,
+    700,
+    800,
+    900,
+    1000
+])
+
+U = np.array([
+    0.00,
+    1.001,
+    2.002,
+    3.00,
+    3.99,
+    4.99,
+    5.99,
+    7.90,
+    8.00,
+    9.00,
+    10.00
+])
+
+# Eingangsspannung
+U0 = 10.10
+
+# Lineare Regression aller Messwerte
+m, b = np.polyfit(x, U, 1)
+
+# R^2
+U_fit = m * x + b
+
+ss_res = np.sum((U - U_fit)**2)
+ss_tot = np.sum((U - np.mean(U))**2)
+
+R2 = 1 - ss_res / ss_tot
+
+# Werte zum Zeichnen
+x_plot = np.linspace(0, 1000, 500)
+
+# Experimentelle Ausgleichsgerade
+U_reg = m * x_plot + b
+
+# Theoretisch erwarteter Verlauf
+U_theo = U0 / 1000 * x_plot
+
+
+# Diagramm
+plt.figure(figsize=(8, 5.5))
+
+# Messpunkte
+plt.scatter(
+    x,
+    U,
+    label="Messwerte"
+)
+
+# Experimentelle Regression
+plt.plot(
+    x_plot,
+    U_reg,
+    label=(
+        rf"Lineare Regression: "
+        rf"$U={m:.5f}\,\frac{{\mathrm{{V}}}}{{\mathrm{{Skt.}}}}"
+        rf"\,x {b:+.3f}\,\mathrm{{V}}$"
+        "\n"
+        rf"$R^2={R2:.5f}$"
+    )
+)
+
+# Theoretische Gerade
+plt.plot(
+    x_plot,
+    U_theo,
+    "--",
+    label=(
+        rf"Theorie: "
+        rf"$U=\frac{{x}}{{1000}}U_0$, "
+        rf"$U_0={U0:.2f}\,\mathrm{{V}}$"
+    )
+)
+
+plt.xlabel(r"Helipot-Skalenwert $x$ in Skt.")
+plt.ylabel(r"Ausgangsspannung $U$ in $\mathrm{V}$")
+
+plt.xlim(0, 1000)
+plt.ylim(0, 10.5)
+
+plt.grid(alpha=0.3)
+plt.legend()
+plt.tight_layout()
+
+# Optional speichern:
+# plt.savefig("helipot_tv3.pdf", bbox_inches="tight")
+# plt.savefig("helipot_tv3.png", dpi=300, bbox_inches="tight")
+
+plt.show()
+
+
+# Ergebnisse ausgeben
+print(f"Steigung:       m = {m:.5f} V/Skt.")
+print(f"Achsenabschnitt b = {b:.3f} V")
+print(f"R^2 = {R2:.5f}")

@@ -1,0 +1,64 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Messwerte
+dx = np.array([20, 30, 40, 50, 60, 70])  # Drahtlänge in cm
+U = np.array([1.38, 2.08, 2.76, 3.46, 4.13, 4.85])  # Spannung in V
+
+# Lineare Regression: U = m * dx + b
+m, b = np.polyfit(dx, U, 1)
+
+# Bestimmtheitsmaß R^2
+U_fit = m * dx + b
+
+ss_res = np.sum((U - U_fit)**2)
+ss_tot = np.sum((U - np.mean(U))**2)
+R2 = 1 - ss_res / ss_tot
+
+# Werte für die Ausgleichsgerade
+x = np.linspace(0, 75, 500)
+y = m * x + b
+
+# Diagramm
+plt.figure(figsize=(8, 5.5))
+
+# Messpunkte
+plt.scatter(
+    dx,
+    U,
+    label="Messwerte"
+)
+
+# Ausgleichsgerade
+plt.plot(
+    x,
+    y,
+    label=(
+        rf"Lineare Regression: "
+        rf"$U = {m:.5f}\,\frac{{\mathrm{{V}}}}{{\mathrm{{cm}}}}"
+        rf"\,\Delta x {b:+.4f}\,\mathrm{{V}}$"
+        "\n"
+        rf"$R^2={R2:.5f}$"
+    )
+)
+
+plt.xlabel(r"Drahtlänge $\Delta x$ in $\mathrm{cm}$")
+plt.ylabel(r"Spannungsabfall $U$ in $\mathrm{V}$")
+
+plt.xlim(0, 75)
+plt.ylim(0, 5.2)
+
+plt.grid(alpha=0.3)
+plt.legend()
+plt.tight_layout()
+
+# Optional speichern:
+# plt.savefig("spannung_drahtlaenge_tv3.pdf", bbox_inches="tight")
+# plt.savefig("spannung_drahtlaenge_tv3.png", dpi=300, bbox_inches="tight")
+
+plt.show()
+
+# Ergebnisse ausgeben
+print(f"Steigung:       m = {m:.5f} V/cm")
+print(f"Achsenabschnitt b = {b:.5f} V")
+print(f"R^2 = {R2:.5f}")
