@@ -1,0 +1,45 @@
+\documentclass{report}
+\usepackage{pdfpages}
+\usepackage{graphicx} 
+\usepackage{dirtytalk}
+\usepackage{lmodern}
+\usepackage{booktabs}
+\usepackage{listings}
+\usepackage{float}
+\usepackage{siunitx}
+\usepackage{amsmath}
+\usepackage{rotating}
+\usepackage{pdflscape}
+\usepackage{arydshln}
+\usepackage[hidelinks]{hyperref}
+\usepackage[ngerman]{babel}
+\usepackage[a4paper, total={6in, 8in}]{geometry}
+\usepackage{caption}
+\begin{document}
+\includepdf[pages=-]{TEP_Korrektur.pdf}
+\chapter{Nachbesserung}
+\section{Teilversuch I}
+Aus der Steigung berechnet sich $x_0$ folgendermaßen:
+\begin{equation}
+    x_0^{\mathrm{steig}} = \frac{1}{m}
+\end{equation}
+Die Unsicherheit ist gegeben durch:
+\begin{equation}
+    \begin{split}
+        \Delta x_0^{\mathrm{steig}} &= \left\lvert \frac{\partial x_0^{\mathrm{steig}}}{\partial m} \Delta m \right\rvert \\
+                                    &= x_0^{\mathrm{steig}} \frac{\Delta m}{m}
+    \end{split}
+\end{equation}
+Somit ergibt sich:
+\begin{equation}
+    \begin{split}
+        x_0^{\mathrm{steig}} &= (74.074 \pm 0.658) \si{mm} \\
+                                &= (74.1 \pm 0.7) \si{mm}
+    \end{split}
+\end{equation}
+Damit gilt:
+\begin{equation}
+    x_0^{\mathrm{steig}} - 3\sigma = \qty{72.0}{mm}
+\end{equation}
+Der Wert ist also mit dem tatsächlichen Wert von $x_0 = \qty{72.0}{mm}$ gerade so im Rahmen einer $3\sigma$-Abweichung verträglich.
+\end{document}
