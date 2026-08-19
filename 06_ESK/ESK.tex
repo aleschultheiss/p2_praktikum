@@ -19,7 +19,7 @@
 \newcommand{\source}[1]{\caption*{Quelle: {#1}} }
 
 \begin{document}
-% \includepdf[pages=-]{./PDFs/Deckblatt_P2}
+\includepdf[pages=-]{./PDFs/Deckblatt-P2.pdf}
 \begin{titlepage}
     \begin{center}
         \vspace*{1cm}
@@ -57,10 +57,10 @@
 \chapter{Vorbereitung}
 
 \section{Versuchsvorbereitung und Grundlagen des Versuchs}
-% \includepdf[pages=-]{./PDFs/TEMP_VORBEREITUNG.pdf}
+\includepdf[pages=-]{./PDFs/VorbereitungESK.pdf}
 
 \section{Versuchsprotokoll}
-% \includepdf[pages=-]{./PDFs/TEMP_VERSUCHSDURCHFUEHRUNG.pdf}
+\includepdf[pages=-]{./PDFs/ESKProtokoll.pdf}
 
 \newpage
 \chapter{Auswertung}
@@ -74,12 +74,87 @@ Zur Bestimmung der Belastungsabhängigkeit wurde eine Schaltung nach folgendem S
     \label{fig:SchemBelastAbh}
     \source{Abb. 26 der Versuchsanleitung zum Versuch ESK (P2-Praktikum der LMU München)}
 \end{figure}
+\noindent
 Die zwei verwendeten Spannungsquellen waren einerseits eine galvanische Zelle (Batterie) und andererseits ein Labornetzgerät. 
 Während der Versuchsdurchführung wurden schrittweise die Potentiometereinstellungen variiert und dann die zugehörigen Ausgangsspannungen und Ströme gemessen.
 \subsection{Galvanische Zelle}
-Wir betrachten nun zunächst die galvanische Zelle. Für diese ergaben sich folgende Messwerte.
-%INS Tabelle mit Ergebnissen einfügen
-
+Wir betrachten nun zunächst die galvanische Zelle. Für diese ergaben sich folgende Messwerte:
+\begin{table}[H]
+    \centering
+    \caption{Belastungsabhängige Ausgangsspannung einer galvanischen Zelle}
+    \label{tab:IUDiagrammGalv}
+    \begin{tabular}{| c | c |}
+        \hline
+        Stromstärke in $\si{\milli\ampere}$ & Spannung in $\si{V}$ \\
+        \hline
+        $10.67 \pm 0.15$ & $1.362 \pm 0.018$ \\
+        $12.6 \pm 0.6$ & $1.335 \pm 0.018$ \\
+        $14.6 \pm 0.6$ & $1.290 \pm 0.017$ \\
+        $16.6 \pm 0.6$ & $1.259 \pm 0.017$ \\
+        $18.6 \pm 0.6$ & $1.223 \pm 0.017$ \\
+        $20.6 \pm 0.7$ & $1.186 \pm 0.016$ \\
+        $22.6 \pm 0.7$ & $1.145 \pm 0.016$ \\
+        $24.6 \pm 0.7$ & $1.104 \pm 0.015$ \\
+        $26.6 \pm 0.7$ & $1.064 \pm 0.015$ \\
+        $28.6 \pm 0.7$ & $1.017 \pm 0.015$ \\
+        $30.6 \pm 0.8$ & $1.002 \pm 0.015$ \\
+        $33.2 \pm 0.8$ & $0.938 \pm 0.014$ \\
+        \hline
+    \end{tabular}
+\end{table}
+\noindent
+Außerdem wurden vor und nach dem Versuch jeweils die Leerlaufspannungen gemessen. Diese lagen bei:
+\begin{equation}
+    \begin{split}
+        U_{\mathrm{leer, vor}} &= (1.487 \pm 0.018) \si{\volt} \\
+        U_{\mathrm{leer, nach}} &= (1.476 \pm 0.018) \si{\volt}
+    \end{split}
+    \label{eq:ULeerVorNach}
+\end{equation}
+Trägt man diese in einem $U(I)$-Diagramm auf und legt eine Ausgleichsgerade hinduch, erhält man folgendes Diagramm:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{./Images/TV1_U-I-Diagramm.jpg}
+    \caption{$U(I)$-Diagramm der Belasteten galvanischen Zelle}
+    \label{fig:UIDiagGalv}
+\end{figure}
+Wir betrachten nun die Ausgleichsgerade, um den Innenwiderstand der galvanischen Zelle zu bestimmen.
+Bei der Nullstelle der Geraden fällt keine Spannung am Widerstand ab, dieser liegt dann also bei $R_{\mathrm{out}} = 0 \si{\ohm}$. Das heißt, die gesamte Spannung fällt über 
+den Innenwiderstand der galvanischen Zelle ab. 
+Die Nullstelle der Geraden errechnet sich folgendermaßen:
+\begin{equation}
+    \begin{split}
+        U = m \cdot I + b &= 0 \si{\volt} \\
+        \Leftrightarrow I_0 &= - \frac{b}{m}
+    \end{split}
+\end{equation}
+Da bei an dieser Stelle die gesamte Leerlaufspannung über die Batterie abfällt, gilt nach dem Ohm'schen Gesetz:
+\begin{equation}
+    \begin{split}
+        R_{\mathrm{innen}}  &= \frac{U_{\mathrm{leer, vor}}}{I_0} \\
+                            &= - \frac{m \cdot U_{\mathrm{leer, vor}}}{b} \\
+                            &= 0.01789 \frac{\si{V}}{\si{mA}} \\
+                            &= 17.89 \si{\ohm}
+    \end{split}
+\end{equation}
+Außerdem lässt sich aus der Ausgleichsgerade der Ordinatenabschnitt ablesen, welcher der Leerlaufspannung entspricht, die aus den anderen Werten extrapoliert werden kann. 
+Diese liegt bei $U_{\mathrm{leer, extr}} = (1.571 \pm 0.007) \si{\volt}$. Die extrapolierte Leerlaufspannung liegt damit deutlich über beiden tatsächlich gemessenen. 
+Dies ist darauf zurückzuführen, dass die Leerlaufspannung über den Versuchsverlauf hinweg abgesunken ist. Dies ist auf die Störung des chemischen Gleichgewichts an 
+den Elektroden durch den Stromfluss zurückzuführen und konnte auch nachgemessen werden (vgl \ref{eq:ULeerVorNach}). Durch das Absinken der Leerlaufspannung, verringern 
+sich auch die über den Widerstand abfallenden Spannungen. Hierdurch erhöht sich die Steigung der Kennlinie betragsmäßig, da die Spannung schneller abfällt als bei einer
+Stromquelle, bei der solche Effekte nicht auftreten. Hierdurch wird ein zu hoher Wert für $I = 0 \si{\ampere}$ extrapoliert.
+\subsection{Netzgerät}
+Der selbe Versuch wurde für ein Netzgerät wiederholt. Hier war erkennbar, dass die Spannung bis zu einem Strom von ca. $I_{\mathrm{max}} = 2.2 \si{A}$ im Gegensatz zur galvanischen
+Zelle annähernd konstant blieb.
+Dies liegt daran, dass das Netzgerät die Ausgangsspannung in Abhängigkeit von der angehängten Last so regelt, dass diese weiterhin beim eingestellten wert bleibt. Für kleine Potentiometereinstellungen, für welche 
+der Strom über dem Wert von $I_{\mathrm{max}}$ liegt, gilt dies allerdings nicht mehr. Da das Netzgerät ein Stromlimit hat, welches in unserem Fall auf den Maximalwert von $I_{\mathrm{lim}} = 2.2 \si{A}$ eingestellt 
+war, regelt das Netzgerät ab diesem Punkt die Spannnung für niedrigere Potentiometereinstellungen so herunter, dass immer genau der Strom $I_{\mathrm{lim}}$ fließt. 
+Im Versuch mit dem Netzgerät wurde die Stromstärke zudem mit der Stromzange gemessen. Diese misst die Stromstärke über das Magnetfeld des stromdurchflossenen Leiters.
+Die damit aufgezeichneten Messwerte wichen in unserem Fall sehr stark von den Multimeterwerten ab und waren teilweise fast nur halb so groß wie die Messwerte, welche mithilfe des 
+Multimeters aufgezeichnet wurden. Außerdem hing der Messwert auch stark davon ab, in welcher Orientierung man das Kabel durch die Stromzange hindurchführte. Insgesamt 
+erwies sich die Stromzange für unseren Anwendungsfall als ziemlich unpräzise Messmethode. Allerdings bietet die Stromzange den Vorteil, dass sie nicht direkt 
+in den Stromkreis eingebaut werden muss. Damit ist sie in Fällen, in denen es nicht so leicht ist, den Stromkreis zu öffnen von eine durchaus Sinnvolle Messmethode.
+Außerdem funktioniert die Stromzange auch für höhere Ströme besser, da die auftretenden Magnetfelder dann ebenfalls größer und somit einfacher zu detektieren sind.
 \newpage
 \section{Teilversuch II: Bestätigung des Ohm'schen Gesetzes}
 In Teilversuch II sollt das Ohm'sche Gesetz experimentell überprüft werden. Hierzu wurden nach folgendem Schaltplan Spannungen und Stromstärken durch einen Ohm'schen 
@@ -90,43 +165,92 @@ Widerstand gemessen.
     \caption{Schaltplan zur Messung von Strom und Spannung am Widerstand}
     \label{fig:SchemUIatR}
 \end{figure}
+\noindent
 Folgende Spannungs-Stromstärken-Wertepaare wurden gemessen:
-%INS Werte eintragen
 \begin{table}[H]
     \centering
     \caption{I-U-Tabelle eines Ohm'schen Widerstands}
     \label{tab:IUOhmscherWiderstand}
     \begin{tabular}{| c | c |}
         \hline
-        Spannung $U$ in $\si{V}$ & Stromstärke $I$ in $\si{A}$ \\
+        Spannung $U$ in $\si{V}$ & Stromstärke $I$ in $\si{\milli\ampere}$ \\
         \hline
-        $U1$ &  $I1$ \\
+        $1.99 \pm 0.06$ &  $0.59 \pm 0.06$ \\
         \hline
-        $U2$ &  $I2$ \\
+        $4.01  \pm 0.08$ &  $1.21 \pm 0.07$ \\
         \hline
-        $U3$ &  $I3$ \\
+        $6.01 \pm 0.10$ &  $1.82 \pm 0.07$ \\
         \hline
-        $U4$ &  $I4$ \\
+        $8.00 \pm 0.12$ &  $2.43 \pm 0.08$ \\
         \hline
-        $U5$ &  $I5$ \\
+        $10.00 \pm 0.14$ &  $3.04 \pm 0.09$ \\
         \hline
-        $U6$ &  $I6$ \\
+        $12.01 \pm 0.15$ &  $3.65 \pm 0.09$ \\
         \hline
-        $U7$ &  $I7$ \\
+        $14.05 \pm 0.17$ &  $4.27 \pm 0.10$ \\
         \hline
-        $U8$ &  $I8$ \\
+        $16.01 \pm 0.19$ &  $4.87 \pm 0.10$ \\
         \hline
-        $U9$ &  $I9$ \\
+        $18.09 \pm 0.21$ &  $5.49 \pm 0.11$ \\
         \hline
-        $U10$ &  $I10$ \\
-        \hline
-        $U11$ &  $I11$ \\
+        $U20.03 \pm 0.23$ &  $6.09 \pm 0.12$ \\
         \hline
     \end{tabular}
 \end{table}
+\noindent
 Diese Werte können nun mithilfe von Python und matplotlib geplottet werden. Damit erhält man folgenden Graphen:
-%INS Plot einfügen
-
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{./Images/TV2_U-I-Diagramm.jpg}
+    \caption{$U(I)$-Diagramm des Ohm'schen Widerstands}
+    \label{fig:UIDiagrammR}
+\end{figure}
+\noindent
+Wie mit dem Ohm'schen Gesetz vorhergesagt ist annähernd eine Proportionalität zwischen Spannung und Stromstärke erkennbar. Mit der durch die Messgwerte gelegten 
+Ausgleichsgerade kann nun der Proportionalitätsfaktor bestimmt werden. 
+Die Steigung des Graphen liegt bei $m = (0.30520 \pm 0.00016) \si{\milli \ampere \per \volt}$.
+Mithilfe des Ohm'schen Gesetzes finden wir:
+\begin{equation}
+    \begin{split}
+        I = m \cdot U &= \frac{U}{R} \\
+        \Leftrightarrow R   &= \frac{1}{m} \\
+                            &= 3.27654 \si{\kilo \ohm}
+    \end{split}
+\end{equation}
+Die Unsicherheit des so bestimmten Widerstands ergibt sich als:
+\begin{equation}
+    \begin{split}
+        \Delta R    &= \left\lvert\frac{\partial R}{\partial m} \cdot \Delta m \right\rvert \\
+                    &= R \cdot \frac{\Delta m}{m} \\
+                    &= 0.00172 \si{\kilo \ohm}
+    \end{split}
+\end{equation}
+Somit liegt der experimentell bestimmte Widerstand bei:
+\begin{equation}
+    \begin{split}
+        R_{\mathrm{exp}} = (3.2765 \pm 0.0018) \si{\kilo \ohm}
+    \end{split}
+\end{equation}
+Der aus den Herstellerangaben abgelesene Wert lag bei:
+\begin{equation}
+    \begin{split}
+        R_{\mathrm{Hersteller}} = (3.30 \pm 0.04) \si{\kilo \ohm}
+    \end{split}
+\end{equation}
+Beim Messen mit dem Multimeter ergab sich folgender Wert:
+\begin{equation}
+    R_{\mathrm{Multi}} = (3.28 \pm 0.12) \si{\kilo \ohm}
+\end{equation}
+\subsection{Vergleich der Methoden zur Widerstandsbestimmung}
+Es ist erkennbar, dass alle drei bestimmten Werte im Rahmen der Messunsicherheiten miteinander übereinstimmen.
+Die drei Methoden zur Bestimmung des Widerstands haben jeweils mehrere Vor- und Nachteile. Einerseits ist die Bestimmung mithilfe des Multimeters in unsereme Fall 
+diejenige mit der größten Unsicherheit. Auf der anderen Seite hat diese Methode allerdings den Vorteil, dass sie relativ einfach durchzuführen ist und bei anderen 
+Widerständen mit größerer Toleranz von Seiten des Herstellers auch präziser sein kann als das Ablesen der Herstellerangabe.
+Das Ablesen der Herstellerangabe mithilfe der Farbcodierung ist ebenfalls eine relativ schnelle Methode zur Widerstandsbestimmung. Allerdings ist es 
+zum Auslesen dieser entweder nötig, die Codierung auswendig zu kennen oder eine entsprechende Tabelle vor sich zu haben. Zudem kann die Methode bei großer 
+Herstellergebundener Unsicherheit relativ unpräzise sein.
+Die Bestimmung mithilfe des hier diskutierten Versuchsaufbaus erweist sich als die präziseste Methode. Allerdings ist sie relativ Zeitaufwändig und benötigt 
+deutlich mehr zusätzliches Material als die anderen beiden Methoden.
 \newpage
 \section{Teilversuch III: Spannungsabfall und Potentiometer}
 \subsubsection{Spannungsabfall am stromdurchflossenen Draht}
@@ -433,8 +557,71 @@ zwischen der Länge eines homogenen Widerstandsdrahtes und dem an diesem
 Abschnitt auftretenden Spannungsabfall.
 
 \newpage
-\section{Teilversuch IV: }
-
+\section{Teilversuch IV: Spannungsmessung durch Kompensation}
+In Teilversuch IV wurde eine Spannungsmessung durch Kompensation durchgeführt. Hierzu wurde am Netzgerät eine Spannung von ca. $2 \si{\volt}$ angelegt.
+Hierbei wurde nach folgendem Schaltplan vorgegangen:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.5\textwidth]{./Images/TVIV_SchaltplanKompensation.png}
+    \caption{Schaltplan zur Spannungsmessung durch Kompensation}
+    \label{fig:SchaltplanKompensation}
+\end{figure}
+\noindent
+Zunächst wurde die Kompensation mithilfe eines Spannungsnormals durchgeführt, um die Netzgerät-Spannung präzise zu bestimmen. Hierzu wurde der Helipot so eingestellt, 
+dass die Spannung des Spannungsteilers der Spannung des Spannungsnormals entspricht. Dann gilt:
+\begin{equation}
+    \begin{split}
+        U_{\mathrm{pot, SN}} &= U_{\mathrm{SN}} \\
+        \Leftrightarrow \frac{x_{\mathrm{pot, SN}}}{x_{\mathrm{max}}} U_{\mathrm{NG}} &= U_{\mathrm{SN}} \\
+        \Leftrightarrow U_{\mathrm{NG}} &= \frac{x_{\mathrm{max}}}{x_{\mathrm{pot, SN}}} U_{\mathrm{SN}}
+    \end{split}
+\end{equation}
+Wobei $x_{\mathrm{max}}$ die maximale Einstellung des Helipots ist und $x_{\mathrm{pot, SN}}$ die Einstellung, bei der die Spannung des Spannungsnormals kompensiert ist.
+Der maximale Wert des Helipots liegt bei $x_{\mathrm{max}} = 1000$. Zur Kompensation war eine Einstellung von $x_{\mathrm{pot, SN}} = 482.0 \pm 0.5$ nötig.
+Die Spannnung des Spannungsnormals liegt bei $U_{\mathrm{SN}} = (1.0000 \pm 0.0001) \si{V}$. Der relatve Fehler der Helipoteinstellung liegt bei 
+$\Delta x_{\mathrm{rel}} = 0.11 \%$, der des Spannungsnormals bei $\Delta U_{\mathrm{SN, rel}} = 0.01 \%$. Damit kann der Fehler des Spannungsnormals vernachlässigt werden, da 
+er deutlich geringer als der Fehler der Helipoteinstellung ist.
+Mit dieser Vernachlässigung errechnet sich der Fehler folgendermaßen:
+\begin{equation}
+    \begin{split}
+        \Delta U_{\mathrm{NG}} &= \frac{\partial U_{\mathrm{NG}}}{\partial x_{\mathrm{pot, SN}}} \Delta x_{\mathrm{pot, SN}} \\
+                                &= U_{\mathrm{NG}} \cdot \frac{\Delta x_{\mathrm{pot, SN}}}{x_{\mathrm{pot, SN}}}
+    \end{split}
+\end{equation}
+Damit liegt die so bestimmte Netzgerätspannung bei:
+\begin{equation}
+    \begin{split}
+        U_{\mathrm{NG}} &= (2.07469 \pm 0.00229) \si{V} \\
+                        &= (2.0747 \pm 0.0023) \si{V}
+    \end{split}
+\end{equation}
+Nach der Kompensation des Spannungsnormals wurde dann die galvanische Zelle kompensiert. 
+Bei Nullausschlag des Nullinstruments gilt:
+\begin{equation}
+    \begin{split}
+        U_{\mathrm{Bat}} &= U_{\mathrm{pot, Bat}} \\
+        U_{\mathrm{Bat}} &= \frac{x_{\mathrm{pot, Bat}}}{x_{\mathrm{max}}} \cdot U_{\mathrm{NG}}
+    \end{split}
+\end{equation}
+Die Unsicherheit ergibt sich wieder durch:
+\begin{equation}
+    \begin{split}
+        \Delta U_{\mathrm{Bat}} &= \sqrt{\left(\frac{\partial U_{\mathrm{Bat}}}{\partial x_{\mathrm{pot, Bat}}}\Delta x_{\mathrm{pot, Bat}}\right)^2
+                                        + \left(\frac{\partial U_{\mathrm{Bat}}}{\partial U_{\mathrm{NG}}}\Delta U_{\mathrm{NG}}\right)^2} \\
+                                &= U_{\mathrm{Bat}} \sqrt{\left(\frac{\Delta x_{\mathrm{pot, Bat}}}{x_{\mathrm{pot, Bat}}}\right)^2 + \left(\frac{\Delta U_{\mathrm{NG}}}{U_{\mathrm{NG}}}\right)^2}
+    \end{split}
+\end{equation}
+Einsetzen der Werte liefert:
+\begin{equation}
+    \begin{split}
+        U_{\mathrm{Bat}} &= (1.48340 \pm 0.00194) \si{V} \\
+                         &= (1.4834 \pm 0.0020) \si{V}
+    \end{split}
+\end{equation}
+Diese Spannung enstpricht der Leerlaufspannung, da bei Nullstellung des Nullinstruments kein Strom von der galvanischen Zelle fließt, da keine Potentialdifferenz zwischen 
+Batteriepol und Potentiometer besteht. 
+Somit kann er mit dem in Teilversuch I bestimmten Wert für die Leerlaufspannung $U_{\mathrm{leer, vor}}$ (\ref{eq:ULeerVorNach}) verglichen werden.
+Hier ist erkennbar, dass die beiden Werte im Rahmen der Unsicherheiten miteinander übereinstimmen. Somit war die Versuchsdurchführung erfolgreich.
 \newpage
 \section{Teilversuch V: }
 \noindent
