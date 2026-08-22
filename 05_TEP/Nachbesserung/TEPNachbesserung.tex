@@ -42,4 +42,283 @@ Damit gilt:
     x_0^{\mathrm{steig}} - 3\sigma = \qty{72.0}{mm}
 \end{equation}
 Der Wert ist also mit dem tatsächlichen Wert von $x_0 = \qty{72.0}{mm}$ gerade so im Rahmen einer $3\sigma$-Abweichung verträglich.
+
+
+\section{Teilversuch V:}
+\subsubsection{Gaußsche Fehlerfortpflanzung}
+\noindent
+Zur Bestimmung der Unsicherheit von $\gamma$ wird die Gaußsche
+Fehlerfortpflanzung verwendet. Dabei ist zu beachten, dass sowohl das
+Gesamtvolumen $V$ als auch die Querschnittsfläche $A$ vom Rohrdurchmesser $d$
+abhängen. Daher werden $V$ und $A$ nicht als unabhängige Größen behandelt.
+\noindent
+Es gilt
+
+\begin{equation}
+A=\frac{\pi d^2}{4}
+\end{equation}
+\noindent
+und
+
+\begin{equation}
+V=
+\frac{m_\mathrm{voll}-m_\mathrm{leer}}{\rho}
++
+Ah.
+\end{equation}
+\noindent
+Einsetzen in
+
+\begin{equation}
+\gamma=
+\frac{2\rho gV}{p_0A}
+\left(
+\frac{\tau_0^2}{\tau_k^2}-1
+\right)
+\end{equation}
+\noindent
+liefert
+
+\begin{equation}
+\gamma=
+\frac{2g}{p_0}
+\left[
+\frac{4(m_\mathrm{voll}-m_\mathrm{leer})}{\pi d^2}
++\rho h
+\right]
+\left[
+\frac{\tau_0^2}{\tau_k^2}-1
+\right].
+\label{eq:gamma_gauss}
+\end{equation}
+\noindent
+Damit sind die unabhängigen Eingangsgrößen
+
+\begin{equation}
+m_\mathrm{voll},\;
+m_\mathrm{leer},\;
+d,\;
+h,\;
+\tau_0,\;
+\tau_k,\;
+p_0.
+\end{equation}
+\noindent
+Die benötigten partiellen Ableitungen lauten:
+
+\begin{align}
+\frac{\partial\gamma}{\partial m_\mathrm{voll}}
+&=
+\frac{2g}{p_0}
+\frac{4}{\pi d^2}
+\left(
+\frac{\tau_0^2}{\tau_k^2}-1
+\right),
+\\
+\frac{\partial\gamma}{\partial m_\mathrm{leer}}
+&=
+-\frac{2g}{p_0}
+\frac{4}{\pi d^2}
+\left(
+\frac{\tau_0^2}{\tau_k^2}-1
+\right),
+\\
+\frac{\partial\gamma}{\partial h}
+&=
+\frac{2g\rho}{p_0}
+\left(
+\frac{\tau_0^2}{\tau_k^2}-1
+\right),
+\\
+\frac{\partial\gamma}{\partial d}
+&=
+-\frac{2g}{p_0}
+\frac{8(m_\mathrm{voll}-m_\mathrm{leer})}{\pi d^3}
+\left(
+\frac{\tau_0^2}{\tau_k^2}-1
+\right),
+\\
+\frac{\partial\gamma}{\partial\tau_0}
+&=
+\frac{2g}{p_0}
+\left[
+\frac{4(m_\mathrm{voll}-m_\mathrm{leer})}{\pi d^2}
++\rho h
+\right]
+\frac{2\tau_0}{\tau_k^2},
+\\
+\frac{\partial\gamma}{\partial\tau_k}
+&=
+-\frac{2g}{p_0}
+\left[
+\frac{4(m_\mathrm{voll}-m_\mathrm{leer})}{\pi d^2}
++\rho h
+\right]
+\frac{2\tau_0^2}{\tau_k^3},
+\\
+\frac{\partial\gamma}{\partial p_0}
+&=
+-\frac{\gamma}{p_0}.
+\end{align}
+\noindent
+Für die Periodendauern werden die zuvor bestimmten Standardabweichungen
+des Mittelwertes verwendet:
+
+\begin{equation}
+\Delta\tau_0=0{,}00649\,\mathrm{s},
+\qquad
+\Delta\tau_k=0{,}01235\,\mathrm{s}.
+\end{equation}
+\noindent
+Nach Gauß gilt
+
+\begin{equation}
+\Delta\gamma
+=
+\sqrt{
+\sum_i
+\left(
+\frac{\partial\gamma}{\partial x_i}
+\Delta x_i
+\right)^2
+}.
+\end{equation}
+\noindent
+Die einzelnen Unsicherheitsbeiträge ergeben sich zu:
+
+\begin{table}[htbp]
+    \centering
+    \caption{Messunsicherheitsbudget für den Adiabatenexponenten $\gamma$.}
+    \label{tab:budget_gamma}
+    \begin{tabular}{c|c|c}
+        \hline
+        Eingangsgröße
+        & $\left|\partial\gamma/\partial x\right|$
+        & Beitrag zu $\Delta\gamma$\\
+        \hline
+        $m_\mathrm{voll}$ & $0{,}941\,\mathrm{kg^{-1}}$
+                         & $2{,}82\cdot10^{-5}$\\
+        $m_\mathrm{leer}$ & $0{,}941\,\mathrm{kg^{-1}}$
+                         & $2{,}82\cdot10^{-5}$\\
+        $h$ & $0{,}240\,\mathrm{m^{-1}}$
+            & $2{,}40\cdot10^{-4}$\\
+        $d$ & $116{,}8\,\mathrm{m^{-1}}$
+            & $0{,}1168$\\
+        $\tau_0$ & $3{,}961\,\mathrm{s^{-1}}$
+                 & $0{,}0257$\\
+        $\tau_k$ & $5{,}840\,\mathrm{s^{-1}}$
+                 & $0{,}0721$\\
+        $p_0$ & $1{,}15\cdot10^{-5}\,\mathrm{Pa^{-1}}$
+              & $1{,}15\cdot10^{-4}$\\
+        \hline
+    \end{tabular}
+\end{table}
+\noindent
+Damit folgt
+
+\begin{align}
+\Delta\gamma
+&=
+\sqrt{
+\begin{aligned}
+&(2{,}82\cdot10^{-5})^2
++(2{,}82\cdot10^{-5})^2
++(2{,}40\cdot10^{-4})^2\\
+&+(0{,}1168)^2
++(0{,}0257)^2
++(0{,}0721)^2
++(1{,}15\cdot10^{-4})^2
+\end{aligned}
+}
+\\
+&=
+0{,}1396.
+\end{align}
+\noindent
+Somit ergibt sich
+
+\begin{equation}
+\boxed{
+\gamma_\mathrm{exp}=1{,}11\pm0{,}14
+}.
+\end{equation}
+\noindent
+Die Unsicherheit des Rohrdurchmessers liefert mit etwa $0{,}117$ den
+größten Beitrag zur Gesamtunsicherheit. Der zweitgrößte Beitrag stammt
+von der Periodendauer $\tau_k$.
+
+
+\subsubsection{Vergleich mit dem theoretischen Wert und Diskussion}
+\noindent
+Für Luft wird bei Raumtemperatur aufgrund der fünf Freiheitsgrade der
+überwiegend zweiatomigen Moleküle theoretisch
+
+\begin{equation}
+\gamma_\mathrm{theo}
+=
+\frac{7}{5}
+=
+1{,}4
+\end{equation}
+\noindent
+erwartet.
+\noindent
+Experimentell wurde
+
+\begin{equation}
+\gamma_\mathrm{exp}
+=
+1{,}11\pm0{,}14
+\end{equation}
+\noindent
+bestimmt. Das zugehörige Unsicherheitsintervall beträgt
+
+\begin{equation}
+0{,}97\leq\gamma_\mathrm{exp}\leq1{,}25.
+\end{equation}
+\noindent
+Der theoretische Wert $\gamma_\mathrm{theo}=1{,}4$ liegt nicht innerhalb
+dieses Intervalls. Somit stimmen experimenteller und theoretischer Wert
+innerhalb der einfachen Messunsicherheit nicht überein.
+\noindent
+Zur Beurteilung der Verträglichkeit wird zusätzlich das dreifache
+Unsicherheitsintervall betrachtet:
+
+\begin{equation}
+\gamma_\mathrm{exp}\pm3\Delta\gamma
+=
+1{,}11\pm0{,}42.
+\end{equation}
+\noindent
+Damit ergibt sich
+
+\begin{equation}
+0{,}69\leq\gamma\leq1{,}53.
+\end{equation}
+\noindent
+Der theoretische Wert von $1{,}4$ liegt innerhalb dieses Intervalls.
+Das experimentelle Ergebnis ist daher mit dem theoretischen Wert
+verträglich, auch wenn keine Übereinstimmung innerhalb der einfachen
+Messunsicherheit vorliegt.
+\noindent
+Die größte quantifizierte Unsicherheit stammt aus der Messung des
+Innendurchmessers des U-Rohrs. Da dieser quadratisch in die
+Querschnittsfläche eingeht, beeinflusst seine Unsicherheit das Ergebnis
+besonders stark. Einen weiteren wesentlichen Beitrag liefert die
+Periodendauer $\tau_k$, deren Messwerte eine vergleichsweise große
+statistische Streuung zeigen.
+\noindent
+Zusätzlich sind systematische Einflüsse möglich. Die Herleitung setzt eine
+kleine Schwingungsamplitude sowie eine hinreichend schnelle Kompression und
+Expansion voraus. Bei einem Wärmeaustausch mit den Glaswänden und der
+Umgebung ist der Prozess nicht mehr vollständig adiabatisch. Auch ein nicht
+exakt bekannter effektiver Rohrquerschnitt oder zusätzliche kleine
+Verbindungsvolumina können das Ergebnis beeinflussen.
+\noindent
+Der theoretische Wert wird somit innerhalb der einfachen Messunsicherheit
+nicht bestätigt, ist mit dem experimentellen Ergebnis unter Betrachtung
+des dreifachen Unsicherheitsintervalls jedoch verträglich.
+
+
+
 \end{document}
